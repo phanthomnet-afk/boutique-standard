@@ -26,21 +26,6 @@ export function PhilosophySection() {
           <p className={styles.body}>
             The result is a guest experience intelligence report - a luxury editorial document that reveals, with precision and care, exactly where a property delivers on its character and where it falls short.
           </p>
-
-          <div className={styles.pillars}>
-            {[
-              { label: "Promise", desc: "What you communicate" },
-              { label: "Expectation", desc: "What guests assume" },
-              { label: "Experience", desc: "What actually happens" },
-              { label: "Memory", desc: "What guests carry away" },
-            ].map((p, i) => (
-              <div key={p.label} className={styles.pillar}>
-                <span className={styles.pillarNumber}>0{i + 1}</span>
-                <span className={styles.pillarLabel}>{p.label}</span>
-                <span className={styles.pillarDesc}>{p.desc}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>

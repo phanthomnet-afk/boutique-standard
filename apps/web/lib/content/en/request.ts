@@ -221,7 +221,7 @@ const content: RequestPageContent = {
   },
   pricing: {
     label: "Investment",
-    body: "Audits start from 4,000 EUR. All audit travel and accommodation costs are included within the quoted fee. A detailed proposal is provided before any commitment is required.",
+    body: "Audits from €995. A detailed proposal is provided before any commitment is required.",
   },
 };
 

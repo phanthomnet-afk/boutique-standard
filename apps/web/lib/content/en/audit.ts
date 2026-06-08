@@ -130,14 +130,6 @@ const content: AuditPageContent = {
         ],
       },
     ],
-    addOnsLabel: "Additional modules",
-    addOnsNote: "Available on any engagement.",
-    addOns: [
-      "Pre-arrival digital audit",
-      "Post-stay follow-through evaluation",
-      "Competitive benchmarking",
-      "Return visit after 90 days",
-    ],
   },
   deliverables: {
     label: "What You Receive",
@@ -164,12 +156,12 @@ const content: AuditPageContent = {
   pricing: {
     label: "Investment",
     heading: "One fee. Nothing hidden.",
-    body: "The investment covers the full engagement: scoping, the stay, all travel and accommodation, report production, and delivery.",
+    body: "The investment covers the full engagement: scoping, the stay, report production, and delivery.",
     priceDisplay: true,
     stages: [
       {
         label: "On confirmation",
-        description: "Fifty percent confirms the engagement and covers travel, accommodation, and dining during the stay.",
+        description: "Fifty percent confirms the engagement and covers dining during the stay.",
       },
       {
         label: "On delivery",

@@ -14,7 +14,7 @@ export function InquirySection() {
             the way your guests do.
           </h2>
           <p className={styles.body}>
-            Engagements begin from €4,000. Each audit is scoped individually based on property size, location, and the experience dimensions most relevant to your positioning.
+            Audits from €995. Scoped individually before confirmation.
           </p>
           <Link href="/request" className={styles.button}>
             Request an Audit

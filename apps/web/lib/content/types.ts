@@ -62,9 +62,6 @@ export interface AuditPageContent {
     heading: string
     body: string
     options: Array<{ title: string; description: string; includes: string[] }>
-    addOnsLabel: string
-    addOnsNote: string
-    addOns: string[]
   }
   deliverables: {
     label: string

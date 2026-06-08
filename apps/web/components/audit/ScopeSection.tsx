@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image";
+import { useReveal } from "@/lib/useReveal";
 import type { AuditPageContent } from "@/lib/content/types";
 import styles from "./ScopeSection.module.css";
 
@@ -7,10 +10,16 @@ interface Props {
 }
 
 export function ScopeSection({ content }: Props) {
+  const ref = useReveal();
+
   return (
-    <section className={styles.section} aria-labelledby="audit-scope-heading">
+    <section
+      ref={ref as React.RefObject<HTMLElement>}
+      className={styles.section}
+      aria-labelledby="audit-scope-heading"
+    >
       <div className={styles.inner}>
-        <div className={styles.header}>
+        <div className={`${styles.header} reveal-on-scroll`}>
           <p className={styles.label}>{content.label}</p>
           <h2 id="audit-scope-heading" className={styles.heading}>
             {content.heading}
@@ -29,7 +38,7 @@ export function ScopeSection({ content }: Props) {
 
         <div className={styles.options}>
           {content.options.map((option, i) => (
-            <div key={i} className={styles.option}>
+            <div key={i} className={`${styles.option} reveal-on-scroll delay-${i + 1}`}>
               <h3 className={styles.optionTitle}>{option.title}</h3>
               <p className={styles.optionDesc}>{option.description}</p>
               <ul className={styles.optionList}>
@@ -42,19 +51,6 @@ export function ScopeSection({ content }: Props) {
               </ul>
             </div>
           ))}
-        </div>
-
-        <div className={styles.addOns}>
-          <p className={styles.addOnsLabel}>{content.addOnsLabel}</p>
-          <p className={styles.addOnsNote}>{content.addOnsNote}</p>
-          <ul className={styles.addOnsList}>
-            {content.addOns.map((item, i) => (
-              <li key={i} className={styles.addOnsItem}>
-                <span className={styles.optionBullet} aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>

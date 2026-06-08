@@ -5,6 +5,7 @@ import { PageHero } from "@/components/shared/PageHero";
 import { MethodologySection } from "@/components/audit/MethodologySection";
 import { ValuePropsSection } from "@/components/audit/ValuePropsSection";
 import { ProcessSection } from "@/components/audit/ProcessSection";
+import { ImageBreak } from "@/components/ui/ImageBreak";
 import { ScopeSection } from "@/components/audit/ScopeSection";
 import { DeliverablesSection } from "@/components/audit/DeliverablesSection";
 import { PricingSection } from "@/components/audit/PricingSection";
@@ -36,14 +37,22 @@ export default async function AuditPage({ searchParams }: PageProps) {
       <PageHero
         content={content.hero}
         variant="image"
-        imageSrc="/images/website/details/stone-corridor--detail--1x1.png"
-        imageAlt="Stone corridor detail in a boutique property, warm light on worn surfaces"
+        imageSrc="/images/website/hero/facade-golden-hour--hero--16x9.png"
+        imageAlt="Hotel facade at golden hour, warm light on stone and glass"
       />
       <MethodologySection content={content.methodology} />
       <ValuePropsSection content={content.valueProps} />
       <ProcessSection content={content.process} />
+      <ImageBreak
+        src="/images/website/sections/breakfast-table--section--16x9.png"
+        alt="Breakfast table set beside a window, morning light on local produce"
+      />
       <ScopeSection content={content.scope} />
       <DeliverablesSection content={content.deliverables} />
+      <ImageBreak
+        src="/images/website/sections/pool-afternoon--section--16x9.jpg"
+        alt="Boutique hotel pool at late afternoon, stone surround, still water"
+      />
       <PricingSection content={content.pricing} />
       <ReviewsSection content={content.reviews} />
       <FaqSection content={content.faq} />

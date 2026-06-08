@@ -33,8 +33,8 @@ export default async function ReportPage({ searchParams }: PageProps) {
       <PageHero
         content={content.hero}
         variant="image"
-        imageSrc="/images/website/details/stone-corridor--detail--1x1.png"
-        imageAlt="Stone corridor detail in a boutique property, warm light on worn surfaces"
+        imageSrc="/images/website/sections/pool-afternoon--section--16x9.jpg"
+        imageAlt="Boutique hotel pool at late afternoon, stone surround, Riviera light"
       />
       <ValuePropsSection content={content.valueProps} />
       <ReportSectionsSection content={content.sections} />

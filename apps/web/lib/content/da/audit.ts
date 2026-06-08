@@ -130,14 +130,6 @@ const content: AuditPageContent = {
         ],
       },
     ],
-    addOnsLabel: "Yderligere moduler",
-    addOnsNote: "Tilgaengelig paa ethvert engagement.",
-    addOns: [
-      "Digital for-ankomst-audit",
-      "Evaluering af opfolgning efter opholdet",
-      "Konkurrentsammenligning",
-      "Returnbesog efter 90 dage",
-    ],
   },
   deliverables: {
     label: "Hvad du modtager",
@@ -164,12 +156,12 @@ const content: AuditPageContent = {
   pricing: {
     label: "Investering",
     heading: "Et honorar. Intet skjult.",
-    body: "Investeringen daekker hele engagementet: tilpasning, opholdet, al rejse og overnatning, rapportproduktion og levering.",
+    body: "Investeringen daekker hele engagementet: tilpasning, opholdet, rapportproduktion og levering.",
     priceDisplay: true,
     stages: [
       {
         label: "Ved bekraeftelse",
-        description: "Halvtreds procent bekraefter engagementet og daekker rejse, overnatning og dining under opholdet.",
+        description: "Halvtreds procent bekraefter engagementet og daekker dining under opholdet.",
       },
       {
         label: "Ved levering",

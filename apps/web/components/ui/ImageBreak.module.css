@@ -1,0 +1,14 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin-left: calc(-1 * var(--page-x));
+    margin-right: calc(-1 * var(--page-x));
+    width: calc(100% + 2 * var(--page-x));
+  }
+}

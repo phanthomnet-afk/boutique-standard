@@ -64,47 +64,6 @@
   margin-bottom: 1.5rem;
 }
 
-/* Framework pillars */
-
-.pillars {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5px;
-  background: var(--color-border);
-  margin-top: 2.5rem;
-  border-top: 0.5px solid var(--color-border);
-}
-
-.pillar {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.5rem;
-  background: var(--color-bg);
-}
-
-.pillarNumber {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--color-accent);
-  opacity: 0.5;
-  line-height: 1;
-}
-
-.pillarLabel {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--color-text);
-}
-
-.pillarDesc {
-  font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-}
 
 @media (max-width: 900px) {
   .inner {
