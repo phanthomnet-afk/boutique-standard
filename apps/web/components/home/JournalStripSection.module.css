@@ -97,9 +97,9 @@
 }
 
 .articleImagePlaceholder {
+  position: relative;
   aspect-ratio: 16 / 9;
-  background: var(--color-bg-tertiary);
-  transition: background-color var(--dur-fast) var(--ease);
+  overflow: hidden;
 }
 
 .articleContent {

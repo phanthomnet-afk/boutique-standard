@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./JournalStripSection.module.css";
 
@@ -9,6 +10,10 @@ const SEED_ARTICLES = [
     title: "How Guest Expectations Are Evolving Beyond Luxury Amenities",
     excerpt: "For years, boutique hotels competed through aesthetics. Today, guests increasingly remember something less tangible: ease, authenticity, and emotional continuity throughout the stay.",
     readingTime: 6,
+    image: {
+      src: "/images/website/sections/pool-afternoon - section - 16x9.jpeg",
+      alt: "Boutique hotel pool at late afternoon, still water and stone surround",
+    },
   },
   {
     slug: "arrival-experience-psychology",
@@ -16,6 +21,10 @@ const SEED_ARTICLES = [
     title: "Why Boutique Hotels Lose Guests During the First Ten Minutes of Arrival",
     excerpt: "Most boutique hotels lose guest confidence during the arrival phase due to unclear orientation, fragmented communication, and lack of spatial guidance.",
     readingTime: 5,
+    image: {
+      src: "/images/website/sections/welcome-note.png",
+      alt: "Handwritten welcome note beside regional amenities on a hotel room surface",
+    },
   },
   {
     slug: "what-should-never-change",
@@ -23,6 +32,10 @@ const SEED_ARTICLES = [
     title: "What Should Never Change - Protecting Identity as a Property Grows",
     excerpt: "The qualities that make a property genuinely distinctive are rarely listed in guest feedback. Guests only notice when they are gone.",
     readingTime: 7,
+    image: {
+      src: "/images/website/journal/Bed_curtains.png",
+      alt: "Linen curtains beside a hotel bed, soft light, stillness",
+    },
   },
 ];
 
@@ -46,9 +59,16 @@ export function JournalStripSection() {
 
         {/* Articles grid */}
         <div className={styles.grid}>
-          {SEED_ARTICLES.map((article, i) => (
+          {SEED_ARTICLES.map((article) => (
             <Link key={article.slug} href={`/journal/${article.slug}`} className={styles.article}>
-              <div className={styles.articleImagePlaceholder} aria-hidden="true" data-image-slot={`journal-article-${i + 1}`} />
+              <div className={styles.articleImagePlaceholder} aria-hidden="true">
+                <Image
+                  src={article.image.src}
+                  alt={article.image.alt}
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
               <div className={styles.articleContent}>
                 <p className={styles.articleCategory}>{article.category}</p>
                 <h3 className={styles.articleTitle}>{article.title}</h3>

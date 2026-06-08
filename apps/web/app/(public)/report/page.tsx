@@ -28,7 +28,12 @@ export default async function ReportPage({ searchParams }: PageProps) {
 
   return (
     <>
-      <PageHero content={content.hero} variant="image" />
+      <PageHero
+        content={content.hero}
+        variant="image"
+        imageSrc="/images/website/sections/breakfast-table - section - 1X2.png"
+        imageAlt="Breakfast table set beside a window, morning light on local produce"
+      />
       <ReportIntroSection content={content.intro} />
       <ReportSectionsSection content={content.sections} />
       <CaseStudySection content={content.caseStudy} />

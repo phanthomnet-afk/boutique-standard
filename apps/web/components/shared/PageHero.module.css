@@ -40,6 +40,10 @@
   );
 }
 
+.image {
+  object-fit: cover;
+}
+
 .imageOverlay {
   position: absolute;
   inset: 0;

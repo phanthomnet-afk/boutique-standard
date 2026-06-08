@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { SectionHero } from "@/lib/content/types";
 import styles from "./PageHero.module.css";
@@ -5,9 +6,11 @@ import styles from "./PageHero.module.css";
 interface PageHeroProps {
   content: SectionHero;
   variant?: "image" | "typographic";
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
-export function PageHero({ content, variant = "image" }: PageHeroProps) {
+export function PageHero({ content, variant = "image", imageSrc, imageAlt = "" }: PageHeroProps) {
   return (
     <section
       className={`${styles.hero} ${variant === "typographic" ? styles.heroTypographic : styles.heroImage}`}
@@ -15,7 +18,18 @@ export function PageHero({ content, variant = "image" }: PageHeroProps) {
     >
       {variant === "image" && (
         <div className={styles.imageWrapper} aria-hidden="true">
-          <div className={styles.imagePlaceholder} />
+          {imageSrc ? (
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              priority
+              className={styles.image}
+              style={{ objectFit: "cover" }}
+            />
+          ) : (
+            <div className={styles.imagePlaceholder} />
+          )}
           <div className={styles.imageOverlay} />
         </div>
       )}

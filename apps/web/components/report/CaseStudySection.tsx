@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReportPageContent } from "@/lib/content/types";
 import styles from "./CaseStudySection.module.css";
@@ -12,7 +13,12 @@ export function CaseStudySection({ content }: Props) {
       <div className={styles.inner}>
         <div className={styles.card}>
           <div className={styles.imagePlaceholder} aria-hidden="true">
-            {/* Hotel exterior, coastal, Riviera */}
+            <Image
+              src="/images/website/sections/pool-afternoon - section-2-16x9.png"
+              alt="Boutique hotel pool at late afternoon, stone surround, Riviera setting"
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </div>
 
           <div className={styles.content}>

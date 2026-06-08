@@ -31,7 +31,12 @@ export default async function AuditPage({ searchParams }: PageProps) {
 
   return (
     <>
-      <PageHero content={content.hero} variant="image" />
+      <PageHero
+        content={content.hero}
+        variant="image"
+        imageSrc="/images/website/sections/view_1_1X2.png"
+        imageAlt="View through a hotel window framing the landscape beyond"
+      />
       <MethodologySection content={content.methodology} />
       <ProcessSection content={content.process} />
       <ScopeSection content={content.scope} />
