@@ -2,121 +2,152 @@ import type { ReportPageContent } from "../types";
 
 const content: ReportPageContent = {
   meta: {
-    title: "Analyserapporten - The Boutique Standard",
-    description:
-      "Ikke et resume. Ikke et scorecard. Et redaktionelt luksusprodukt, der med praecision og omhu afsloerer, hvor en ejendom lever op til sit loefte.",
+    title: "Rapporten - The Boutique Standard",
+    description: "En 13-sektions gaesteoplevelsesrapport for boutiquehoteller.",
   },
   hero: {
-    eyebrow: "Analyserapporten",
-    headline: "Rapporten er produktet.",
-    body: "Ikke et resume. Ikke et scorecard. Et redaktionelt luksusdokument, der med praecision og omhu afsloerer, praecist hvor en ejendom lever op til sit loefte - og hvor den fejler.",
-    ctaPrimary: { label: "Se case-rapporten", href: "/report/maison-du-rivage" },
-    ctaSecondary: { label: "Anmod om et audit", href: "/request" },
-    imageAlt: "Aaben rapport, hotelbord, morgenlys",
+    eyebrow: "Rapporten",
+    headline: "Det dine gaester faktisk oplever.",
+    body: "En 13-sektions analyserapport om den komplette gaesteoplevelse. Skrevet som narrativ. Designet til at blive praesenteret.",
+    ctaPrimary: { label: "Anmod om et audit", href: "/request" },
+    ctaSecondary: { label: "Se eksempelrapport", href: "/report/maison-du-rivage" },
+    imageAlt: "Stenkorridor, eftermiddagslys paa gulvet",
   },
-  intro: {
-    label: "Om rapporten",
-    heading: "Designet til at blive laest - ikke arkiveret",
-    body: [
-      "De fleste auditrapporter er driftsdokumenter. Tabeller, tjeklister, scores. De eksisterer for at tilfredsstille en proces, ikke for at formidle indsigt. The Boutique Standard-rapport er anderledes i bade struktur og hensigt.",
-      "Hver rapport er skrevet som et redaktionelt dokument - dybgaende analyse, struktureret narrativ, praecis observation. Den er designet til at blive laest fra start til slut, ikke skimmet for handlingspunkter. Indsigten sidder i detaljerne.",
-      "Rapporten findes i to formater: en privat weboplevelse optimeret til skaermlaesning og en hojoplosnings-PDF. Begge indeholder det samme indhold. Webversionen er navigerbar og internt linket. PDF'en er formateret til arkivering og deling med dit team.",
-    ],
-  },
-  sections: {
-    label: "Rapportens indhold",
-    heading: "Hvad en rapport indeholder",
+  valueProps: {
+    label: "Vaerdien",
     items: [
       {
         number: "01",
-        title: "Udfoerende snapshot",
-        description:
-          "En enkelt-sides oversigt: den samlede alignment-score, de tre mest indflydelsesrige misalignments og den mest vaesentlige forbedringsmulighed.",
+        statement: "Du ser dit hotel hver dag. Dine gaester ser det kun en gang.",
+        body: "Afstand afslorer, hvad fortrolighed skjuler.",
       },
       {
         number: "02",
-        title: "Ejendomsprofil",
-        description:
-          "En vurdering af hotellets positionering, kommunikerede loefte og malrettede gaesteprofil - det udgangspunkt, som alt andet males mod.",
+        statement: "Intention og oplevelse er sjaeldent det samme.",
+        body: "Kloeften mellem det, en ejendom stiler mod at levere, og det en gaest modtager, er der, de fleste muligheder lever.",
       },
       {
         number: "03",
-        title: "Lofteanalyse",
-        description:
-          "En detaljeret evaluering af, hvad ejendommen kommunikerer pa tvaers af alle gaest-beroringsflader: hjemmeside, fotografier, beskrivelser, priser og offentlige materialer.",
+        statement: "Det gaester husker paavirker dine bookinger mere end forgaars anmeldelser.",
+        body: "Rapporten identificerer, hvilke ojeblikke gaester baerer med sig, og hvilke de stille glemmer.",
       },
       {
         number: "04",
-        title: "Forventningskortlaegning",
-        description:
-          "Dokumentation af, hvad en foerstegangsgaest rimeligt ville forvente baseret pa loefte, kategori og prisniveau - inden de ankommer.",
+        statement: "At vide, hvad man skal beskytte, er ligesat vaerdifuldt som at vide, hvad man skal forbedre.",
+        body: "Enhver rapport navngiver de egenskaber, der definerer din ejendoms karakter, saa de ikke fortabes til vaekst eller pres.",
+      },
+    ],
+  },
+  sections: {
+    label: "13 sektioner",
+    heading: "Altid komplet. Altid den samme rapport.",
+    body: "Opholdets omfang varierer. Rapportens dybde goor ikke.",
+    items: [
+      {
+        number: "01",
+        title: "Executive Snapshot",
+        description: "Den samlede score, de tre mest indflydelsesrige misalignments og den mest vaesentlige mulighed. En side.",
+      },
+      {
+        number: "02",
+        title: "Property Profile",
+        description: "Positionering, loefte og malrettet gaesteprofil. Udgangspunktet for alt, der folger.",
+      },
+      {
+        number: "03",
+        title: "Promise Analysis",
+        description: "Hvad ejendommen kommunikerer pa tvaers af alle for-ankomst-beroringsflader.",
+      },
+      {
+        number: "04",
+        title: "Expectation Mapping",
+        description: "Hvad en foerstegangsgaest rimeligt antager, inden de ankommer.",
       },
       {
         number: "05",
-        title: "Rejseetape-narrativer",
-        description:
-          "Udvidet narrativ rapportering om hvert trin i gaestens rejse - ankomst, vaerelse, dining, faciliteter, service, afrejse - med observationer og praecis analyse.",
+        title: "Journey Narratives",
+        description: "Udvidet narrativ om hvert trin: ankomst, vaerelse, dining, faciliteter, service, afrejse.",
       },
       {
         number: "06",
-        title: "Oplevelsesscoring",
-        description:
-          "En granuleret score-opdeling pr. beroringsflader, vurderet mod loefte-forventnings-udgangspunktet. Ikke en generisk vurdering mod branchenormer - en relativ vurdering mod din egen standard.",
+        title: "Experience Scoring",
+        description: "Scoret mod din egen standard. Ikke et branchegennemsnit.",
       },
       {
         number: "07",
-        title: "Misaligneringsrapporten",
-        description:
-          "En praecis identifikation af hver vaesen-tlig kloeft mellem det lovede og det leverede, rangordnet efter gaestepaavirkning.",
+        title: "Misalignment Report",
+        description: "Enhver kloeft mellem loefte og levering, rangordnet efter gaestepaavirkning.",
       },
       {
         number: "08",
-        title: "Erindringindeks",
-        description:
-          "En vurdering af, hvad en gaest sandsynligvis vil bevare og kommunikere efter afrejse - den staerkeste pradikator for mund-til-mund-omtale og tilbagekomst.",
+        title: "Memory Index",
+        description: "Hvad gaesten bevarer efter afrejse.",
       },
       {
         number: "09",
-        title: "Mulighedsmatrix",
-        description:
-          "Prioriterede forbedringsmuligheder rangordnet efter potentiel gaestepaavirkning - ikke driftsmaessig lethed eller omkostning.",
+        title: "Opportunity Matrix",
+        description: "Refinementmuligheder rangordnet efter gaestepaavirkning, ikke driftsmaessig lethed.",
       },
       {
         number: "10",
-        title: "Servicekultureobservation",
-        description:
-          "Detaljeret narrativ om medarbejderinteraktioner, konsistens i servicelevering og kloeften - hvis nogen - mellem hotellets erklaerede servicefilosofi og dets faktiske praksis.",
+        title: "Service Culture",
+        description: "Medarbejderinteraktioner, konsistens i levering, servicefilosofi versus praksis.",
       },
       {
         number: "11",
-        title: "Digital og for-ankomst-vurdering",
-        description:
-          "Evaluering af den digitale rejse inden opholdet: hjemmesideoplevelse, bookinproces, bekraeftelseskommunikation og beroringsflader foer ankomst.",
+        title: "Pre-Arrival Assessment",
+        description: "Digital rejse, bookinproces, bekraeftelseskommunikation.",
       },
       {
         number: "12",
-        title: "Kommunikation efter opholdet",
-        description:
-          "Vurdering af, hvordan ejendommen haandterer kommunikation i dagene efter afrejse og om det forstaerker eller underminerer den oplevelse gaesten havde.",
+        title: "Post-Stay",
+        description: "Kommunikation efter afrejse og om den forstaerker oplevelsen.",
       },
       {
         number: "13",
-        title: "Redaktionel konklusion",
-        description:
-          "En afsluttende, udscoret reflektion over ejendommes samlede karakter og om det opnar det, det sagte skabt for sine gaester.",
+        title: "Editorial Conclusion",
+        description: "En afsluttende reflektion over ejendommens karakter og om den opnaar det, den sigtede mod at skabe.",
       },
+    ],
+  },
+  format: {
+    label: "Formatet",
+    heading: "Skrevet som en publikation. Leveret som et produkt.",
+    points: [
+      "Privat URL, unik for din ejendom",
+      "Adgangskodebeskyttet webrapport",
+      "Downloadbar PDF",
+      "35 til 40 sider",
+      "Fuld narrativ gennemgaaende",
     ],
   },
   caseStudy: {
     label: "Case-rapport",
     heading: "Maison du Rivage",
-    body: "Den forste offentlige case-rapport fra The Boutique Standard. En kystbolig med 28 vaerel-ser pa den franske Riviera, evalueret pa tvaers af fjorten oplevelseselementer over et to-naetters ophold. Samlet alignment-score: 8,2. Primaert fund: ejendommen leverer ekstraordinaer atmosfaere og vaerelseskvalitet med identificerbar friktion ved ankomst og i kommunikation foer ankomst.",
+    location: "Antibes, French Riviera",
+    score: 8.2,
+    scoreLabel: "Alignment-score",
+    body: "Et 4-stjernet kystresort. 28 vaerelser. En ejendom, der lever op til sit loefte i naesten alle dimensioner - og svigter i to ojeblikke, der betyder mere end alle andre.",
     linkLabel: "Laes case-rapporten",
+    linkHref: "/report/maison-du-rivage",
+  },
+  reviews: {
+    label: "Fra praksis",
+    items: [
+      {
+        quote: "Jeg har laest mange hotelrapporter. Dette er den forste, jeg laeste to gange.",
+        attribution: "Ejer, boutiquehotel, Kobenhavn",
+      },
+      {
+        quote: "Misalignment-sektionen navngav tre ting, vi havde diskuteret i aarevis, men aldrig formaaet at handle paa.",
+        attribution: "Direktoer, Provence",
+      },
+    ],
   },
   cta: {
-    label: "Klar",
-    heading: "Se, hvad et audit producerer for dit hotel.",
-    body: "Hvert engagement begynder med en kort, uforpligtende henvendelse. Vi svarer inden for to arbejdsdage.",
+    label: "Begynd",
+    heading: "Bestil din rapport.",
+    body: "Fra 7.450 kr. Foresporgsel tager fem minutter.",
     buttonLabel: "Anmod om et audit",
     buttonHref: "/request",
   },

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { AuditPageContent } from "@/lib/content/types";
 import styles from "./ScopeSection.module.css";
 
@@ -17,6 +18,15 @@ export function ScopeSection({ content }: Props) {
           <p className={styles.body}>{content.body}</p>
         </div>
 
+        <div className={styles.imageWrapper} aria-hidden="true">
+          <Image
+            src="/images/website/sections/pool-afternoon--section--16x9.jpg"
+            alt="Boutique hotel pool at late afternoon, stone surround, still water reflecting the sky"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+
         <div className={styles.options}>
           {content.options.map((option, i) => (
             <div key={i} className={styles.option}>
@@ -32,6 +42,19 @@ export function ScopeSection({ content }: Props) {
               </ul>
             </div>
           ))}
+        </div>
+
+        <div className={styles.addOns}>
+          <p className={styles.addOnsLabel}>{content.addOnsLabel}</p>
+          <p className={styles.addOnsNote}>{content.addOnsNote}</p>
+          <ul className={styles.addOnsList}>
+            {content.addOns.map((item, i) => (
+              <li key={i} className={styles.addOnsItem}>
+                <span className={styles.optionBullet} aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

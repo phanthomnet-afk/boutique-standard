@@ -1,69 +1,108 @@
-/* PricingSection.module.css */
-
 .section {
   padding: clamp(6rem, 12vw, 9rem) 0;
-  background: var(--color-bg-tertiary);
+  background: var(--color-bg);
   border-top: 0.5px solid var(--color-border);
   border-bottom: 0.5px solid var(--color-border);
 }
 
 .inner {
-  max-width: var(--wide-width);
+  max-width: 640px;
   margin: 0 auto;
   padding: 0 var(--page-x);
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: clamp(3rem, 7vw, 6rem);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(2rem, 4vw, 3rem);
 }
 
-.top {}
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
-.label {
+.priceLabel {
   font-family: var(--font-sans);
   font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-text-muted);
-  margin-bottom: 1.25rem;
 }
 
-.heading {
+.price {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 300;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1;
   color: var(--color-text);
 }
 
-.body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.accentLine {
+  width: 3rem;
+  height: 0.5px;
+  background: var(--color-accent);
+  margin-top: 0.5rem;
 }
 
-.bodyText {
+.body {
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 0.9375rem;
   font-weight: 300;
   line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+}
+
+.stages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5px;
+  width: 100%;
+  background: var(--color-border);
+  border: 0.5px solid var(--color-border);
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  background: var(--color-bg-secondary);
+  text-align: left;
+}
+
+.stageLabel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.stageDesc {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
   color: var(--color-text-secondary);
 }
 
 .note {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.6;
+  font-size: 0.8125rem;
+  font-weight: 300;
+  line-height: 1.7;
   color: var(--color-text-muted);
-  padding-top: 1.25rem;
-  border-top: 0.5px solid var(--color-border);
+  max-width: 480px;
 }
 
-@media (max-width: 768px) {
-  .inner {
+@media (max-width: 640px) {
+  .stages {
     grid-template-columns: 1fr;
   }
 }

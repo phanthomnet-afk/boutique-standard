@@ -23,11 +23,18 @@ export function CaseStudySection({ content }: Props) {
 
           <div className={styles.content}>
             <p className={styles.label}>{content.label}</p>
-            <h2 id="report-case-heading" className={styles.heading}>
-              {content.heading}
-            </h2>
+            <div className={styles.propertyHead}>
+              <h2 id="report-case-heading" className={styles.heading}>
+                {content.heading}
+              </h2>
+              <p className={styles.location}>{content.location}</p>
+            </div>
+            <div className={styles.scoreRow}>
+              <span className={styles.scoreNumber}>{content.score}</span>
+              <span className={styles.scoreLabel}>{content.scoreLabel}</span>
+            </div>
             <p className={styles.body}>{content.body}</p>
-            <Link href="/report/maison-du-rivage" className={styles.link}>
+            <Link href={content.linkHref} className={styles.link}>
               <span>{content.linkLabel}</span>
               <span className={styles.linkArrow} aria-hidden="true" />
             </Link>

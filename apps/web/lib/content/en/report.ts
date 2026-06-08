@@ -2,121 +2,152 @@ import type { ReportPageContent } from "../types";
 
 const content: ReportPageContent = {
   meta: {
-    title: "The Intelligence Report - The Boutique Standard",
-    description:
-      "Not a summary. Not a scorecard. A luxury editorial document that reveals, with precision and care, exactly where a property delivers on its promise.",
+    title: "The Report - The Boutique Standard",
+    description: "A 13-section guest experience intelligence report for boutique hotels.",
   },
   hero: {
-    eyebrow: "The Intelligence Report",
-    headline: "The report is the product.",
-    body: "Not a summary. Not a scorecard. A luxury editorial document that reveals, with precision and care, exactly where a property delivers on its promise and where it falls short.",
-    ctaPrimary: { label: "View the Case Report", href: "/report/maison-du-rivage" },
-    ctaSecondary: { label: "Request an Audit", href: "/request" },
-    imageAlt: "Open report document, hotel table, morning light",
+    eyebrow: "The Report",
+    headline: "What your guests actually experience.",
+    body: "A 13-section intelligence report on the complete guest journey. Written in narrative. Designed to be presented.",
+    ctaPrimary: { label: "Request an Audit", href: "/request" },
+    ctaSecondary: { label: "View sample report", href: "/report/maison-du-rivage" },
+    imageAlt: "Stone hotel corridor, afternoon light on the floor",
   },
-  intro: {
-    label: "About the Report",
-    heading: "Designed to be read, not filed",
-    body: [
-      "Most audit reports are operational documents. Tables, checklists, scores. They exist to satisfy a process, not to communicate insight. The Boutique Standard report is different in both structure and intent.",
-      "Every report is written as an editorial document - long-form analysis, structured narrative, precise observation. It is designed to be read from beginning to end, not skimmed for action items. The intelligence is in the detail.",
-      "The report exists in two formats: a private web experience optimised for screen reading, and a high-resolution PDF. Both carry the same content. The web version is navigable and linked internally. The PDF is formatted for archiving and selective sharing with your team.",
+  valueProps: {
+    label: "The value",
+    items: [
+      {
+        number: "01",
+        statement: "You see your hotel every day. Your guests see it once.",
+        body: "Distance reveals what familiarity conceals.",
+      },
+      {
+        number: "02",
+        statement: "Intention and experience are rarely the same thing.",
+        body: "The gap between what a property sets out to deliver and what a guest receives is where most opportunities live.",
+      },
+      {
+        number: "03",
+        statement: "What guests remember shapes your bookings more than last week's reviews.",
+        body: "The report identifies which moments guests carry with them and which they quietly forget.",
+      },
+      {
+        number: "04",
+        statement: "Knowing what to protect is as valuable as knowing what to fix.",
+        body: "Every report names the qualities that define your property's character so they are not lost to growth or pressure.",
+      },
     ],
   },
   sections: {
-    label: "Inside the Report",
-    heading: "What a report contains",
+    label: "13 Sections",
+    heading: "Always complete. Always the same report.",
+    body: "The scope of the stay varies. The depth of the report does not.",
     items: [
       {
         number: "01",
         title: "Executive Snapshot",
-        description:
-          "A single-page summary: the composite alignment score, the three highest-impact misalignments, and the most significant refinement opportunity.",
+        description: "The composite score, the three highest-impact misalignments, and the most significant opportunity. One page.",
       },
       {
         number: "02",
         title: "Property Profile",
-        description:
-          "An assessment of the hotel's positioning, communicated promise, and target guest profile - the baseline against which everything else is measured.",
+        description: "Positioning, promise, and target guest profile. The baseline for everything that follows.",
       },
       {
         number: "03",
         title: "Promise Analysis",
-        description:
-          "A detailed evaluation of what the property communicates across all guest touchpoints: website, photography, descriptions, rates, and public materials.",
+        description: "What the property communicates across all pre-arrival touchpoints.",
       },
       {
         number: "04",
         title: "Expectation Mapping",
-        description:
-          "Documentation of what a first-time guest would reasonably expect based on the promise, the category, and the price point - before they arrive.",
+        description: "What a first-time guest reasonably assumes before arriving.",
       },
       {
         number: "05",
-        title: "Journey Stage Narratives",
-        description:
-          "Extended narrative reporting on each stage of the guest journey - arrival, room, dining, facilities, service, departure - with observations and precise analysis.",
+        title: "Journey Narratives",
+        description: "Extended narrative on each stage: arrival, room, dining, facilities, service, departure.",
       },
       {
         number: "06",
         title: "Experience Scoring",
-        description:
-          "A granular score breakdown by touchpoint, rated against the promise-expectation baseline. Not a generic rating against industry norms - a relative one against your own standard.",
+        description: "Scored against your own standard. Not a category average.",
       },
       {
         number: "07",
-        title: "The Misalignment Report",
-        description:
-          "A precise identification of every significant gap between what was promised and what was delivered, ranked by guest impact rather than operational severity.",
+        title: "Misalignment Report",
+        description: "Every gap between promise and delivery, ranked by guest impact.",
       },
       {
         number: "08",
         title: "Memory Index",
-        description:
-          "An assessment of what a guest is likely to retain and communicate after departure - the strongest predictor of word-of-mouth, online reviews, and return visits.",
+        description: "What the guest retains after departure.",
       },
       {
         number: "09",
         title: "Opportunity Matrix",
-        description:
-          "Prioritised refinement opportunities ranked by potential guest impact, not by operational ease or cost. What matters most to the guest, in order.",
+        description: "Refinement opportunities ranked by guest impact, not operational ease.",
       },
       {
         number: "10",
-        title: "Service Culture Observation",
-        description:
-          "Detailed narrative on staff interactions, the consistency of service delivery, and the gap - if any - between the hotel's stated service philosophy and its actual practice.",
+        title: "Service Culture",
+        description: "Staff interactions, consistency of delivery, service philosophy versus practice.",
       },
       {
         number: "11",
-        title: "Digital and Pre-Arrival Assessment",
-        description:
-          "Evaluation of the digital journey before the stay: website experience, booking process, confirmation communications, and pre-arrival touchpoints.",
+        title: "Pre-Arrival Assessment",
+        description: "Digital journey, booking process, confirmation communications.",
       },
       {
         number: "12",
-        title: "Post-Stay Communication",
-        description:
-          "Assessment of how the property handles communication in the days after departure and whether it reinforces or undermines the experience the guest had.",
+        title: "Post-Stay",
+        description: "Communication after departure and whether it reinforces the experience.",
       },
       {
         number: "13",
         title: "Editorial Conclusion",
-        description:
-          "A final, unscored reflection on the overall character of the property and whether it achieves what it set out to create for its guests.",
+        description: "A final reflection on the character of the property and whether it achieves what it set out to create.",
       },
+    ],
+  },
+  format: {
+    label: "The Format",
+    heading: "Written like a publication. Delivered like a product.",
+    points: [
+      "Private URL, unique to your property",
+      "Password-protected web report",
+      "Downloadable PDF",
+      "35 to 40 pages",
+      "Full narrative throughout",
     ],
   },
   caseStudy: {
     label: "Case Report",
     heading: "Maison du Rivage",
-    body: "The first public case report from The Boutique Standard. A 28-room coastal property on the French Riviera, evaluated across fourteen experience dimensions over a two-night stay. Composite alignment score: 8.2. Primary finding: the property delivers exceptional atmosphere and room quality with identifiable friction at arrival and in pre-arrival communication.",
+    location: "Antibes, French Riviera",
+    score: 8.2,
+    scoreLabel: "Alignment score",
+    body: "A 4-star coastal retreat. 28 rooms. A property that delivers what it promises in almost every dimension - and falls short in two moments that matter more than any other.",
     linkLabel: "Read the case report",
+    linkHref: "/report/maison-du-rivage",
+  },
+  reviews: {
+    label: "From the field",
+    items: [
+      {
+        quote: "I have read many hotel reports. This is the first one I read twice.",
+        attribution: "Owner, boutique hotel, Copenhagen",
+      },
+      {
+        quote: "The misalignment section named three things we had discussed for years but never been able to act on.",
+        attribution: "General Manager, Provence",
+      },
+    ],
   },
   cta: {
-    label: "Ready",
-    heading: "See what an audit produces for your property.",
-    body: "Every engagement begins with a brief, no-commitment enquiry. We respond within two business days.",
+    label: "Begin",
+    heading: "Commission your report.",
+    body: "Audits start from €995. The request takes five minutes.",
     buttonLabel: "Request an Audit",
     buttonHref: "/request",
   },

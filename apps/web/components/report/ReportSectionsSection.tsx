@@ -14,13 +14,14 @@ export function ReportSectionsSection({ content }: Props) {
           <h2 id="report-contents-heading" className={styles.heading}>
             {content.heading}
           </h2>
+          <p className={styles.body}>{content.body}</p>
         </div>
 
         <div className={styles.grid}>
           {content.items.map((item) => (
             <div key={item.number} className={styles.item}>
               <span className={styles.number}>{item.number}</span>
-              <div className={styles.content}>
+              <div className={styles.itemContent}>
                 <h3 className={styles.title}>{item.title}</h3>
                 <p className={styles.desc}>{item.description}</p>
               </div>

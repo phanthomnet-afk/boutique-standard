@@ -3,200 +3,231 @@ import type { AuditPageContent } from "../types";
 const content: AuditPageContent = {
   meta: {
     title: "Audit - The Boutique Standard",
-    description:
-      "Undercover gaesteoplevelsesaudits for boutiquehoteller. Vi evaluerer overensstemmelsen mellem dit loefte og det dine gaester faktisk oplever.",
+    description: "Et gaesteoplevelsesaudit for boutiquehoteller. En fuld rapport.",
   },
   hero: {
-    eyebrow: "Gaesteoplevelsesanalyse",
-    headline: "Alle hoteller lover et fantastisk ophold.\nIkke alle hoteller leverer det.",
-    body: "The Boutique Standard-audit afdaekker den praecise afstand mellem det, dit hotel kommunikerer, og det dine gaester faktisk oplever.",
-    ctaPrimary: { label: "Anmod om en audit", href: "/request" },
-    ctaSecondary: { label: "Se en eksempelrapport", href: "/report/maison-du-rivage" },
-    imageAlt: "Hotelkorridor, arkitektonisk detalje, lys over stengulv",
+    eyebrow: "The Boutique Standard Audit",
+    headline: "Det dine gaester oplever.",
+    body: "En struktureret evaluering af den komplette gaesteoplevelse. Leveret som en redaktionel analyserapport.",
+    ctaPrimary: { label: "Anmod om et audit", href: "/request" },
+    imageAlt: "Stenkorridor med eftermiddagslys",
+  },
+  valueProps: {
+    label: "Hvorfor dette audit",
+    items: [
+      {
+        number: "01",
+        statement: "Du ser dit hotel hver dag. Dine gaester ser det kun en gang.",
+        body: "Afstand afslorer, hvad fortrolighed skjuler. En foerstegangsgaest laegger maerke til det, dit team holdt op med at se for mange aar siden.",
+      },
+      {
+        number: "02",
+        statement: "Intention og oplevelse er sjaeldent det samme.",
+        body: "Kloeften mellem det, en ejendom stiler mod at levere, og det en gaest faktisk modtager, er der, de fleste muligheder lever. Det er ogsa der, de fleste tab opstaer.",
+      },
+      {
+        number: "03",
+        statement: "Det gaester husker seks maneder senere paavirker dine bookinger mere end nogen anmeldelse fra i forgaars.",
+        body: "Tilfredshed forsvinder. Erindring bliver. Rapporten identificerer, hvilke ojeblikke gaester baerer med sig, og hvilke de stille glemmer.",
+      },
+      {
+        number: "04",
+        statement: "At vide, hvad man skal beskytte, er ligesat vaerdifuldt som at vide, hvad man skal forbedre.",
+        body: "Enhver ejendom har egenskaber, der definerer dens karakter. Auditet navngiver dem eksplicit, saa de ikke fortabes til vaekst, pres eller velmenende forandring.",
+      },
+    ],
   },
   methodology: {
-    label: "Metodologien",
-    headline: "Fire linser. Et framework.",
+    label: "Hvordan vi evaluerer",
+    headline: "Mod dit loefte. Ikke branchen.",
     body: [
-      "Vi evaluerer hvert enkelt hotel ud fra dets eget erklaerede loefte - ikke ud fra branchenormer eller konkurrenternes benchmarks. Frameworket identificerer kloeften mellem det, et hotel kommunikerer, og det gaesterne faktisk modtager.",
-      "De samme fire linser anvendes pa hvert audit. Tilsammen skaber de et praecist og aerligt billede af, hvor et hotel leverer, og hvor det falder til kort.",
+      "Vi evaluerer en ting: om den oplevelse din ejendom leverer, matcher den oplevelse den kommunikerer.",
+      "Ikke mod et branchegennemsnit. Ikke mod konkurrenter. Mod din egen standard - din positionering, dine fotografier, dit prisniveau, dine ord.",
     ],
     pillars: [
       {
         number: "01",
         label: "Loefte",
-        description:
-          "Hvad hotellet kommunikerer pa tvaers af alle beroringsflader - hjemmeside, fotografier, skriftlige beskrivelser, prisniveau og brandpositionering.",
+        description: "Hvad din ejendom kommunikerer til potentielle gaester.",
       },
       {
         number: "02",
         label: "Forventning",
-        description:
-          "Hvad en foerstegangsgaest rimeligt antager baseret pa loefte, kategori og den pris, de har betalt.",
+        description: "Hvad en gaest rimeligt antager, inden de ankommer.",
       },
       {
         number: "03",
         label: "Oplevelse",
-        description:
-          "Hvad der faktisk sker under opholdet - hvert beroringsflader, hvert samspil, hvert moment af friktion eller glaede.",
+        description: "Hvad der faktisk sker pa tvaers af alle beroringsflader.",
       },
       {
         number: "04",
         label: "Erindring",
-        description:
-          "Hvad gaesten bevarer og fortaeller andre efter afrejse. Det vedvarende sediment, der driver anmeldelser, anbefalinger og tilbagekomst.",
+        description: "Hvad gaesten baerer med sig efter afrejse.",
       },
     ],
   },
   process: {
     label: "Processen",
-    heading: "Sadan fungerer et audit",
+    heading: "Simpel. Stringent. Gentagelig.",
     steps: [
       {
         number: "01",
-        title: "Anonymt ophold",
-        description:
-          "Vi oplever dit hotel som en foerstegangsgaest ville. Ingen forudgaende varsel. Ingen saerbehandling. Ingen hofligheds-opgraderinger. Kun det ophold dine gaester faktisk modtager.",
+        title: "Tilpasning",
+        description: "Vi aftaler opholdets varighed, dining-lejligheder og eventuelle specifikke fokusomraader, inden noget bekraeftes.",
       },
       {
         number: "02",
-        title: "Struktureret evaluering",
-        description:
-          "Hvert beroringsflader dokumenteres og vurderes ud fra dit eget loefte, din priskategori og forventningerne hos din malrettet gaesteprofil.",
+        title: "Opholdet",
+        description: "Vi oplever din ejendom som en standard foerstegangsgaest. Hvert beroringsflader evalueret mod det strukturerede framework.",
       },
       {
         number: "03",
-        title: "Analyserapport",
-        description:
-          "En redaktionel luksusrapport leveret som en privat weboplevelse og en hojoplosningspdf. Designet til at blive laest, forstaet og handlet pa.",
+        title: "Rapporten",
+        description: "Den fulde 13-sektions analyserapport leveret inden for 14 dage. Skrevet som narrativ. Designet til at blive laest.",
       },
       {
         number: "04",
-        title: "Prioriteret forbedring",
-        description:
-          "Prioriterede muligheder rangordnet efter gaestepaavirkning. Vi leverer ikke implementeringsplaner. Du bestemmer, hvad du vil goere med indsigterne.",
+        title: "Levering",
+        description: "En privat webrapport med din unikke URL. En downloadbar PDF. En debriefsamtale paa foresporgsel.",
       },
     ],
   },
   scope: {
-    label: "Omfangsmuligheder",
-    heading: "Vaelg dit auditomfang",
-    body: "Hvert engagement tilpasses individuelt. Mulighederne nedenfor er udgangspunkter - det endelige omfang aftales i den indledende konsultation.",
+    label: "Omfang",
+    heading: "Altid den fulde rapport.",
+    body: "Hvert engagement producerer den samme 13-sektions rapport. Det, der varierer, er opholdets omfang - aftalt foer bekraeftelse, ikke efter.",
     options: [
       {
-        title: "Fuld opholdsaudit",
-        description:
-          "En omfattende evaluering af den komplette gaesteoplevelse fra foerste digitale kontakt til kommunikation efter opholdet. Det mest fuldstaendige billede af dit hotel.",
+        title: "Enkeltophold",
+        description: "Standardengagementet. Et ophold, typisk to naetter. Den komplette gaesteoplevelse.",
         includes: [
-          "Minimum to naetters ophold",
-          "Alle ankomst- og opholdsberoringsflader",
-          "Dining - minimum en middagstjeneste",
-          "Fuld vurdering af vaerelse og faciliteter",
-          "Servicekulturevaluering gennem hele opholdet",
-          "Analyse af kommunikation efter opholdet",
+          "Minimum to naetter",
+          "Ankomst til afrejse",
+          "En morgenmad, en middag",
+          "Fuldt vaerelse og faciliteter",
+          "Servicekultur gennem hele opholdet",
         ],
       },
       {
-        title: "Fokuseret oplevelsesaudit",
-        description:
-          "En malrettet evaluering af specifikke oplevelseselementer, hvor du mest har brug for indsigt. En nat, tre til fem definerede beroringsflader med dybgaende narrativ.",
+        title: "Fokuseret ophold",
+        description: "En nat. Tre til fem aftalte dimensioner evalueret i dybden.",
         includes: [
-          "Et naetters ophold",
-          "Tre til fem aftalte beroringsflader",
-          "Dybgaende narrativ for hvert fokusomrade",
-          "Sammenlignende benchmarking inden for din kategori",
+          "En nat",
+          "Tre til fem fokusomraader",
+          "Dybere narrativ pr. dimension",
+          "Fuld 13-sektions rapport produceret",
         ],
       },
       {
-        title: "Multi-beroringsflader-audit",
-        description:
-          "En udvidet evaluering over flere besog eller oplevelseselementer over tid. Til hoteller, hvor et enkelt besog ikke kan give det fulde billede.",
+        title: "Udvidet ophold",
+        description: "Til ejendomme, hvor et enkelt besog ikke kan fange det fulde billede.",
         includes: [
           "To eller flere besog",
-          "Dybgaende kortlaegning af ankomstrejsen",
           "Flere dining-lejligheder",
-          "Saesonmaessig sammenligning, hvor relevant",
-          "Fuld opfolgning efter opholdet",
+          "For-ankomst-oplevelse i dybden",
+          "Saesonsammenlaegning, hvor relevant",
         ],
       },
+    ],
+    addOnsLabel: "Yderligere moduler",
+    addOnsNote: "Tilgaengelig paa ethvert engagement.",
+    addOns: [
+      "Digital for-ankomst-audit",
+      "Evaluering af opfolgning efter opholdet",
+      "Konkurrentsammenligning",
+      "Returnbesog efter 90 dage",
     ],
   },
   deliverables: {
     label: "Hvad du modtager",
-    heading: "Leverancerne",
+    heading: "En rapport. Leveret to veje.",
     items: [
       {
         title: "Privat webrapport",
-        description:
-          "Et designet, navigerbart webdokument med en unik URL. Struktureret til skaermlaesning med interne links. Aktivt i tolv maneder fra levering.",
+        description: "Adgangskodebeskyttet. Din unikke URL. Navigerbar efter sektion. Delbar internt.",
       },
       {
-        title: "PDF-eksport",
-        description:
-          "Et hojoplosningsdokument formateret til arkivering, print eller deling med udvalgte teammedlemmer. Dit for bestandigt.",
+        title: "PDF",
+        description: "Klar til print. Formateret til ejere, investorer og ledelsesteams.",
       },
       {
-        title: "Scoret rejsekort",
-        description:
-          "Hvert vaesentligt beroringsflader scoret ud fra loefte-forventning-oplevelse-erindring-frameworket. Et praecist visuelt overblik over, hvor oplevelsen holder, og hvor den svigter.",
+        title: "13 sektioner",
+        description: "Fra udfoerende snapshot til redaktionel konklusion. Fuld narrativ gennemgaaende.",
       },
       {
-        title: "Misaligneringsindeks",
-        description:
-          "En praecis identifikation af, hvor din gaesteoplevelse afviger fra din kommunikerede positionering. Rangordnet efter betydning, ikke efter afdeling.",
-      },
-      {
-        title: "Mulighedsmatrix",
-        description:
-          "Prioriterede forbedringsmuligheder rangordnet efter potentiel gaestepaavirkning - ikke driftsmaessig lethed eller omkostning.",
+        title: "Debrief",
+        description: "En samtale efter levering. Inkluderet paa foresporgsel.",
       },
     ],
   },
   pricing: {
     label: "Investering",
-    heading: "Priser",
-    body: "Audits starter fra 4.000 EUR. Den endelige pris afhaenger af omfang, hotellets beliggenhed og antallet af oplevelseselementer, der evalueres. Investeringen er struktureret i to etaper: halvtreds procent ved engagementets bekraeftelse - daekker auditrejse, overnatning og indledende evaluering - og halvtreds procent ved levering af den faerdige rapport.",
-    note: "Alle rejse- og overnatningsomkostninger er inkluderet i det opgivne gebyr. Ingen skjulte omkostninger.",
+    heading: "Et honorar. Intet skjult.",
+    body: "Investeringen daekker hele engagementet: tilpasning, opholdet, al rejse og overnatning, rapportproduktion og levering.",
+    priceDisplay: true,
+    stages: [
+      {
+        label: "Ved bekraeftelse",
+        description: "Halvtreds procent bekraefter engagementet og daekker rejse, overnatning og dining under opholdet.",
+      },
+      {
+        label: "Ved levering",
+        description: "Halvtreds procent ved levering af den faerdige rapport. Ingen rapport, ingen anden betaling.",
+      },
+    ],
+    note: "Den endelige investering aftales foer engagement baseret paa ejendommens beliggenhed og opholdets omfang. Fra den offentliggjorte sats.",
   },
   faq: {
     heading: "Almindelige spoergsmaal",
     items: [
       {
-        question: "Hvad modtager vi praecist?",
-        answer:
-          "Du modtager en privat webrapport med en unik URL, en hojoplosnings-PDF, et scoret rejsekort, et misaligneringsindeks og en mulighedsmatrix. Webrapporten er aktiv i tolv maneder. PDF'en er din for bestandigt.",
+        question: "Ved nogen paa ejendommen det?",
+        answer: "Nej. Vi bor som en standard betalende gaest, booket via dine normale kanaler. Rapportens integritet afhaenger af det.",
       },
       {
-        question: "Hvor lang tid tager processen?",
-        answer:
-          "Fra bekraeftelse til rapportlevering er typisk tre til fire uger. Det inkluderer selve opholdet, den strukturerede evalueringsperiode og den redaktionelle produktion af rapporten.",
+        question: "Hvor lang tid tager rapporten?",
+        answer: "Leveret inden for 14 dage efter opholdet. Naejagtig tidsplan bekraeftet ved engagement.",
       },
       {
-        question: "Ved nogen pa hotellet, at der er et audit i gang?",
-        answer:
-          "Nej. Opholdet er fuldt anonymt. Vi booker via normale kanaler, ankommer som regulaere gaester og afrejser uden at afsloere os. Dit personale modtager ingen indikation om, at en evaluering er i gang.",
+        question: "Hvem modtager rapporten?",
+        answer: "En navngiven kontakt - typisk ejeren eller direktoren. Vi offentliggor, diskuterer eller refererer ikke til nogen rapport uden skriftlig tilladelse.",
       },
       {
-        question: "Hvad sker der, naer vi modtager rapporten?",
-        answer:
-          "Det er fuldt ud din beslutning. Vi leverer indsigterne - hvad du goer med dem, er dit ansvar. Vi tilbyder ikke implementeringskonsultation, opfolgende audits eller driftsvejledning ud over rapporten.",
+        question: "Kan vi angive fokusomraader?",
+        answer: "Ja. Tilpasning er en del af engagementet. Fortael os, hvor du har spoergsmaal, og vi sikrer, at auditet adresserer dem.",
       },
       {
-        question: "Kan vi anmode om specifikke fokusomrader?",
-        answer:
-          "Ja. Omfanget aftales, inden auditet begynder. Hvis der er specifikke elementer - ankomstsoplevelse, dining, digital forankort - der er vigtigst for dig, strukturerer vi evalueringen derefter.",
+        question: "Hvad sker der efter levering?",
+        answer: "En debriefsamtale, inkluderet paa foresporgsel. Vi tilbyder ikke raadgivning eller implementeringsstoette. Vi holder kontakten.",
       },
       {
-        question: "Hvordan leveres rapporten?",
-        answer:
-          "Via en privat URL sendt direkte til den kontaktperson, du udpeger. Webrapporten er designet til skaermlaesning med navigerbare sektioner. PDF-eksporten er inkluderet til arkivering eller teamdeling.",
+        question: "Hvor arbejder I?",
+        answer: "Primaert Skandinavien, Frankrig og Middelhavet. Beliggenheden paavirker investeringsniveauet.",
+      },
+    ],
+  },
+  reviews: {
+    label: "Fra praksis",
+    items: [
+      {
+        quote: "Rapporten viste os ting, vi var holdt op med at laegge maerke til. Ikke fordi de var skjulte - men fordi vi havde vaeret for taet paa dem i for lang tid.",
+        attribution: "Ejer, 4-stjernet boutiquehotel, Sydfrankrig",
+      },
+      {
+        quote: "Afrejsesektionen alene var investeringen vaerd.",
+        attribution: "Direktoer, kystresort, Danmark",
+      },
+      {
+        quote: "Vi brugte den i en bestyrelsesproesentation tre maneder senere. Formatet gor resultaterne umulige at afvise.",
+        attribution: "Ejer-operatoer, designhotel, Kobenhavn",
       },
     ],
   },
   cta: {
-    label: "Klar til at begynde",
-    heading: "Anmod om dit audit.",
-    body: "Engagementer tilpasses individuelt. Begynd med en kort henvendelse - ingen forpligtelse kraevet.",
+    label: "Begynd",
+    heading: "Se din ejendom tydeligt.",
+    body: "Foresporgsel tager fem minutter.",
     buttonLabel: "Anmod om et audit",
     buttonHref: "/request",
   },

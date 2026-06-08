@@ -8,7 +8,7 @@ const FOOTER_LINKS = {
     { label: "Request an Audit", href: "/request" },
   ],
   company: [
-    { label: "Our Perspective", href: "/about" },
+    { label: "Philosophy", href: "/philosophy" },
     { label: "Journal", href: "/journal" },
     { label: "Future Guide", href: "/guide" },
   ],

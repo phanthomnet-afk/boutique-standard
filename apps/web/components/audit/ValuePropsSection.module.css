@@ -1,0 +1,95 @@
+.section {
+  padding: clamp(6rem, 12vw, 9rem) 0;
+  background: var(--color-bg);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  border-top: 0.5px solid var(--color-border);
+  align-items: start;
+}
+
+.item:last-child {
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.itemReversed {
+  background: var(--color-bg-secondary);
+  padding-left: clamp(1.5rem, 3vw, 3rem);
+  padding-right: clamp(1.5rem, 3vw, 3rem);
+}
+
+.numberBlock {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  color: var(--color-border-light, #ddd8d0);
+  line-height: 1;
+  padding-top: 0.25rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 640px;
+}
+
+.statement {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 2.5vw, 1.875rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 640px) {
+  .item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .numberBlock {
+    font-size: 1.75rem;
+  }
+
+  .itemReversed {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

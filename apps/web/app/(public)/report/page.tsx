@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { getContent, getLang } from "@/lib/getContent";
 import type { ReportPageContent } from "@/lib/content/types";
 import { PageHero } from "@/components/shared/PageHero";
-import { ReportIntroSection } from "@/components/report/ReportIntroSection";
+import { ValuePropsSection } from "@/components/report/ValuePropsSection";
 import { ReportSectionsSection } from "@/components/report/ReportSectionsSection";
+import { FormatSection } from "@/components/report/FormatSection";
 import { CaseStudySection } from "@/components/report/CaseStudySection";
+import { ReviewsSection } from "@/components/report/ReviewsSection";
 import { PageCta } from "@/components/shared/PageCta";
 
 interface PageProps {
@@ -31,12 +33,14 @@ export default async function ReportPage({ searchParams }: PageProps) {
       <PageHero
         content={content.hero}
         variant="image"
-        imageSrc="/images/website/sections/breakfast-table - section - 1X2.png"
-        imageAlt="Breakfast table set beside a window, morning light on local produce"
+        imageSrc="/images/website/details/stone-corridor--detail--1x1.png"
+        imageAlt="Stone corridor detail in a boutique property, warm light on worn surfaces"
       />
-      <ReportIntroSection content={content.intro} />
+      <ValuePropsSection content={content.valueProps} />
       <ReportSectionsSection content={content.sections} />
+      <FormatSection content={content.format} />
       <CaseStudySection content={content.caseStudy} />
+      <ReviewsSection content={content.reviews} />
       <PageCta content={content.cta} />
     </>
   );

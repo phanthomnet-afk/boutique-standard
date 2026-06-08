@@ -39,9 +39,20 @@ export interface SectionGrid<T> {
   items: T[]
 }
 
+export interface SectionValueProps {
+  label: string
+  items: Array<{ number: string; statement: string; body: string }>
+}
+
+export interface SectionReviews {
+  label: string
+  items: Array<{ quote: string; attribution: string }>
+}
+
 export interface AuditPageContent {
   meta: { title: string; description: string }
   hero: SectionHero
+  valueProps: SectionValueProps
   methodology: SectionStatement & {
     pillars: Array<{ number: string; label: string; description: string }>
   }
@@ -51,6 +62,9 @@ export interface AuditPageContent {
     heading: string
     body: string
     options: Array<{ title: string; description: string; includes: string[] }>
+    addOnsLabel: string
+    addOnsNote: string
+    addOns: string[]
   }
   deliverables: {
     label: string
@@ -61,9 +75,12 @@ export interface AuditPageContent {
     label: string
     heading: string
     body: string
+    priceDisplay: boolean
+    stages: Array<{ label: string; description: string }>
     note: string
   }
   faq: SectionFaq
+  reviews: SectionReviews
   cta: SectionCta
 }
 
@@ -94,23 +111,35 @@ export interface PhilosophyPageContent {
 export interface ReportPageContent {
   meta: { title: string; description: string }
   hero: SectionHero
-  intro: {
-    label: string
-    heading: string
-    body: string[]
-  }
+  valueProps: SectionValueProps
   sections: {
     label: string
     heading: string
+    body: string
     items: Array<{ number: string; title: string; description: string }>
+  }
+  format: {
+    label: string
+    heading: string
+    points: string[]
   }
   caseStudy: {
     label: string
     heading: string
+    location: string
+    score: number
+    scoreLabel: string
     body: string
     linkLabel: string
+    linkHref: string
   }
+  reviews: SectionReviews
   cta: SectionCta
+  intro?: {
+    label: string
+    heading: string
+    body: string[]
+  }
 }
 
 export interface RequestPageContent {

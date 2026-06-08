@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { label: "Audit", href: "/audit" },
   { label: "Report", href: "/report" },
   { label: "Journal", href: "/journal" },
-  { label: "Philosophy", href: "/about" },
+  { label: "Philosophy", href: "/philosophy" },
 ];
 
 export function Header({ transparent = false }: HeaderProps) {

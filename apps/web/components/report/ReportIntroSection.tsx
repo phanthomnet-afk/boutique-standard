@@ -1,8 +1,13 @@
-import type { ReportPageContent } from "@/lib/content/types";
 import styles from "./ReportIntroSection.module.css";
 
+interface ReportIntroContent {
+  label: string;
+  heading: string;
+  body: string[];
+}
+
 interface Props {
-  content: ReportPageContent["intro"];
+  content: ReportIntroContent;
 }
 
 export function ReportIntroSection({ content }: Props) {
