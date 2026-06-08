@@ -74,12 +74,10 @@
 /* Decoration */
 
 .decoration {
+  position: relative;
   aspect-ratio: 4 / 5;
-  background: rgba(248, 245, 240, 0.06);
-  border: 0.5px solid rgba(248, 245, 240, 0.1);
+  overflow: hidden;
 }
-
-/* Replace with actual image */
 
 @media (max-width: 768px) {
   .inner {

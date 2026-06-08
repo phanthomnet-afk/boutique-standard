@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./AuditTeaserSection.module.css";
 
@@ -56,7 +57,12 @@ export function AuditTeaserSection() {
         {/* Image + CTA */}
         <div className={styles.bottom}>
           <div className={styles.imagePlaceholder} aria-hidden="true">
-            {/* Pool reflection / architectural detail */}
+            <Image
+              src="/images/website/sections/pool-afternoon--section--16x9.jpg"
+              alt="Boutique hotel pool at late afternoon, stone surround, still water reflecting the sky"
+              fill
+              style={{ objectFit: "cover" }}
+            />
           </div>
           <div className={styles.bottomContent}>
             <blockquote className={styles.quote}>

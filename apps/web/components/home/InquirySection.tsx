@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./InquirySection.module.css";
 
@@ -21,7 +22,12 @@ export function InquirySection() {
         </div>
 
         <div className={styles.decoration} aria-hidden="true">
-          {/* Architectural image - light through window, quiet */}
+          <Image
+            src="/images/website/details/linen-curtain--detail--1x1.jpg"
+            alt="White linen curtain billowing through an open Mediterranean window"
+            fill
+            style={{ objectFit: "cover" }}
+          />
         </div>
 
       </div>

@@ -1,16 +1,23 @@
+import Image from "next/image";
 import Link from "next/link";
+import { getImageById } from "@/lib/images";
 import styles from "./HeroSection.module.css";
+
+const heroImage = getImageById("facade-golden-hour")!;
 
 export function HeroSection() {
   return (
     <section className={styles.hero} aria-label="Hero">
       {/* Full-bleed image */}
       <div className={styles.imageWrapper}>
-        {/* When Sanity is live, this becomes a Next.js <Image> from CMS */}
-        <div className={styles.imagePlaceholder} aria-hidden="true">
-          {/* Placeholder: architectural hotel photography, golden hour, stone facade */}
-          <div className={styles.imagePlaceholderInner} />
-        </div>
+        <Image
+          src={heroImage.src}
+          alt={heroImage.alt}
+          fill
+          priority
+          className={styles.image}
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
         <div className={styles.imageOverlay} aria-hidden="true" />
       </div>
 

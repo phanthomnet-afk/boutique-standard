@@ -115,12 +115,10 @@
 }
 
 .imagePlaceholder {
+  position: relative;
   aspect-ratio: 4 / 3;
-  background: var(--color-bg-tertiary);
-  border: 0.5px solid var(--color-border);
+  overflow: hidden;
 }
-
-/* Replace with actual image styling */
 
 .bottomContent {
   display: flex;

@@ -48,7 +48,7 @@ export function JournalStripSection() {
         <div className={styles.grid}>
           {SEED_ARTICLES.map((article, i) => (
             <Link key={article.slug} href={`/journal/${article.slug}`} className={styles.article}>
-              <div className={styles.articleImagePlaceholder} aria-hidden="true" />
+              <div className={styles.articleImagePlaceholder} aria-hidden="true" data-image-slot={`journal-article-${i + 1}`} />
               <div className={styles.articleContent}>
                 <p className={styles.articleCategory}>{article.category}</p>
                 <h3 className={styles.articleTitle}>{article.title}</h3>

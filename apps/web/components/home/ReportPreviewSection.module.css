@@ -61,9 +61,10 @@
 }
 
 .cardImage {
+  position: relative;
   flex: 1;
   min-height: 280px;
-  background: var(--color-bg-tertiary);
+  overflow: hidden;
 }
 
 .propertyMeta {

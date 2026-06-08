@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./ReportPreviewSection.module.css";
 
@@ -43,8 +44,13 @@ export function ReportPreviewSection() {
 
           {/* Left: property info + image */}
           <div className={styles.cardLeft}>
-            <div className={styles.cardImage} aria-hidden="true">
-              {/* Stone facade, Mediterranean, golden hour */}
+            <div className={styles.cardImage}>
+              <Image
+                src="/images/website/sections/breakfast-table--section--16x9.jpg"
+                alt="Morning light through arched window onto a breakfast table set with local produce"
+                fill
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <div className={styles.propertyMeta}>
               <p className={styles.propertyName}>{CASE_DATA.property}</p>
