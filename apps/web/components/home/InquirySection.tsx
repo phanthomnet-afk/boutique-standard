@@ -23,7 +23,7 @@ export function InquirySection() {
 
         <div className={styles.decoration} aria-hidden="true">
           <Image
-            src="/images/website/details/linen-curtain--detail--1x1.jpg"
+            src="/images/website/details/linen-curtain--detail--1x1.png"
             alt="White linen curtain billowing through an open Mediterranean window"
             fill
             style={{ objectFit: "cover" }}

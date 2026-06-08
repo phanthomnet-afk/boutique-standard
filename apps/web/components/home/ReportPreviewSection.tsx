@@ -46,7 +46,7 @@ export function ReportPreviewSection() {
           <div className={styles.cardLeft}>
             <div className={styles.cardImage}>
               <Image
-                src="/images/website/sections/breakfast-table--section--16x9.jpg"
+                src="/images/website/sections/breakfast-table--section--16x9.png"
                 alt="Morning light through arched window onto a breakfast table set with local produce"
                 fill
                 style={{ objectFit: "cover" }}

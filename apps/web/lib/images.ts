@@ -12,7 +12,7 @@ export type SiteImage = {
 const IMAGES: SiteImage[] = [
   {
     id: "facade-golden-hour",
-    src: "/images/website/hero/facade-golden-hour--hero--16x9.jpg",
+    src: "/images/website/hero/facade-golden-hour--hero--16x9.png",
     alt: "Stone facade of a Mediterranean boutique hotel at golden hour",
     width: 1920,
     height: 1080,
@@ -22,7 +22,7 @@ const IMAGES: SiteImage[] = [
   },
   {
     id: "breakfast-table",
-    src: "/images/website/sections/breakfast-table--section--16x9.jpg",
+    src: "/images/website/sections/breakfast-table--section--16x9.png",
     alt: "Morning light through arched window onto a breakfast table set with local produce",
     width: 1920,
     height: 1080,
@@ -42,7 +42,7 @@ const IMAGES: SiteImage[] = [
   },
   {
     id: "brass-door-handle",
-    src: "/images/website/details/brass-door-handle--detail--1x1.jpg",
+    src: "/images/website/details/brass-door-handle--detail--1x1.png",
     alt: "Aged brass door handle on a whitewashed wall",
     width: 1080,
     height: 1080,
@@ -52,7 +52,7 @@ const IMAGES: SiteImage[] = [
   },
   {
     id: "stone-corridor",
-    src: "/images/website/details/stone-corridor--detail--1x1.jpg",
+    src: "/images/website/details/stone-corridor--detail--1x1.png",
     alt: "Stone hotel corridor with a single stripe of afternoon light on the floor",
     width: 1080,
     height: 1080,
@@ -62,7 +62,7 @@ const IMAGES: SiteImage[] = [
   },
   {
     id: "linen-curtain",
-    src: "/images/website/details/linen-curtain--detail--1x1.jpg",
+    src: "/images/website/details/linen-curtain--detail--1x1.png",
     alt: "White linen curtain billowing through an open Mediterranean window",
     width: 1080,
     height: 1080,
@@ -72,7 +72,7 @@ const IMAGES: SiteImage[] = [
   },
   {
     id: "espresso-windowsill",
-    src: "/images/website/details/espresso-windowsill--detail--1x1.jpg",
+    src: "/images/website/details/espresso-windowsill--detail--1x1.png",
     alt: "Single espresso cup on a stone windowsill with a garden beyond",
     width: 1080,
     height: 1080,
