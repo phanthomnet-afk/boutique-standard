@@ -1,0 +1,541 @@
+/* Maison du Rivage case report - page.module.css */
+
+.article {
+  padding-top: 72px;
+}
+
+/* Section layout utilities */
+.sectionInner {
+  max-width: var(--wide-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.375rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin-bottom: 2.5rem;
+}
+
+/* Header */
+.header {
+  background: var(--color-text);
+  color: var(--color-text-inverse);
+  padding: clamp(4rem, 8vh, 7rem) 0 clamp(3rem, 6vh, 5rem);
+}
+
+.headerInner {
+  max-width: var(--wide-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.backLink {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 240, 0.45);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.backLink:hover {
+  color: rgba(248, 245, 240, 0.8);
+}
+
+.headerDivider {
+  display: block;
+  width: 1.5rem;
+  height: 0.5px;
+  background: rgba(248, 245, 240, 0.2);
+}
+
+.headerCategory {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 240, 0.35);
+}
+
+.headerTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--color-text-inverse);
+}
+
+.headerLocation {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(248, 245, 240, 0.5);
+}
+
+.headerScores {
+  display: flex;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-top: 1rem;
+  padding-top: 2rem;
+  border-top: 0.5px solid rgba(248, 245, 240, 0.12);
+  flex-wrap: wrap;
+}
+
+.scoreBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.scoreValue {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--color-text-inverse);
+  line-height: 1;
+}
+
+.scoreMax {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(248, 245, 240, 0.35);
+  margin-left: 0.125rem;
+  vertical-align: top;
+}
+
+.scoreLabel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(248, 245, 240, 0.45);
+  margin-top: 0.25rem;
+}
+
+.scoreBand {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+}
+
+/* Promise section */
+.promise {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: var(--color-bg-secondary);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.promiseQuote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text);
+  max-width: 640px;
+  border-left: 1.5px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+/* Executive summary */
+.executive {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--color-bg);
+}
+
+.executiveHeadline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  color: var(--color-text);
+  max-width: 640px;
+  margin-bottom: 1.5rem;
+}
+
+.executiveBody {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.findingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 620px;
+}
+
+.finding {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.findingLine {
+  flex-shrink: 0;
+  display: block;
+  width: 1.5rem;
+  height: 0.5px;
+  background: var(--color-accent);
+  margin-top: 0.65em;
+}
+
+/* Score grid */
+.scoreGrid {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--color-bg-secondary);
+}
+
+.dimensionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 580px;
+}
+
+.dimension {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dimensionBar {
+  height: 2px;
+  background: var(--color-border);
+  width: 100%;
+  position: relative;
+}
+
+.dimensionFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--color-accent);
+  transition: width 1s var(--ease);
+}
+
+.dimensionMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.dimensionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+}
+
+.dimensionScore {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--color-text);
+}
+
+/* Journey stage */
+.journeyStage {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--color-bg);
+}
+
+.stageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stageTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.stageScore {
+  flex-shrink: 0;
+}
+
+.stageScoreValue {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.stageScoreMax {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-left: 0.125rem;
+}
+
+.stageNarrative {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+.stageColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 0.5px solid var(--color-border);
+}
+
+.stageColumn {}
+
+.stageColumnLabel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.stageList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stageListItem {
+  display: flex;
+  align-items: baseline;
+  gap: 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.stageListBullet {
+  flex-shrink: 0;
+  display: block;
+  width: 0.875rem;
+  height: 0.5px;
+  background: var(--color-border);
+  margin-top: 0.65em;
+}
+
+/* Locked section */
+.lockedSection {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--color-bg-secondary);
+}
+
+.lockedWrapper {
+  position: relative;
+  border: 0.5px solid var(--color-border);
+}
+
+.lockedContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5px;
+  background: var(--color-border);
+  padding: 0;
+  filter: blur(3px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.lockedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 2rem;
+  background: var(--color-bg-secondary);
+}
+
+.lockedBar {
+  height: 0.5px;
+  background: var(--color-border);
+  width: 3rem;
+}
+
+.lockedText {
+  height: 0.875rem;
+  background: var(--color-border-light);
+  width: 100%;
+  border-radius: 0;
+}
+
+.lockedOverlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(248, 245, 240, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--page-x);
+}
+
+.lockedOverlayContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  max-width: 360px;
+}
+
+.lockedEyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.lockedHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.lockedCta {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse);
+  background: var(--color-text);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  margin-top: 0.5rem;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.lockedCta:hover {
+  background: var(--color-accent);
+}
+
+/* Final CTA */
+.pageCta {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+  background: var(--color-text);
+}
+
+.pageCtaHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text-inverse);
+  margin-bottom: 1rem;
+  max-width: 520px;
+}
+
+.pageCtaBody {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(248, 245, 240, 0.6);
+  max-width: 440px;
+  margin-bottom: 2rem;
+}
+
+.pageCtaButton {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: var(--color-bg);
+  text-decoration: none;
+  padding: 0.875rem 1.75rem;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+
+.pageCtaButton:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+@media (max-width: 768px) {
+  .headerScores {
+    gap: 1.5rem;
+  }
+
+  .stageColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

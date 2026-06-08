@@ -1,0 +1,157 @@
+/* JournalStripSection.module.css */
+
+.section {
+  padding: clamp(6rem, 12vw, 9rem) 0;
+  background: var(--color-bg-secondary);
+  border-top: 0.5px solid var(--color-border);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.allLink {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-bottom: 0.25rem;
+  transition: gap var(--dur-fast) var(--ease);
+}
+
+.allLink::after {
+  content: "";
+  display: block;
+  width: 1.25rem;
+  height: 0.5px;
+  background: var(--color-accent);
+  transition: width var(--dur-fast) var(--ease);
+}
+
+.allLink:hover::after {
+  width: 2rem;
+}
+
+/* Grid */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5px;
+  background: var(--color-border);
+}
+
+/* Article card */
+
+.article {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  background: var(--color-bg-secondary);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.article:hover {
+  background: var(--color-bg);
+}
+
+.article:hover .articleTitle {
+  color: var(--color-accent);
+}
+
+.articleImagePlaceholder {
+  aspect-ratio: 16 / 9;
+  background: var(--color-bg-tertiary);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.articleContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.articleCategory {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.articleTitle {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.articleExcerpt {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  flex: 1;
+}
+
+.articleMeta {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+}

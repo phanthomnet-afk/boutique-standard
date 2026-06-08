@@ -1,0 +1,17 @@
+{
+  "name": "@tbs/pdf-engine",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "generate": "ts-node src/generate.ts",
+    "generate:mdr": "ts-node src/generate.ts --report=maison-du-rivage"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0",
+    "@tbs/schema": "*"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.0",
+    "typescript": "^5.4.0"
+  }
+}

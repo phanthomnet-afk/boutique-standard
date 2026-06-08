@@ -1,0 +1,115 @@
+/* FaqSection.module.css */
+
+.section {
+  padding: clamp(6rem, 12vw, 9rem) 0;
+  background: var(--color-bg);
+}
+
+.inner {
+  max-width: var(--wide-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5px;
+  background: var(--color-border);
+  border: 0.5px solid var(--color-border);
+}
+
+.item {
+  background: var(--color-bg);
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.4;
+  user-select: none;
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.question::-webkit-details-marker {
+  display: none;
+}
+
+.question:hover {
+  background: var(--color-bg-secondary);
+}
+
+.icon {
+  flex-shrink: 0;
+  position: relative;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.icon::before,
+.icon::after {
+  content: "";
+  position: absolute;
+  background: var(--color-text-muted);
+  transition: transform var(--dur-normal) var(--ease), opacity var(--dur-normal) var(--ease);
+}
+
+.icon::before {
+  width: 100%;
+  height: 0.5px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.icon::after {
+  width: 0.5px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.item[open] .icon::after {
+  transform: translateX(-50%) rotate(90deg);
+  opacity: 0;
+}
+
+.answer {
+  padding: 0 2rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+}
+
+@media (max-width: 640px) {
+  .question {
+    padding: 1.25rem 1.25rem;
+  }
+
+  .answer {
+    padding: 0 1.25rem 1.5rem;
+  }
+}

@@ -1,0 +1,180 @@
+/* Header.module.css */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background-color 500ms var(--ease), border-color 500ms var(--ease);
+}
+
+.solid {
+  background-color: var(--color-bg);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.transparent {
+  background-color: transparent;
+  border-bottom: 0.5px solid transparent;
+}
+
+.scrolled {
+  background-color: rgba(248, 245, 240, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+  height: 72px;
+}
+
+/* Wordmark */
+
+.wordmark {
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.wordmarkText {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* Desktop nav */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.navLink:hover {
+  color: var(--color-text);
+}
+
+.ctaButton {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-text);
+  text-decoration: none;
+  padding: 0.625rem 1.25rem;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  background: var(--color-accent);
+}
+
+/* Mobile menu button */
+
+.menuButton {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menuLine {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--color-text);
+  transition: transform var(--dur-normal) var(--ease);
+}
+
+/* Mobile drawer */
+
+.mobileMenu {
+  position: fixed;
+  inset: 0;
+  top: 72px;
+  background: var(--color-bg);
+  z-index: 99;
+  padding: 2rem var(--page-x);
+}
+
+.mobileNavList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobileNavLink {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 1rem 0;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.mobileCta {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg);
+  background: var(--color-text);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobileMenu {
+    display: none;
+  }
+}

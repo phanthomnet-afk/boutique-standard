@@ -1,0 +1,523 @@
+{
+  "id": "mdr-001",
+  "slug": "maison-du-rivage",
+  "language": "en",
+  "isPublicCase": true,
+  "clientToken": "REPLACE_WITH_HASHED_TOKEN",
+
+  "property": {
+    "name": "Maison du Rivage",
+    "location": "Antibes, French Riviera",
+    "country": "France",
+    "category": "coastal-retreat",
+    "starRating": 4,
+    "roomCount": 28,
+    "averageRateEur": 420,
+    "corePromise": "A refined coastal retreat where thoughtful hospitality and Riviera charm create an effortless sense of escape.",
+    "website": "https://example.com"
+  },
+
+  "guestProfile": {
+    "primaryTypes": [
+      "Couples aged 30–65 on leisure travel",
+      "Design-conscious travellers",
+      "Repeat visitors to Southern Europe seeking alternatives to crowded hotspots",
+      "Guests who prioritise atmosphere over facilities"
+    ],
+    "coreExpectations": [
+      "Effortless arrival — calm, clearly guided",
+      "Immediate emotional sense of place",
+      "Personalised, warm service",
+      "Consistent design and material quality",
+      "Strong local identity throughout"
+    ],
+    "motivations": [
+      "Authenticity over status",
+      "Intimacy over scale",
+      "Sense of genuine discovery",
+      "Privacy and withdrawal from public luxury circuit"
+    ]
+  },
+
+  "auditMetadata": {
+    "auditDate": "2027-06-14",
+    "reportDate": "2027-06-28",
+    "reportVersion": "1.0",
+    "auditorProfile": "Couple, first-time guests, design-conscious leisure travellers",
+    "stayDuration": 2,
+    "roomCategory": "Superior Room with terrace",
+    "scope": [
+      "Pre-arrival communication",
+      "Arrival and check-in",
+      "Room experience",
+      "Breakfast and dining",
+      "Pool and outdoor facilities",
+      "Service culture throughout",
+      "Departure experience",
+      "Post-stay communication"
+    ]
+  },
+
+  "overallAlignmentScore": { "value": 8.2, "band": "strong", "note": "Strong alignment between promise and delivery, with clear refinement opportunities at transitional moments." },
+  "experienceScore":       { "value": 8.4, "band": "strong", "note": "Core stay experience consistently strong; bookends need elevation." },
+  "continuityScore":       { "value": 8.1, "band": "strong", "note": "Atmospheric continuity high; service narrative continuity weaker." },
+  "memoryImpactScore":     { "value": 7.9, "band": "strong", "note": "Strong ambient memory; structured narrative memory underdeveloped." },
+
+  "promiseAnalysis": {
+    "coreStatement": "A refined coastal retreat where thoughtful hospitality and Riviera charm create an effortless sense of escape.",
+    "dimensions": [
+      {
+        "label": "Discretion and privacy",
+        "score": { "value": 9.1, "band": "exceptional", "note": "Successfully delivered throughout the property." },
+        "observation": "The property consistently communicates and delivers a sense of privacy and calm. No moment during the stay felt exposed or performative."
+      },
+      {
+        "label": "Sense of place",
+        "score": { "value": 8.8, "band": "strong", "note": "Materials, cuisine, and staff knowledge reinforce Riviera identity." },
+        "observation": "Architecture, materials, and cuisine create a coherent Mediterranean identity without becoming theatrical."
+      },
+      {
+        "label": "Personal attention",
+        "score": { "value": 7.6, "band": "strong", "note": "Strong intentions visible; execution varies by department." },
+        "observation": "Service warmth is high but personalisation is inconsistent across touchpoints. Dining and reception exceed; poolside underdelivers."
+      },
+      {
+        "label": "Effortless arrival",
+        "score": { "value": 7.2, "band": "strong", "note": "Wayfinding gap creates early hesitation." },
+        "observation": "Limited signage between parking and reception creates uncertainty during what should be the first moment of confidence."
+      }
+    ],
+    "overallAlignment": { "value": 8.6, "band": "strong", "note": "Promise is clear, believable, and well-communicated." },
+    "narrative": "Maison du Rivage communicates its promise with restraint and authenticity. The challenge is not in the communication — it is in operational consistency at the transitional moments guests remember most."
+  },
+
+  "experienceDNA": {
+    "warmth": 9.0,
+    "privacy": 8.5,
+    "locality": 8.8,
+    "design": 8.2,
+    "luxuryExpression": 7.9,
+    "serviceIntimacy": 9.1,
+    "calmness": 9.0,
+    "energy": 6.5
+  },
+
+  "journey": {
+    "discovery": {
+      "key": "discovery",
+      "label": "Discovery & Booking",
+      "score": { "value": 8.6, "band": "strong", "note": "Promise well communicated across channels." },
+      "narrative": "The property's online presence is calm, editorial, and consistent. Visual identity reinforces the Riviera positioning without overclaiming.",
+      "strengths": ["Consistent visual identity across website and booking platforms", "Honest and understated photography", "Clear positioning — no overpromising"],
+      "frictionPoints": ["Limited information about parking and access in pre-booking materials"],
+      "guestMemoryImpact": "First impression of the brand is elegant and trustworthy.",
+      "recommendations": []
+    },
+    "preArrival": {
+      "key": "preArrival",
+      "label": "Pre-Arrival Communication",
+      "score": { "value": 7.2, "band": "strong", "note": "Room for improvement in orientation guidance." },
+      "narrative": "Pre-arrival communication is warm in tone but light on practical orientation. Guests arrive without clear guidance on parking, walking route, or check-in logistics.",
+      "strengths": ["Warm tone in confirmation emails", "Appropriate frequency — not intrusive"],
+      "frictionPoints": ["No arrival map or parking instructions", "No walking route from parking to reception", "No practical property orientation"],
+      "guestMemoryImpact": "Guests arrive with good feeling but uncertain logistics.",
+      "recommendations": [
+        {
+          "id": "rec-pre-01",
+          "title": "Pre-arrival welcome pack",
+          "observation": "Guests receive no practical orientation before arrival.",
+          "guestImpact": "First-time guests experience unnecessary uncertainty on arrival day.",
+          "suggestion": "Create a pre-arrival email with arrival map, parking instructions, walking route, and brief property orientation.",
+          "expectedOutcome": "Reduced arrival friction. Guest confidence begins before the car door opens.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 1,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "arrival": {
+      "key": "arrival",
+      "label": "Arrival Experience",
+      "score": { "value": 7.4, "band": "strong", "note": "Warm reception; wayfinding gap creates early hesitation." },
+      "narrative": "The arrival experience introduces uncertainty that stands in contrast to the effortless retreat the property promises. The parking area is approximately 120 metres from reception and partially obscured. No visual landmark anchors the first impression. Upon reaching reception, the experience transforms immediately — warm, efficient, genuine.",
+      "strengths": ["Immediate and warm reception greeting", "Efficient check-in — no unnecessary formality", "Friendly and natural tone throughout", "Local recommendations offered proactively"],
+      "frictionPoints": ["Limited signage from street to building", "Walking route from parking not clearly marked", "No visual arrival landmark", "Parking instructions not communicated before arrival"],
+      "guestMemoryImpact": "The hesitation before reaching reception creates a lasting impression of slight disorientation that the warm welcome works to overcome.",
+      "recommendations": [
+        {
+          "id": "rec-arr-01",
+          "title": "Discreet directional signage",
+          "observation": "No visual guidance between parking area and reception.",
+          "guestImpact": "First impressions diluted — trust delayed, not instant.",
+          "suggestion": "Install two or three discreet, property-appropriate markers guiding guests from car park to entrance. Stone or brass — consistent with brand identity.",
+          "expectedOutcome": "Immediate improvement to first impressions. Arrival uncertainty eliminated.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 1,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "room": {
+      "key": "room",
+      "label": "Room Experience",
+      "score": { "value": 8.7, "band": "strong", "note": "Genuine design excellence. Clear alignment between promise and delivery." },
+      "narrative": "The room experience represents the clearest alignment between promise and delivery in this audit. Natural materials, morning light, and spatial restraint communicate value without excess. The handwritten note accompanying regional olive oil and citrus preserves created immediate emotional connection to place.",
+      "strengths": ["High material quality throughout", "Exceptional natural light management", "Genuine sense of quiet — no noise intrusion", "Locally-sourced welcome amenities with handwritten note", "Quality of bedding and sleep environment"],
+      "frictionPoints": ["Minor functional friction with controls and storage hierarchy", "No room orientation card explaining minibar or local context"],
+      "guestMemoryImpact": "Morning light, quiet, quality of bedding, and the specific local welcome amenities. These translate directly into positive review language.",
+      "recommendations": [
+        {
+          "id": "rec-room-01",
+          "title": "Room orientation card",
+          "observation": "No narrative layer explains the minibar selections, local producers, or property story.",
+          "guestImpact": "Missed opportunity to deepen sense of place at the most private moment of the stay.",
+          "suggestion": "A single card — beautifully designed — presenting local recommendations, minibar producer context, and a fragment of the property's own story.",
+          "expectedOutcome": "Low cost. High memorability. Strengthens the local identity narrative.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 3,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "dining": {
+      "key": "dining",
+      "label": "Dining Experience",
+      "score": { "value": 9.1, "band": "exceptional", "note": "Strongest element of the stay. Signature asset." },
+      "narrative": "The dining experience — and the breakfast service in particular — is the defining strength of Maison du Rivage. Guests are greeted promptly, coffee appears within moments of being seated, and service remains attentive without creating pressure. Staff demonstrate confident, informal knowledge of local producers. The morning at Maison du Rivage feels like the South of France at its most essential.",
+      "strengths": ["Exceptional breakfast execution", "Strong sense of Mediterranean place through product selection", "Staff knowledge of local producers and ingredients", "Natural service timing — attentive without intrusive", "Calm dining atmosphere with quality light"],
+      "frictionPoints": ["Afternoon and evening poolside service does not match breakfast quality", "No signature breakfast element unique to the property"],
+      "guestMemoryImpact": "Breakfast on the terrace is the single most likely moment to appear in reviews. Multi-sensory and deeply associative with the property.",
+      "recommendations": [
+        {
+          "id": "rec-din-01",
+          "title": "Signature breakfast ritual",
+          "observation": "The property lacks one distinctive element guests can associate specifically with Maison du Rivage.",
+          "guestImpact": "Without a signature, the property is memorable for atmosphere but not for a specific defining experience.",
+          "suggestion": "Develop one recurring signature breakfast element — a house citrus pastry, a Riviera tasting board, a specific seasonal preparation — genuinely rooted in location.",
+          "expectedOutcome": "Stronger memory formation. Increased social sharing. Greater differentiation.",
+          "difficulty": "medium",
+          "estimatedCost": "medium",
+          "priority": 4,
+          "isQuickWin": false
+        }
+      ]
+    },
+    "facilities": {
+      "key": "facilities",
+      "label": "Facilities",
+      "score": { "value": 7.8, "band": "strong", "note": "Strong design; service layer inconsistent." },
+      "narrative": "The pool and outdoor spaces function as the emotional centre of the property during the day. The atmosphere remains calm and guests appear comfortable spending extended periods without feeling overcrowded. The gap exists in the service layer — the experience feels passive rather than curated.",
+      "strengths": ["Pool design cohesive with brand identity", "Strong sense of privacy in outdoor spaces", "Well-maintained garden and terrace areas", "No overcrowding sensation"],
+      "frictionPoints": ["Poolside service reactive rather than proactive — guests must seek attention", "No light-touch guest activation moments throughout the day"],
+      "guestMemoryImpact": "Guests remember the pool atmosphere positively but note the absence of being looked after.",
+      "recommendations": [
+        {
+          "id": "rec-fac-01",
+          "title": "Proactive poolside service rounds",
+          "observation": "Guests must seek staff attention rather than being approached.",
+          "guestImpact": "Interrupts the effortless luxury atmosphere the property promises.",
+          "suggestion": "Define minimum 20-minute service intervals during operating hours. Beverage awareness as a standard expectation, not optional.",
+          "expectedOutcome": "Improved service continuity. More premium perception during the most socially visible part of the experience.",
+          "difficulty": "medium",
+          "estimatedCost": "low",
+          "priority": 3,
+          "isQuickWin": false
+        }
+      ]
+    },
+    "serviceCulture": {
+      "key": "serviceCulture",
+      "label": "Service Culture",
+      "score": { "value": 8.9, "band": "exceptional", "note": "The property's most defensible asset. Fragile — requires active protection." },
+      "narrative": "Service culture is consistently the most difficult dimension of hospitality to replicate and the most valuable to protect. At Maison du Rivage, it is the property's greatest differentiator. Every staff interaction observed demonstrated the same underlying qualities: warmth delivered without performance, attentiveness without hovering, local knowledge offered with genuine confidence.",
+      "strengths": ["Beverage preferences remembered and anticipated at breakfast", "Personalised and specific local recommendations offered unprompted", "Natural and informal conversation initiated where appropriate", "Maintenance request resolved within 90 minutes with follow-up", "Team adapts approach to individual guest — formal or informal as needed"],
+      "frictionPoints": ["Service narrative does not carry across all departments consistently", "Poolside team operates at lower engagement level than dining and reception"],
+      "guestMemoryImpact": "Feeling personally recognised. Specific staff interactions. Natural conversations. These form the emotional core of positive reviews.",
+      "recommendations": [
+        {
+          "id": "rec-svc-01",
+          "title": "Cross-department guest story awareness",
+          "observation": "Guest preferences and context are not systematically shared between departments.",
+          "guestImpact": "Reduces perceived personalisation — guests must re-establish context with each team.",
+          "suggestion": "Simple daily handover briefing covering known guest details, preferences noted, and any relevant context from prior interactions.",
+          "expectedOutcome": "Improved continuity of personalisation across stay. Guests feel remembered throughout, not only at reception.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 2,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "departure": {
+      "key": "departure",
+      "label": "Departure Experience",
+      "score": { "value": 6.9, "band": "acceptable", "note": "Efficient but emotionally neutral. Requires elevation." },
+      "narrative": "Checkout is efficient but the journey ends as a transaction. There is no memorable final interaction or gesture. Final moments disproportionately influence overall memory and review sentiment — and this is currently the weakest point of the Maison du Rivage journey.",
+      "strengths": ["Efficient and frictionless checkout process"],
+      "frictionPoints": ["No farewell gesture or ritual", "No personalised acknowledgement of the stay", "No invitation to return or create continued connection", "Last impression is neutral, not warm"],
+      "guestMemoryImpact": "The absence of a departure ritual means the strongest recent memory is the transaction, not the stay. This affects review tone and return intent.",
+      "recommendations": [
+        {
+          "id": "rec-dep-01",
+          "title": "Departure ritual",
+          "observation": "The journey currently ends as a transaction rather than a conclusion.",
+          "guestImpact": "Final memory is weak. Missed opportunity to strengthen repeat intent and review sentiment.",
+          "suggestion": "A handwritten farewell card, a small local gift (citrus preserves, olive oil — consistent with welcome), or a specific personalised acknowledgement from a team member the guest connected with.",
+          "expectedOutcome": "Stronger emotional closure. Improved review sentiment. Higher repeat visitation intent.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 2,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "postStay": {
+      "key": "postStay",
+      "label": "Post-Stay Communication",
+      "score": { "value": 7.5, "band": "strong", "note": "Tone appropriate; timing and personalisation could improve." },
+      "narrative": "Post-stay communication is present and appropriately toned. An opportunity exists to make follow-up feel more personal and less procedural.",
+      "strengths": ["Appropriate tone — not intrusive", "Review request well-timed"],
+      "frictionPoints": ["Generic in content — no reference to specific stay details", "No personalised follow-up from team members"],
+      "guestMemoryImpact": "Minimal — the communication doesn't deepen the emotional connection.",
+      "recommendations": []
+    }
+  },
+
+  "continuityMapData": [
+    { "stage": "discovery",     "promiseScore": 8.6, "experienceScore": 8.6, "memoryScore": 8.2 },
+    { "stage": "booking",       "promiseScore": 8.6, "experienceScore": 8.4, "memoryScore": 7.8 },
+    { "stage": "preArrival",    "promiseScore": 8.5, "experienceScore": 7.2, "memoryScore": 7.0 },
+    { "stage": "arrival",       "promiseScore": 8.5, "experienceScore": 7.4, "memoryScore": 7.6 },
+    { "stage": "room",          "promiseScore": 8.5, "experienceScore": 8.7, "memoryScore": 9.0 },
+    { "stage": "dining",        "promiseScore": 8.0, "experienceScore": 9.1, "memoryScore": 9.4 },
+    { "stage": "facilities",    "promiseScore": 8.0, "experienceScore": 7.8, "memoryScore": 7.5 },
+    { "stage": "serviceCulture","promiseScore": 8.5, "experienceScore": 8.9, "memoryScore": 9.0 },
+    { "stage": "departure",     "promiseScore": 8.5, "experienceScore": 6.9, "memoryScore": 7.0 },
+    { "stage": "postStay",      "promiseScore": 8.0, "experienceScore": 7.5, "memoryScore": 7.2 }
+  ],
+
+  "misalignments": [
+    {
+      "id": "mis-01",
+      "title": "Arrival orientation",
+      "promise": "Effortless arrival — calm entry into a private retreat",
+      "reality": "Unclear wayfinding from parking creates hesitation and uncertainty before first interaction",
+      "guestImpact": "First impressions diluted. Trust is delayed, not instant.",
+      "severity": "medium",
+      "recommendation": "Pre-arrival welcome package with map and directional signage between parking and entrance."
+    },
+    {
+      "id": "mis-02",
+      "title": "Departure experience",
+      "promise": "A complete and coherent hospitality journey from arrival through farewell",
+      "reality": "Departure is efficient but emotionally neutral — the journey ends as a transaction",
+      "guestImpact": "Final memory is weak. Missed opportunity to strengthen repeat intent and review sentiment.",
+      "severity": "high",
+      "recommendation": "Introduce a departure ritual — handwritten farewell, local gift, or personalised acknowledgement."
+    },
+    {
+      "id": "mis-03",
+      "title": "Poolside service consistency",
+      "promise": "Seamless, attentive hospitality throughout the property",
+      "reality": "Poolside service is reactive rather than proactive — guests must seek attention",
+      "guestImpact": "Interrupts the effortless luxury atmosphere. Breaks the spell the room and dining create.",
+      "severity": "medium",
+      "recommendation": "Define proactive service intervals — 20-minute rounds minimum, beverage awareness standard."
+    }
+  ],
+
+  "memoryAnchors": [
+    {
+      "moment": "Breakfast on the terrace",
+      "description": "Strong multi-sensory experience — light, local food, attentive service. High likelihood of review mention.",
+      "type": "positive",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "Personalised welcome amenities",
+      "description": "Handwritten note and local olive oil and citrus preserves created immediate trust and emotional connection.",
+      "type": "positive",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "Staff conversations",
+      "description": "Specific, informal exchanges with team members — local recommendations, natural warmth — created a feeling of genuine hospitality.",
+      "type": "positive",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "Morning light in the room",
+      "description": "Quality of natural illumination created a lasting sensory memory of comfort and calm.",
+      "type": "positive",
+      "likelyReviewMention": false
+    },
+    {
+      "moment": "Arrival uncertainty",
+      "description": "The hesitation before reaching reception creates a lasting impression of slight disorientation.",
+      "type": "negative",
+      "likelyReviewMention": false
+    },
+    {
+      "moment": "Poolside inattentiveness",
+      "description": "Having to request service interrupts the passive luxury atmosphere.",
+      "type": "negative",
+      "likelyReviewMention": false
+    },
+    {
+      "moment": "Transactional departure",
+      "description": "Checking out without a memorable farewell leaves the journey ending on a neutral note.",
+      "type": "negative",
+      "likelyReviewMention": false
+    }
+  ],
+
+  "protectedElements": [
+    {
+      "element": "Human warmth",
+      "rationale": "The authenticity of staff interactions is unusual and genuinely difficult to replicate. It is a cultural quality that reflects how the team was hired and how the property is led.",
+      "priority": "high",
+      "riskIfLost": "The moment it becomes scripted, it ceases to exist. This would be immediately visible in review sentiment."
+    },
+    {
+      "element": "Sense of place",
+      "rationale": "The property succeeds in communicating that it belongs to the French Riviera — not as a brand exercise but as a genuine expression of place.",
+      "priority": "high",
+      "riskIfLost": "Future renovations or additions that prioritise trend over locality will make the property interchangeable with competitors."
+    },
+    {
+      "element": "Breakfast experience",
+      "rationale": "The single strongest moment of the stay. Consistently exceeds expectations and is the moment most likely to be referenced in reviews.",
+      "priority": "high",
+      "riskIfLost": "Simplification under occupancy pressure would remove the property's most defensible differentiator."
+    },
+    {
+      "element": "Quiet luxury positioning",
+      "rationale": "Luxury communicated through restraint — quality, design, atmosphere — aligns precisely with evolving guest expectations in the boutique segment.",
+      "priority": "high",
+      "riskIfLost": "Adding visible luxury signals would dilute rather than reinforce what makes the property distinctive."
+    }
+  ],
+
+  "neverChangeElements": [
+    {
+      "element": "Human warmth",
+      "rationale": "The authenticity of staff interactions is unusual and genuinely difficult to replicate. It is a cultural quality that reflects how the team was hired and how the property is led.",
+      "priority": "high",
+      "riskIfLost": "The moment it becomes scripted, it ceases to exist. This would be immediately visible in review sentiment."
+    },
+    {
+      "element": "Sense of place",
+      "rationale": "The property succeeds in communicating that it belongs to the French Riviera — not as a brand exercise but as a genuine expression of place.",
+      "priority": "high",
+      "riskIfLost": "Future renovations or additions that prioritise trend over locality will make the property interchangeable with competitors."
+    },
+    {
+      "element": "Breakfast experience",
+      "rationale": "The single strongest moment of the stay. Consistently exceeds expectations and is the moment most likely to be referenced in reviews.",
+      "priority": "high",
+      "riskIfLost": "Simplification under occupancy pressure would remove the property's most defensible differentiator."
+    },
+    {
+      "element": "Quiet luxury positioning",
+      "rationale": "Luxury communicated through restraint — quality, design, atmosphere — aligns precisely with evolving guest expectations in the boutique segment.",
+      "priority": "high",
+      "riskIfLost": "Adding visible luxury signals would dilute rather than reinforce what makes the property distinctive."
+    }
+  ],
+
+  "recommendations": [
+    {
+      "id": "rec-pre-01",
+      "title": "Pre-arrival welcome pack",
+      "observation": "Guests receive no practical orientation before arrival.",
+      "guestImpact": "First-time guests experience unnecessary uncertainty on arrival day.",
+      "suggestion": "Create a pre-arrival email with arrival map, parking instructions, walking route, and brief property orientation.",
+      "expectedOutcome": "Reduced arrival friction. Guest confidence begins before the car door opens.",
+      "difficulty": "low",
+      "estimatedCost": "low",
+      "priority": 1,
+      "isQuickWin": true
+    },
+    {
+      "id": "rec-dep-01",
+      "title": "Departure ritual",
+      "observation": "The journey currently ends as a transaction rather than a conclusion.",
+      "guestImpact": "Final memory is weak. Missed opportunity to strengthen repeat intent and review sentiment.",
+      "suggestion": "A handwritten farewell card, a small local gift, or a specific personalised acknowledgement.",
+      "expectedOutcome": "Stronger emotional closure. Improved review sentiment. Higher repeat visitation intent.",
+      "difficulty": "low",
+      "estimatedCost": "low",
+      "priority": 2,
+      "isQuickWin": true
+    },
+    {
+      "id": "rec-svc-01",
+      "title": "Cross-department guest story awareness",
+      "observation": "Guest preferences not systematically shared between departments.",
+      "guestImpact": "Reduces perceived personalisation.",
+      "suggestion": "Simple daily handover briefing covering known guest details and preferences.",
+      "expectedOutcome": "Guests feel remembered throughout, not only at reception.",
+      "difficulty": "low",
+      "estimatedCost": "low",
+      "priority": 2,
+      "isQuickWin": true
+    },
+    {
+      "id": "rec-fac-01",
+      "title": "Proactive poolside service",
+      "observation": "Guests must seek staff attention at the pool.",
+      "guestImpact": "Interrupts the effortless luxury atmosphere.",
+      "suggestion": "Define minimum 20-minute service intervals. Beverage awareness as a standard.",
+      "expectedOutcome": "Improved service continuity across the stay.",
+      "difficulty": "medium",
+      "estimatedCost": "low",
+      "priority": 3,
+      "isQuickWin": false
+    },
+    {
+      "id": "rec-din-01",
+      "title": "Signature breakfast ritual",
+      "observation": "No single element guests can associate specifically with Maison du Rivage.",
+      "guestImpact": "Memorable for atmosphere but not for a specific defining experience.",
+      "suggestion": "One recurring signature breakfast element — a house citrus pastry, a Riviera tasting board.",
+      "expectedOutcome": "Stronger memory formation. Increased social sharing. Greater differentiation.",
+      "difficulty": "medium",
+      "estimatedCost": "medium",
+      "priority": 4,
+      "isQuickWin": false
+    }
+  ],
+
+  "executiveSummary": "Maison du Rivage delivers a guest experience that is largely coherent, emotionally warm, and authentically connected to its Riviera setting. The property fulfils its core promise of privacy, calm, and understated hospitality for the majority of the guest journey. The most significant opportunities lie not in operational transformation but in the refinement of transitional moments — particularly the arrival sequence and the departure experience — where continuity between promise and delivery is currently weakest. Once guests are settled into the property, satisfaction increases substantially and remains strong throughout the stay.",
+
+  "closingAssessment": "Maison du Rivage succeeds because it understands something that many hospitality businesses miss entirely: guests rarely remember perfection. They remember how a place made them feel. The property's strongest quality is not its design, its location, or its facilities — all of which are excellent. It is the atmosphere that emerges from authentic hospitality and a clear, sustained sense of place. The most significant opportunities identified in this report do not require transformation. They require refinement — specifically, the improvement of the moments that currently interrupt an otherwise coherent guest experience. The strongest future version of Maison du Rivage is not a larger hotel, a more elaborate offering, or a more visible luxury experience. It is a more refined expression of what it already does exceptionally well.",
+
+  "scoreboard": {
+    "brandPromiseAlignment":  { "value": 8.6, "band": "strong",      "note": "Clear, consistent, believable." },
+    "preArrivalExperience":   { "value": 7.2, "band": "strong",      "note": "Orientation gap to address." },
+    "arrivalExperience":      { "value": 7.4, "band": "strong",      "note": "Wayfinding creates friction." },
+    "roomExperience":         { "value": 8.7, "band": "strong",      "note": "Design and detail excellent." },
+    "diningExperience":       { "value": 9.1, "band": "exceptional", "note": "Signature strength of property." },
+    "facilities":             { "value": 7.8, "band": "strong",      "note": "Poolside service inconsistency." },
+    "serviceCulture":         { "value": 8.9, "band": "exceptional", "note": "Most valuable asset." },
+    "experienceContinuity":   { "value": 8.1, "band": "strong",      "note": "Bookends need improvement." },
+    "departureExperience":    { "value": 6.9, "band": "acceptable",  "note": "Requires elevation." },
+    "overallGuestExperience": { "value": 8.2, "band": "strong",      "note": "Above category benchmark." }
+  },
+
+  "assets": [
+    { "id": "asset-cover",     "section": "cover",          "description": "Full-bleed exterior of boutique Mediterranean hotel at golden hour, warm light on stone facade", "aspectRatio": "16:9", "url": null },
+    { "id": "asset-arrival-1", "section": "arrival",        "description": "Parking entrance approach from street, minimal signage visible, walking path unclear", "aspectRatio": "16:9", "url": null },
+    { "id": "asset-arrival-2", "section": "arrival",        "description": "Reception desk — intimate, well-lit, materials consistent with property identity", "aspectRatio": "4:3", "url": null },
+    { "id": "asset-room-1",    "section": "room",           "description": "Room wide shot — natural light from Mediterranean windows, quality linen, considered furniture", "aspectRatio": "16:9", "url": null },
+    { "id": "asset-room-2",    "section": "room",           "description": "Welcome amenities — regional products, handwritten note, natural presentation", "aspectRatio": "4:3", "url": null },
+    { "id": "asset-room-3",    "section": "room",           "description": "Bathroom — quality materials, product selection, lighting detail", "aspectRatio": "4:3", "url": null },
+    { "id": "asset-dining-1",  "section": "dining",         "description": "Breakfast dining room — morning light, tables elegantly set, courtyard garden visible", "aspectRatio": "16:9", "url": null },
+    { "id": "asset-dining-2",  "section": "dining",         "description": "Signature local breakfast items — regional produce, seasonal selection", "aspectRatio": "4:3", "url": null },
+    { "id": "asset-pool-1",    "section": "facilities",     "description": "Pool area — elegant design, consistent with brand identity, natural stone surround", "aspectRatio": "16:9", "url": null },
+    { "id": "asset-service-1", "section": "serviceCulture", "description": "Reception interaction — staff engaged, natural body language, authentic connection", "aspectRatio": "4:3", "url": null }
+  ]
+}

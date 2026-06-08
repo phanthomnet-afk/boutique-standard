@@ -1,0 +1,105 @@
+/* PhilosophyMethodologySection.module.css */
+
+.section {
+  padding: clamp(6rem, 12vw, 9rem) 0;
+  background: var(--color-bg);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 5rem);
+}
+
+.header {
+  max-width: 640px;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+}
+
+.body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+}
+
+/* Pillars */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 0.5px solid var(--color-border);
+}
+
+.pillarTop {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.pillarNumber {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.pillarLabel {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.pillarDesc {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+}

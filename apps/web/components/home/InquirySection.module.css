@@ -1,0 +1,92 @@
+/* InquirySection.module.css */
+
+.section {
+  background: var(--color-text);
+  padding: clamp(6rem, 14vw, 10rem) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(4rem, 8vw, 8rem);
+  align-items: center;
+}
+
+/* Content */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 240, 0.45);
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text-inverse);
+}
+
+.body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(248, 245, 240, 0.65);
+  max-width: 460px;
+}
+
+.button {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: var(--color-bg);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  align-self: flex-start;
+}
+
+.button:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Decoration */
+
+.decoration {
+  aspect-ratio: 4 / 5;
+  background: rgba(248, 245, 240, 0.06);
+  border: 0.5px solid rgba(248, 245, 240, 0.1);
+}
+
+/* Replace with actual image */
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .decoration {
+    display: none;
+  }
+}
