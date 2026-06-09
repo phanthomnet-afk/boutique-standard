@@ -9,7 +9,10 @@
     "dev": "npm run dev --workspace=apps/web",
     "build": "npm run build --workspace=apps/web",
     "pdf": "npm run generate --workspace=packages/pdf-engine",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "checkpoint": "bash scripts/checkpoint.sh",
+    "restore": "bash scripts/restore.sh",
+    "snapshots": "git tag -l 'checkpoint/*' | sort -r"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
