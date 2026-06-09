@@ -1,0 +1,11 @@
+.body {
+  background: var(--color-journal-bg);
+  padding: 3rem 0 6rem;
+  border-top: 0.5px solid var(--color-border-light);
+}
+
+.column {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+}

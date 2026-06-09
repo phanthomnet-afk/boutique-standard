@@ -1,0 +1,4 @@
+.article {
+  background: var(--color-journal-bg);
+  min-height: 100vh;
+}

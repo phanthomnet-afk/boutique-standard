@@ -1,0 +1,37 @@
+.wrapper {
+  background: var(--color-journal-bg);
+  padding: 3rem 0 6rem;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-x);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 2rem;
+}
+
+.empty {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem var(--page-x);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

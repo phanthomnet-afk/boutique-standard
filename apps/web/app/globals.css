@@ -27,6 +27,10 @@
   --color-border:       #DDD8D0;
   --color-border-light: #EAE5DC;
 
+  /* Journal */
+  --color-journal-bg:           #FAFAF8;
+  --color-journal-bg-secondary: #F4F4F2;
+
   /* Typography */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans:  'DM Sans', 'Helvetica Neue', Arial, sans-serif;

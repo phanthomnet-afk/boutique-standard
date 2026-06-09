@@ -163,6 +163,112 @@
   margin-top: 2rem;
 }
 
+/* Dropdown */
+
+.hasDropdown {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg);
+  border: 0.5px solid var(--color-border);
+  padding: 0.625rem 0;
+  min-width: 240px;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--dur-normal) var(--ease),
+    transform var(--dur-normal) var(--ease);
+  transform: translateX(-50%) translateY(6px);
+  z-index: 200;
+}
+
+.hasDropdown:hover .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownInner {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownLink {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1.25rem;
+  transition:
+    color var(--dur-fast) var(--ease),
+    background-color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+
+.dropdownLink:hover {
+  color: var(--color-text);
+  background: var(--color-bg-secondary);
+}
+
+/* Mobile sub-menu */
+
+.mobileNavToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  border-bottom: 0.5px solid var(--color-border);
+  padding: 1rem 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobileToggleArrow {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 300;
+  display: inline-block;
+  transition: transform var(--dur-normal) var(--ease);
+}
+
+.mobileToggleArrow.expanded {
+  transform: rotate(45deg);
+}
+
+.mobileSub {
+  list-style: none;
+  padding: 0.5rem 0 1rem 1rem;
+  border-bottom: 0.5px solid var(--color-border);
+}
+
+.mobileSubLink {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.mobileSubLink:hover {
+  color: var(--color-text);
+}
+
 @media (max-width: 768px) {
   .nav {
     display: none;
