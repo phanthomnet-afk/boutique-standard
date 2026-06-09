@@ -9,7 +9,7 @@ const article: Article = {
   readingTime: 6,
   publishedAt: "2025-09-01",
   heroImage: {
-    src: "/images/journal/article-01--guest-changed--hero--16x9.png",
+    src: "/images/website/journal/article-01--guest-changed--hero--16x9.png",
     alt: "Empty boutique hotel terrace, two chairs facing a Mediterranean view at morning",
   },
   seo: {
@@ -84,7 +84,7 @@ const article: Article = {
     },
     {
       type: "image",
-      src: "/images/journal/article-01--personal-gesture--body--4x3.png",
+      src: "/images/website/journal/article-01--personal-gesture--body--4x3.png",
       alt: "Handwritten welcome note beside a small bowl of fresh figs",
       caption: "The gestures guests remember are almost never the expensive ones.",
       aspectRatio: "4:3",
@@ -123,7 +123,7 @@ const article: Article = {
     },
     {
       type: "image",
-      src: "/images/journal/article-01--generic-corridor--body--4x3.png",
+      src: "/images/website/journal/article-01--generic-corridor--body--4x3.png",
       alt: "A hotel corridor that could belong to any property",
       caption: "A corridor that could be anywhere. The guest notices.",
       aspectRatio: "4:3",

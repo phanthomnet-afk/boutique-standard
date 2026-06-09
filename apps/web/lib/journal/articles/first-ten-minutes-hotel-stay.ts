@@ -9,7 +9,7 @@ const article: Article = {
   readingTime: 5,
   publishedAt: "2025-09-15",
   heroImage: {
-    src: "/images/journal/article-02--arrival-driveway--hero--16x9.png",
+    src: "/images/website/journal/article-02--arrival-driveway--hero--16x9.png",
     alt: "Narrow stone driveway approaching a boutique hotel facade at late afternoon",
   },
   seo: {
@@ -87,7 +87,7 @@ const article: Article = {
     },
     {
       type: "image",
-      src: "/images/journal/article-02--reception-view--body--4x3.png",
+      src: "/images/website/journal/article-02--reception-view--body--4x3.png",
       alt: "Boutique hotel reception desk from the arriving guest's perspective",
       caption: "Reception from the arriving guest's perspective.",
       aspectRatio: "4:3",
@@ -127,7 +127,7 @@ const article: Article = {
     },
     {
       type: "image",
-      src: "/images/journal/article-02--room-threshold--body--4x3.png",
+      src: "/images/website/journal/article-02--room-threshold--body--4x3.png",
       alt: "Hotel room door slightly ajar, warm light visible beyond",
       caption: "By this point, the baseline is already set.",
       aspectRatio: "4:3",

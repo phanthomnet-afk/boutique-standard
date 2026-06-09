@@ -9,7 +9,7 @@ const article: Article = {
   readingTime: 7,
   publishedAt: "2025-10-01",
   heroImage: {
-    src: "/images/journal/article-03--character-corner--hero--16x9.png",
+    src: "/images/website/journal/article-03--character-corner--hero--16x9.png",
     alt: "Worn stone window seat with afternoon light, a corner that belongs to this place only",
   },
   seo: {
@@ -85,7 +85,7 @@ const article: Article = {
     },
     {
       type: "image",
-      src: "/images/journal/article-03--local-breakfast--body--4x3.png",
+      src: "/images/website/journal/article-03--local-breakfast--body--4x3.png",
       alt: "Boutique hotel breakfast with deeply local, irreplaceable details",
       caption:
         "Irreplaceable local detail. The first thing to disappear under operational pressure.",
@@ -127,7 +127,7 @@ const article: Article = {
     },
     {
       type: "image",
-      src: "/images/journal/article-03--over-designed--body--4x3.png",
+      src: "/images/website/journal/article-03--over-designed--body--4x3.png",
       alt: "A hotel space renovated into technical perfection but emotional absence",
       caption: "Technically correct. Emotionally absent.",
       aspectRatio: "4:3",
