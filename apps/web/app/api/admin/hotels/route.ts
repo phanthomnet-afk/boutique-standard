@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
+import { calculateIcpScore } from "@/lib/admin/icpScoring"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
@@ -20,7 +21,7 @@ export async function GET(req: NextRequest) {
   const [hotels, statusCounts] = await Promise.all([
     prisma.hotel.findMany({
       where,
-      orderBy: { updatedAt: "desc" },
+      orderBy: [{ icpScore: "desc" }, { updatedAt: "desc" }],
       include: {
         intelligence: {
           select: {
@@ -58,6 +59,13 @@ export async function POST(req: NextRequest) {
     )
   }
 
+  const icpResult = calculateIcpScore({
+    starRating: body.starRating ?? null,
+    roomCountEstimate: body.roomCountEstimate ?? null,
+    onBookingCom: body.onBookingCom ?? false,
+    instagramHandle: body.instagramHandle ?? null,
+  })
+
   const hotel = await prisma.hotel.create({
     data: {
       name: body.name,
@@ -72,6 +80,7 @@ export async function POST(req: NextRequest) {
       instagramHandle: body.instagramHandle ?? null,
       onBookingCom: body.onBookingCom ?? false,
       notes: body.notes ?? null,
+      icpScore: icpResult.score,
     },
   })
 

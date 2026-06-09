@@ -16,9 +16,21 @@ interface Hotel {
   roomCountEstimate: number | null
   category: string | null
   status: string
+  icpScore: number | null
   updatedAt: string | Date
   intelligence: { analysedAt: string | Date; averageRating: number | null; reviewCount: number | null } | null
   _count: { contacts: number }
+}
+
+function IcpDots({ score }: { score: number | null }) {
+  if (!score) return <span className={styles.icpNone}>-</span>
+  return (
+    <span className={styles.icpDots} title={`ICP score: ${score}/5`}>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <span key={i} className={`${styles.icpDot} ${i <= score ? styles.icpDotFilled : ""}`} />
+      ))}
+    </span>
+  )
 }
 
 interface Props {
@@ -113,6 +125,7 @@ export function HotelListClient({ hotels, counts, countries, statuses, filters }
               <th>Country</th>
               <th>Rooms</th>
               <th>Status</th>
+              <th>ICP</th>
               <th>Rating</th>
               <th>Contacts</th>
               <th>Updated</th>
@@ -122,7 +135,7 @@ export function HotelListClient({ hotels, counts, countries, statuses, filters }
           <tbody>
             {hotels.length === 0 && (
               <tr>
-                <td colSpan={9} className={styles.empty}>No hotels found.</td>
+                <td colSpan={10} className={styles.empty}>No hotels found.</td>
               </tr>
             )}
             {hotels.map((hotel) => (
@@ -140,6 +153,7 @@ export function HotelListClient({ hotels, counts, countries, statuses, filters }
                     {STATUS_LABELS[hotel.status] ?? hotel.status}
                   </span>
                 </td>
+                <td><IcpDots score={hotel.icpScore} /></td>
                 <td>{hotel.intelligence?.averageRating?.toFixed(1) ?? "-"}</td>
                 <td>{hotel._count.contacts}</td>
                 <td className={styles.dateCell}>
@@ -213,6 +227,7 @@ function AddHotelModal({
     instagramHandle: "",
     onBookingCom: false,
     notes: "",
+    autoAnalyse: false,
   })
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
@@ -226,8 +241,9 @@ function AddHotelModal({
     setError("")
     setLoading(true)
 
+    const { autoAnalyse, ...rest } = form
     const body = {
-      ...form,
+      ...rest,
       starRating: form.starRating ? parseInt(form.starRating) : null,
       roomCountEstimate: form.roomCountEstimate ? parseInt(form.roomCountEstimate) : null,
     }
@@ -239,6 +255,11 @@ function AddHotelModal({
     })
 
     if (res.ok) {
+      const hotel = await res.json()
+      if (autoAnalyse) {
+        // Fire and forget - analysis runs in background, user sees loading in list
+        fetch(`/api/admin/hotels/${hotel.id}/analyse`, { method: "POST" })
+      }
       onAdded()
     } else {
       const data = await res.json()
@@ -318,6 +339,12 @@ function AddHotelModal({
           <div className={styles.fieldRow}>
             <label className={styles.label}>Notes</label>
             <textarea className={styles.textarea} value={form.notes} onChange={(e) => set("notes", e.target.value)} rows={3} />
+          </div>
+          <div className={styles.fieldRow}>
+            <label className={styles.checkLabel}>
+              <input type="checkbox" checked={form.autoAnalyse} onChange={(e) => set("autoAnalyse", e.target.checked)} />
+              Run analysis immediately after adding
+            </label>
           </div>
           {error && <p className={styles.formError}>{error}</p>}
           <div className={styles.modalActions}>

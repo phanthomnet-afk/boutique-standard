@@ -4,6 +4,8 @@ import prisma from "@/lib/admin/prismaClient"
 import { analyseWebsite } from "@/lib/admin/openaiAnalysis"
 import { getReviews } from "@/lib/admin/dataForSeo"
 import { detectGaps } from "@/lib/admin/gapDetection"
+import { extractStructuredData } from "@/lib/admin/scrapeGraph"
+import { calculateIcpScore } from "@/lib/admin/icpScoring"
 
 interface Params {
   params: { id: string }
@@ -16,8 +18,11 @@ export async function POST(_req: NextRequest, { params }: Params) {
     return NextResponse.json({ error: "Not found" }, { status: 404 })
   }
 
-  // Step 1: OpenAI website analysis
-  const websiteAnalysis = await analyseWebsite(hotel.website)
+  // Step 1: OpenAI website analysis + ScrapeGraphAI structured extraction (run in parallel)
+  const [websiteAnalysis, structuredData] = await Promise.all([
+    analyseWebsite(hotel.website),
+    extractStructuredData(hotel.website),
+  ])
 
   // Step 2: DataForSEO reviews (if google place id available - skip otherwise)
   let reviewData = { reviews: [] as any[], reviewCount: 0, averageRating: null as number | null, raw: "" }
@@ -142,9 +147,50 @@ All gaps: ${gaps.map((g) => g.friction).join("; ")}`,
     },
   })
 
+  // Apply ScrapeGraphAI structured data to Hotel record
+  const hotelUpdates: Record<string, unknown> = { status: "enriched" }
+
+  if (structuredData.roomCount != null && hotel.roomCountEstimate == null) {
+    hotelUpdates.roomCountEstimate = structuredData.roomCount
+  }
+
+  // Auto-create contact if email found and no contacts exist
+  const existingContacts = await prisma.contact.count({ where: { hotelId: hotel.id } })
+  if (structuredData.contactEmail && existingContacts === 0) {
+    await prisma.contact.create({
+      data: {
+        hotelId: hotel.id,
+        email: structuredData.contactEmail,
+        name: structuredData.ownerName ?? null,
+        source: "scraped",
+        verified: false,
+      },
+    })
+  }
+
+  // Calculate ICP score with full intelligence
+  const icpResult = calculateIcpScore(
+    {
+      starRating: hotel.starRating,
+      roomCountEstimate: (hotelUpdates.roomCountEstimate as number | null) ?? hotel.roomCountEstimate,
+      onBookingCom: hotel.onBookingCom,
+      instagramHandle: hotel.instagramHandle,
+      averageRating: reviewData.averageRating ?? undefined,
+      reviewCount: reviewData.reviewCount,
+    },
+    {
+      localityStrength: websiteAnalysis.localityStrength,
+      visualCoherenceScore: websiteAnalysis.visualCoherenceScore,
+      pricePointSignal: websiteAnalysis.pricePointSignal,
+      gaps: JSON.stringify(gaps),
+      brandPromises: JSON.stringify(websiteAnalysis.brandPromises),
+    }
+  )
+  hotelUpdates.icpScore = icpResult.score
+
   await prisma.hotel.update({
     where: { id: hotel.id },
-    data: { status: "enriched" },
+    data: hotelUpdates,
   })
 
   return NextResponse.json(intelligence)

@@ -31,7 +31,7 @@ export default async function HotelsPage({ searchParams }: PageProps) {
   const [hotels, statusRows] = await Promise.all([
     prisma.hotel.findMany({
       where,
-      orderBy: { updatedAt: "desc" },
+      orderBy: [{ icpScore: "desc" }, { updatedAt: "desc" }],
       include: {
         intelligence: {
           select: { analysedAt: true, averageRating: true, reviewCount: true },

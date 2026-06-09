@@ -62,10 +62,22 @@ interface Hotel {
   starRating: number | null
   roomCountEstimate: number | null
   status: string
+  icpScore: number | null
   notes: string | null
   intelligence: Intelligence | null
   contacts: Contact[]
   outreach: OutreachRecord[]
+}
+
+function IcpDots({ score }: { score: number | null }) {
+  if (!score) return null
+  return (
+    <span className={styles.icpDots} title={`ICP score: ${score}/5`}>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <span key={i} className={`${styles.icpDot} ${i <= score ? styles.icpDotFilled : ""}`} />
+      ))}
+    </span>
+  )
 }
 
 interface Props {
@@ -137,7 +149,10 @@ export function HotelDetailClient({ hotel }: Props) {
     <div className={styles.page}>
       <div className={styles.topBar}>
         <div className={styles.titleBlock}>
-          <h1 className={styles.hotelName}>{hotel.name}</h1>
+          <div className={styles.hotelNameRow}>
+            <h1 className={styles.hotelName}>{hotel.name}</h1>
+            <IcpDots score={hotel.icpScore} />
+          </div>
           <p className={styles.location}>{hotel.location}, {hotel.country}</p>
           <a href={hotel.website} target="_blank" rel="noreferrer" className={styles.websiteLink}>
             {hotel.website}
@@ -155,6 +170,20 @@ export function HotelDetailClient({ hotel }: Props) {
           </select>
         </div>
       </div>
+
+      {!intelligence && status === "prospect" && (
+        <div className={styles.unanalysedBanner}>
+          This hotel has not been analysed yet.{" "}
+          <button
+            onClick={() => { setTab("intelligence"); runAnalysis() }}
+            disabled={analysing}
+            className={styles.bannerBtn}
+          >
+            {analysing ? "Analysing..." : "Run analysis"}
+          </button>{" "}
+          to generate brand intelligence and gap detection.
+        </div>
+      )}
 
       <div className={styles.tabs}>
         {(["intelligence", "contacts", "outreach", "notes"] as const).map((t) => (

@@ -16,11 +16,64 @@
   gap: 0.25rem;
 }
 
+.hotelNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .hotelName {
   font-size: 1.5rem;
   font-weight: 500;
   margin: 0;
   color: #1c1c1c;
+}
+
+/* ICP dots */
+.icpDots {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.icpDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e4e0da;
+  display: inline-block;
+}
+
+.icpDotFilled {
+  background: #4a6fa5;
+}
+
+/* Unanalysed banner */
+.unanalysedBanner {
+  background: #fdf3e0;
+  border: 1px solid #f0d070;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #7a5000;
+  margin-bottom: 1.25rem;
+}
+
+.bannerBtn {
+  background: none;
+  border: none;
+  color: #7a5000;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  font-family: inherit;
+}
+
+.bannerBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .location {
