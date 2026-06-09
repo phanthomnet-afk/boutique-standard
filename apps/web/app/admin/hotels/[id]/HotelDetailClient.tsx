@@ -49,6 +49,7 @@ interface OutreachRecord {
   sentAt: string | Date | null
   repliedAt: string | Date | null
   replyText: string | null
+  replySentiment: string | null
   notes: string | null
 }
 
@@ -223,6 +224,10 @@ export function HotelDetailClient({ hotel }: Props) {
           onUpdated={(updated) =>
             setOutreach((prev) => prev.map((o) => (o.id === updated.id ? updated : o)))
           }
+          onHotelBooked={() => {
+            setStatus("booked")
+            startTransition(() => router.refresh())
+          }}
         />
       )}
 
@@ -456,6 +461,7 @@ function OutreachTab({
   hasIntelligence,
   onGenerated,
   onUpdated,
+  onHotelBooked,
 }: {
   hotelId: string
   contacts: Contact[]
@@ -463,6 +469,7 @@ function OutreachTab({
   hasIntelligence: boolean
   onGenerated: (o: OutreachRecord) => void
   onUpdated: (o: OutreachRecord) => void
+  onHotelBooked: () => void
 }) {
   const positions: Array<1 | 2 | 3> = [1, 2, 3]
 
@@ -496,6 +503,7 @@ function OutreachTab({
                 disabled={!hasIntelligence}
                 onGenerated={onGenerated}
                 onUpdated={onUpdated}
+                onHotelBooked={onHotelBooked}
               />
               <OutreachCard
                 label="LinkedIn"
@@ -507,6 +515,7 @@ function OutreachTab({
                 disabled={!hasIntelligence}
                 onGenerated={onGenerated}
                 onUpdated={onUpdated}
+                onHotelBooked={onHotelBooked}
               />
             </div>
           </div>
@@ -526,6 +535,7 @@ function OutreachCard({
   disabled,
   onGenerated,
   onUpdated,
+  onHotelBooked,
 }: {
   label: string
   record: OutreachRecord | undefined
@@ -536,11 +546,18 @@ function OutreachCard({
   disabled: boolean
   onGenerated: (o: OutreachRecord) => void
   onUpdated: (o: OutreachRecord) => void
+  onHotelBooked: () => void
 }) {
   const [generating, setGenerating] = useState(false)
   const [editBody, setEditBody] = useState(record?.bodyDraft ?? "")
+  const [editSubject, setEditSubject] = useState(record?.subject ?? "")
   const [showReply, setShowReply] = useState(false)
   const [replyText, setReplyText] = useState(record?.replyText ?? "")
+  const [replySentiment, setReplySentiment] = useState<string>(record?.replySentiment ?? "")
+  const [sending, setSending] = useState(false)
+  const [sendResult, setSendResult] = useState<{ simulated: boolean } | null>(null)
+  const [showBookedNote, setShowBookedNote] = useState(record?.replySentiment === "booked")
+  const [showPositiveSteps, setShowPositiveSteps] = useState(record?.replySentiment === "positive")
   const [contactId, setContactId] = useState(contacts[0]?.id ?? "")
 
   async function generate() {
@@ -573,12 +590,44 @@ function OutreachCard({
     const res = await fetch(`/api/admin/hotels/${hotelId}/outreach/${record.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: "replied", repliedAt: new Date().toISOString(), replyText }),
+      body: JSON.stringify({
+        status: "replied",
+        repliedAt: new Date().toISOString(),
+        replyText,
+        replySentiment: replySentiment || null,
+      }),
     })
     if (res.ok) {
       onUpdated(await res.json())
       setShowReply(false)
+      if (replySentiment === "booked") {
+        await fetch(`/api/admin/hotels/${hotelId}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: "booked" }),
+        })
+        onHotelBooked()
+        setShowBookedNote(true)
+      } else if (replySentiment === "positive") {
+        setShowPositiveSteps(true)
+      }
     }
+  }
+
+  async function sendEmail() {
+    if (!record) return
+    setSending(true)
+    const res = await fetch(`/api/admin/hotels/${hotelId}/outreach/${record.id}/send`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subject: editSubject, bodyText: editBody, contactId: contactId || null }),
+    })
+    if (res.ok) {
+      const d = await res.json()
+      onUpdated(d.outreach)
+      setSendResult({ simulated: d.simulated })
+    }
+    setSending(false)
   }
 
   return (
@@ -617,6 +666,18 @@ function OutreachCard({
             <p className={styles.charCount}>{editBody.length} characters</p>
           )}
 
+          {channel === "email" && record.status !== "sent" && record.status !== "replied" && (
+            <div className={styles.fieldRow}>
+              <label className={styles.label} style={{ fontSize: "0.75rem" }}>Subject</label>
+              <input
+                className={styles.input}
+                value={editSubject}
+                onChange={(e) => setEditSubject(e.target.value)}
+                placeholder="Email subject line"
+              />
+            </div>
+          )}
+
           <div className={styles.outreachActions}>
             {contacts.length > 0 && channel === "linkedin" && contacts.find((c) => c.linkedinUrl) && (
               <a
@@ -634,7 +695,17 @@ function OutreachCard({
             >
               Copy
             </button>
-            {record.status !== "sent" && record.status !== "replied" && (
+            {record.status !== "sent" && record.status !== "replied" && channel === "email" &&
+              contacts.find((c) => c.id === contactId)?.email && (
+              <button
+                onClick={sendEmail}
+                disabled={sending || !editSubject.trim()}
+                className={styles.primaryBtn}
+              >
+                {sending ? "Sending..." : "Send email"}
+              </button>
+            )}
+            {record.status !== "sent" && record.status !== "replied" && (channel !== "email" || !contacts.find((c) => c.id === contactId)?.email) && (
               <button onClick={markSent} className={styles.ghostBtn}>
                 Mark sent
               </button>
@@ -646,8 +717,25 @@ function OutreachCard({
             )}
           </div>
 
+          {sendResult && (
+            <p className={styles.hint}>
+              {sendResult.simulated ? "Simulated send (SEND_EMAILS_ENABLED=false)" : "Email sent via Resend"}
+            </p>
+          )}
+
           {showReply && (
             <div className={styles.replyBlock}>
+              <div className={styles.sentimentRow}>
+                {(["positive", "neutral", "negative", "booked"] as const).map((s) => (
+                  <button
+                    key={s}
+                    onClick={() => setReplySentiment(replySentiment === s ? "" : s)}
+                    className={`${styles.sentimentPill} ${replySentiment === s ? styles[`sentiment_${s}`] : ""}`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
               <textarea
                 className={styles.draftArea}
                 value={replyText}
@@ -661,8 +749,32 @@ function OutreachCard({
 
           {record.repliedAt && record.replyText && (
             <div className={styles.replyDisplay}>
-              <p className={styles.themeLabel}>Reply received</p>
+              <p className={styles.themeLabel}>
+                Reply received
+                {record.replySentiment && (
+                  <span className={`${styles.sentimentPill} ${styles[`sentiment_${record.replySentiment}`]}`} style={{ marginLeft: "0.5rem" }}>
+                    {record.replySentiment}
+                  </span>
+                )}
+              </p>
               <p className={styles.bodyText}>{record.replyText}</p>
+            </div>
+          )}
+
+          {showBookedNote && (
+            <div className={styles.bookedNote}>
+              Congratulations - hotel status updated to Booked.
+            </div>
+          )}
+
+          {showPositiveSteps && !showBookedNote && (
+            <div className={styles.positiveSteps}>
+              <p className={styles.themeLabel}>Suggested next steps</p>
+              <ul className={styles.stepsList}>
+                <li>Follow up within 24 hours</li>
+                <li>Share a sample report section to demonstrate depth</li>
+                <li>Propose a 15-minute call to discuss scope</li>
+              </ul>
             </div>
           )}
         </>

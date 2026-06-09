@@ -24,6 +24,9 @@ model Hotel {
   notes             String?
   status            String   @default("prospect")
   icpScore          Int?
+  nurtureStartedAt  DateTime?
+  bookedAt          DateTime?
+  bookedNotes       String?
   addedAt           DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
@@ -85,12 +88,24 @@ model Outreach {
   bodyDraft        String
   bodySent         String?
 
-  status      String    @default("draft")
-  generatedAt DateTime  @default(now())
-  sentAt      DateTime?
-  repliedAt   DateTime?
-  replyText   String?
-  notes       String?
+  status         String    @default("draft")
+  replySentiment String?
+  // TODO (Phase 4): Resend webhook reply tracking - populate readAt automatically
+  readAt         DateTime?
+  generatedAt    DateTime  @default(now())
+  sentAt         DateTime?
+  repliedAt      DateTime?
+  replyText      String?
+  notes          String?
+}
+
+model Settings {
+  id               String   @id @default("singleton")
+  touch2DelayDays  Int      @default(8)
+  touch3DelayDays  Int      @default(22)
+  nurtureDelayDays Int      @default(60)
+  linkedinTargets  String   @default("[]")
+  updatedAt        DateTime @updatedAt
 }
 
 model JournalSend {

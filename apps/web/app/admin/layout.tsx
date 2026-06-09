@@ -36,6 +36,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     Outreach
                   </Link>
                 </li>
+                <li>
+                  <Link href="/admin/settings" className={styles.navLink}>
+                    Settings
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className={styles.sidebarBottom}>
