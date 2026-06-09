@@ -1,0 +1,84 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f7f5;
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e4e0da;
+  border-radius: 4px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.wordmark {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9e9890;
+  margin: 0 0 1.5rem;
+}
+
+.heading {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #1c1c1c;
+  margin: 0 0 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid #ddd8d0;
+  border-radius: 3px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: #1c1c1c;
+  background: #fff;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.input:focus {
+  border-color: #4a6fa5;
+}
+
+.error {
+  font-size: 0.8125rem;
+  color: #c0392b;
+  margin: 0;
+}
+
+.button {
+  padding: 0.625rem 1rem;
+  background: #1c1c1c;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

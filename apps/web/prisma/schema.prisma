@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  // TODO (production): switch to "postgresql" with DATABASE_URL from Vercel Postgres
+  url      = env("DATABASE_URL")
+}
+
+model Hotel {
+  id                String   @id @default(cuid())
+  name              String
+  website           String
+  location          String
+  country           String
+  countryCode       String
+  starRating        Int?
+  roomCountEstimate Int?
+  category          String?
+  googlePlaceId     String?
+  instagramHandle   String?
+  onBookingCom      Boolean  @default(false)
+  notes             String?
+  status            String   @default("prospect")
+  addedAt           DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  intelligence HotelIntelligence?
+  contacts     Contact[]
+  outreach     Outreach[]
+}
+
+model HotelIntelligence {
+  id      String @id @default(cuid())
+  hotelId String @unique
+  hotel   Hotel  @relation(fields: [hotelId], references: [id])
+
+  brandPromises        String
+  positioningSummary   String
+  visualCoherenceScore Int?
+  pricePointSignal     String?
+  websiteAnalysisRaw   String
+
+  reviewPositiveThemes String?
+  reviewNegativeThemes String?
+  reviewCount          Int?
+  averageRating        Float?
+  reviewsRaw           String?
+
+  gaps         String
+  gapSummary   String?
+
+  analysedAt      DateTime @default(now())
+  analysisVersion Int      @default(1)
+}
+
+model Contact {
+  id       String  @id @default(cuid())
+  hotelId  String
+  hotel    Hotel   @relation(fields: [hotelId], references: [id])
+  name     String?
+  role     String?
+  email    String?
+  linkedinUrl String?
+  source   String?
+  verified Boolean  @default(false)
+  notes    String?
+  addedAt  DateTime @default(now())
+
+  outreach Outreach[]
+}
+
+model Outreach {
+  id               String    @id @default(cuid())
+  hotelId          String
+  hotel            Hotel     @relation(fields: [hotelId], references: [id])
+  contactId        String?
+  contact          Contact?  @relation(fields: [contactId], references: [id])
+
+  channel          String
+  sequencePosition Int       @default(1)
+  subject          String?
+  bodyDraft        String
+  bodySent         String?
+
+  status      String    @default("draft")
+  generatedAt DateTime  @default(now())
+  sentAt      DateTime?
+  repliedAt   DateTime?
+  replyText   String?
+  notes       String?
+}
+
+model JournalSend {
+  id          String   @id @default(cuid())
+  contactId   String
+  articleSlug String
+  sentAt      DateTime @default(now())
+  opened      Boolean  @default(false)
+}

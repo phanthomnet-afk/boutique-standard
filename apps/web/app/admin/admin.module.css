@@ -1,0 +1,89 @@
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.9375rem;
+  color: #1c1c1c;
+  background: #f8f7f5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #e4e0da;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebarTop {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wordmark {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4a4744;
+  margin: 0;
+  padding: 0 0.5rem;
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.navLink {
+  display: block;
+  padding: 0.5rem 0.5rem;
+  border-radius: 3px;
+  color: #4a4744;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: background 0.1s, color 0.1s;
+}
+
+.navLink:hover {
+  background: #f0ede8;
+  color: #1c1c1c;
+}
+
+.sidebarBottom {
+  padding: 0 0.5rem;
+}
+
+.siteLink {
+  font-size: 0.8125rem;
+  color: #9e9890;
+  text-decoration: none;
+}
+
+.siteLink:hover {
+  color: #4a4744;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem 2.5rem;
+  min-width: 0;
+}

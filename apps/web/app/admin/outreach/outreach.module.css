@@ -1,0 +1,144 @@
+.page {
+  max-width: 760px;
+}
+
+.title {
+  font-size: 1.375rem;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+  color: #1c1c1c;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9e9890;
+  margin: 0 0 0.875rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  background: #fff;
+  border: 1px solid #e4e0da;
+  border-radius: 3px;
+  text-decoration: none;
+  gap: 1rem;
+  transition: background 0.1s;
+}
+
+.row:hover {
+  background: #f8f5f0;
+}
+
+.rowMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+}
+
+.hotelName {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #1c1c1c;
+  margin: 0;
+}
+
+.sub {
+  font-size: 0.8125rem;
+  color: #9e9890;
+  margin: 0;
+}
+
+.rowMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badgeUrgent {
+  background: #fde8e8;
+  color: #8b2020;
+}
+
+.badgeNormal {
+  background: #f0ede8;
+  color: #4a4744;
+}
+
+.date {
+  font-size: 0.8125rem;
+  color: #9e9890;
+  white-space: nowrap;
+}
+
+.empty {
+  font-size: 0.875rem;
+  color: #9e9890;
+  margin: 0;
+  padding: 0.75rem 0;
+}
+
+/* LinkedIn block */
+.linkedinBlock {
+  background: #fff;
+  border: 1px solid #e4e0da;
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.articleLine,
+.articleAngle,
+.linkedinReminder {
+  font-size: 0.875rem;
+  color: #4a4744;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.linkedinReminder {
+  color: #9e9890;
+  font-style: italic;
+}
+
+.linkedinBtn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #0077b5;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.linkedinBtn:hover {
+  opacity: 0.9;
+}
