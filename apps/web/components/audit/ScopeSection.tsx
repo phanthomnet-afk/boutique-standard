@@ -2,11 +2,17 @@
 
 import Image from "next/image";
 import { useReveal } from "@/lib/useReveal";
-import type { AuditPageContent } from "@/lib/content/types";
 import styles from "./ScopeSection.module.css";
 
+interface ScopeContent {
+  label: string
+  heading: string
+  body: string
+  options: Array<{ title: string; description: string; includes: string[] }>
+}
+
 interface Props {
-  content: AuditPageContent["scope"];
+  content: ScopeContent;
 }
 
 export function ScopeSection({ content }: Props) {

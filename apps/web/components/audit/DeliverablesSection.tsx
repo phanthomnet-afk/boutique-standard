@@ -1,11 +1,16 @@
 "use client"
 
 import { useReveal } from "@/lib/useReveal";
-import type { AuditPageContent } from "@/lib/content/types";
 import styles from "./DeliverablesSection.module.css";
 
+interface DeliverablesContent {
+  label: string
+  heading: string
+  items: Array<{ title: string; description: string }>
+}
+
 interface Props {
-  content: AuditPageContent["deliverables"];
+  content: DeliverablesContent;
 }
 
 export function DeliverablesSection({ content }: Props) {

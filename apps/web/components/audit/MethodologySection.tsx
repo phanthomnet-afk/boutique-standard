@@ -1,8 +1,14 @@
-import type { AuditPageContent } from "@/lib/content/types";
 import styles from "./MethodologySection.module.css";
 
+interface MethodologyContent {
+  label: string
+  headline: string
+  body: string[]
+  pillars: Array<{ number: string; label: string; description: string }>
+}
+
 interface Props {
-  content: AuditPageContent["methodology"];
+  content: MethodologyContent;
 }
 
 export function MethodologySection({ content }: Props) {

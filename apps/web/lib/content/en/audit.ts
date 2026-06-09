@@ -2,226 +2,169 @@ import type { AuditPageContent } from "../types";
 
 const content: AuditPageContent = {
   meta: {
-    title: "The Audit - The Boutique Standard",
-    description: "A guest experience intelligence audit for boutique hotels. One full report.",
+    title: "Guest Experience Evaluation - The Boutique Standard",
+    description:
+      "A structured intelligence report that identifies the gap between your brand promise and how guests actually experience your hotel.",
   },
+
   hero: {
-    eyebrow: "The Boutique Standard Audit",
-    headline: "What your guests experience.",
-    body: "A structured evaluation of the complete guest journey. Delivered as an editorial intelligence report.",
-    ctaPrimary: { label: "Request an Audit", href: "/request" },
-    imageAlt: "Stone hotel corridor with afternoon light",
+    eyebrow: "The Experience Gap Report",
+    headline: "Identify the gap between your guest experience and your brand promise.",
+    subheadline:
+      "A structured intelligence report that shows how guests actually experience your hotel - compared to how you intend it to be experienced.",
+    body: "Used by boutique hotels to improve guest consistency, return visits, and review perception.",
+    ctaPrimary: { label: "Request a guest experience evaluation", href: "/request" },
+    imageAlt: "Hotel facade at golden hour, warm light on stone and glass",
   },
-  valueProps: {
-    label: "Why this audit",
-    items: [
+
+  problem: {
+    heading:
+      "Most boutique hotels don't have a performance problem. They have a perception gap.",
+    paragraphs: [
+      "Your hotel may deliver excellent service, design, and hospitality.",
+      "But guests don't experience your hotel through intention - they experience it through moments.",
+      "Arrival. Check-in. Room entry. Breakfast. Departure.",
+    ],
+    listPreamble:
+      "Small inconsistencies across these moments often determine:",
+    list: [
+      "whether guests return",
+      "what they write in reviews",
+      "how they describe your hotel to others",
+    ],
+    closing: "Most of these patterns are invisible internally.",
+  },
+
+  whatWeDo: {
+    heading: "We make the guest experience measurable.",
+    paragraphs: [
+      "The Boutique Standard Experience Report evaluates your hotel across 13 dimensions of guest experience.",
+    ],
+    listPreamble: "We analyse:",
+    list: [
+      "how your brand is positioned",
+      "how guests actually describe their stay",
+      "where expectations and reality diverge",
+      "which moments shape memory and return intent",
+    ],
+    closing: "Not as a consultancy. As structured guest experience intelligence.",
+  },
+
+  reportOutcome: {
+    heading: "What you receive",
+    subheading: "A complete guest experience intelligence report.",
+    versions: [
       {
-        number: "01",
-        statement: "You see your hotel every day. Your guests see it once.",
-        body: "Distance reveals what familiarity conceals. A first-time guest notices what your team stopped seeing years ago.",
+        title: "Executive Insight Version",
+        pages: "10-20 pages",
+        items: [
+          "key misalignments",
+          "summary of guest perception patterns",
+          "high-impact opportunities",
+        ],
       },
       {
-        number: "02",
-        statement: "Intention and experience are rarely the same thing.",
-        body: "The gap between what a property sets out to deliver and what a guest actually receives is where most opportunities live. It is also where most losses occur.",
-      },
-      {
-        number: "03",
-        statement: "What guests remember six months later shapes your bookings more than any review you read last week.",
-        body: "Satisfaction fades. Memory stays. The report identifies which moments guests carry with them and which they quietly forget.",
-      },
-      {
-        number: "04",
-        statement: "Knowing what to protect is as valuable as knowing what to fix.",
-        body: "Every property has qualities that define its character. The audit names them explicitly so they are not lost to growth, pressure, or well-intentioned change.",
+        title: "Full Intelligence Report",
+        pages: "30-40 page PDF",
+        items: [
+          "full 13-dimension analysis",
+          "complete guest journey breakdown",
+          "scoring by experience dimension",
+          "structured opportunity matrix",
+        ],
       },
     ],
+    note: "Every report follows the same methodology, allowing consistent benchmarking across properties.",
   },
-  methodology: {
-    label: "How We Evaluate",
-    headline: "Against your promise. Not the industry.",
-    body: [
-      "We evaluate one thing: whether the experience your property delivers matches the experience it communicates.",
-      "Not against a category average. Not against competitors. Against your own standard - your positioning, your photography, your price point, your words.",
-    ],
-    pillars: [
-      {
-        number: "01",
-        label: "Promise",
-        description: "What your property communicates to prospective guests.",
-      },
-      {
-        number: "02",
-        label: "Expectation",
-        description: "What a guest reasonably assumes before they arrive.",
-      },
-      {
-        number: "03",
-        label: "Experience",
-        description: "What actually happens across every touchpoint.",
-      },
-      {
-        number: "04",
-        label: "Memory",
-        description: "What the guest carries with them after departure.",
-      },
-    ],
-  },
+
   process: {
-    label: "The Process",
-    heading: "Simple. Rigorous. Repeatable.",
+    label: "How It Works",
+    heading: "How it works",
     steps: [
       {
         number: "01",
-        title: "Scoping",
-        description: "We agree the stay duration, dining occasions, and any specific focus areas before anything is confirmed.",
+        title: "Experience Mapping",
+        description:
+          "We evaluate your hotel's positioning and guest perception across digital and physical touchpoints.",
       },
       {
         number: "02",
-        title: "The stay",
-        description: "We experience your property as a standard first-time guest. Every touchpoint evaluated against the structured framework.",
+        title: "Guest Journey Analysis",
+        description:
+          "We analyse the full guest experience from arrival to departure, identifying where expectations and reality diverge.",
       },
       {
         number: "03",
-        title: "The report",
-        description: "The full 13-section intelligence report delivered within 14 days. Written in narrative. Designed to be read.",
-      },
-      {
-        number: "04",
-        title: "Delivery",
-        description: "A private web report with your unique URL. A downloadable PDF. A debrief conversation on request.",
+        title: "Intelligence Report",
+        description:
+          "You receive a structured report highlighting misalignments and high-impact improvement opportunities.",
       },
     ],
   },
-  scope: {
-    label: "Scope",
-    heading: "Always the full report.",
-    body: "Every engagement produces the same 13-section report. What varies is the scope of the stay - agreed before confirmation, not after.",
-    options: [
-      {
-        title: "Single Stay",
-        description: "The standard engagement. One stay, typically two nights. The complete guest journey.",
-        includes: [
-          "Two nights minimum",
-          "Arrival through departure",
-          "One breakfast, one dinner",
-          "Full room and facilities",
-          "Service culture throughout",
-        ],
-      },
-      {
-        title: "Focused Stay",
-        description: "One night. Three to five agreed dimensions evaluated in depth.",
-        includes: [
-          "One night",
-          "Three to five focus areas",
-          "Deeper narrative per dimension",
-          "Full 13-section report produced",
-        ],
-      },
-      {
-        title: "Extended Stay",
-        description: "For properties where a single visit cannot capture the full picture.",
-        includes: [
-          "Two or more visits",
-          "Multiple dining occasions",
-          "Pre-arrival journey in depth",
-          "Seasonal comparison where relevant",
-        ],
-      },
-    ],
-  },
-  deliverables: {
-    label: "What You Receive",
-    heading: "One report. Delivered two ways.",
+
+  trustSnippets: {
+    heading: "What hotels typically discover",
     items: [
-      {
-        title: "Private web report",
-        description: "Password-protected. Your unique URL. Navigable by section. Shareable internally.",
-      },
-      {
-        title: "PDF",
-        description: "Print-ready. Formatted for owners, investors, and leadership teams.",
-      },
-      {
-        title: "13 sections",
-        description: "Executive snapshot through to editorial conclusion. Full narrative throughout.",
-      },
-      {
-        title: "Debrief",
-        description: "One conversation after delivery. Included on request.",
-      },
+      "We realised guests loved the rooms, but remembered the arrival experience more than anything else.",
+      "Small inconsistencies in service timing were affecting our review patterns more than we expected.",
+      "The experience we thought we were delivering was not the one guests were actually describing.",
+      "Improving one part of the journey changed how guests talked about the entire stay.",
     ],
   },
+
   pricing: {
-    label: "Investment",
-    heading: "One fee. Nothing hidden.",
-    body: "The investment covers the full engagement: scoping, the stay, report production, and delivery.",
-    priceDisplay: true,
-    stages: [
-      {
-        label: "On confirmation",
-        description: "Fifty percent confirms the engagement and covers dining during the stay.",
-      },
-      {
-        label: "On delivery",
-        description: "Fifty percent on delivery of the completed report. No report, no second payment.",
-      },
+    heading: "Experience Report",
+    price: "From €1,200",
+    description:
+      "A structured guest experience intelligence report identifying the gap between your brand promise and guest perception.",
+    includes: [
+      "13-dimension guest experience analysis",
+      "brand promise evaluation",
+      "guest perception mapping",
+      "misalignment detection",
+      "opportunity prioritisation",
     ],
-    note: "Final investment is agreed before engagement based on property location and stay scope. Starts from the published rate.",
+    deliveryFormat: {
+      heading: "Delivery format",
+      items: [
+        "Digital PDF report",
+        "Executive Insight Version (10-20 pages)",
+        "Full Intelligence Report (30-40 pages)",
+      ],
+    },
+    closingLine:
+      "Clear insight into how guests actually experience your hotel - and where small changes create disproportionate impact.",
   },
+
+  cta: {
+    label: "Begin",
+    heading: "Understand your guest experience gap.",
+    body: "Request a structured evaluation of your hotel experience.",
+    buttonLabel: "Request a guest experience evaluation",
+    buttonHref: "/request",
+    buttonSecondaryLabel: "Discuss your hotel",
+    buttonSecondaryHref: "/request",
+  },
+
   faq: {
     heading: "Common questions",
     items: [
       {
-        question: "Will anyone at the property know?",
-        answer: "No. We stay as a standard paying guest, booked through your normal channels. The integrity of the report depends on it.",
+        question: "Is this a consultancy service?",
+        answer:
+          "No. This is a structured guest experience intelligence report based on observed guest perception and journey mapping.",
       },
       {
-        question: "How long does the report take?",
-        answer: "Delivered within 14 days of the stay. Exact timeline confirmed at engagement.",
+        question: "Do you need access to our operations?",
+        answer:
+          "No. We evaluate guest experience through external and guest-facing touchpoints.",
       },
       {
-        question: "Who receives the report?",
-        answer: "One named contact - typically the owner or general manager. We do not publish, discuss, or reference any report without written permission.",
-      },
-      {
-        question: "Can we specify focus areas?",
-        answer: "Yes. Scoping is part of the engagement. Tell us where you have questions and we will make sure the audit addresses them.",
-      },
-      {
-        question: "What happens after delivery?",
-        answer: "One debrief conversation, included on request. We do not offer consulting or implementation support. We stay in touch.",
-      },
-      {
-        question: "Where do you work?",
-        answer: "Primarily Scandinavia, France, and the Mediterranean. Location affects the investment level.",
+        question: "How is the report used?",
+        answer:
+          "It helps identify gaps between intended brand experience and actual guest perception, informing improvements in guest satisfaction and return visits.",
       },
     ],
-  },
-  reviews: {
-    label: "From the field",
-    items: [
-      {
-        quote: "The report showed us things we had stopped noticing. Not because they were hidden - because we had been too close to them for too long.",
-        attribution: "Owner, 4-star boutique hotel, South of France",
-      },
-      {
-        quote: "The departure section alone was worth the investment.",
-        attribution: "General Manager, coastal retreat, Denmark",
-      },
-      {
-        quote: "We used it in a board presentation three months later. The format makes the findings impossible to dismiss.",
-        attribution: "Owner-operator, design hotel, Copenhagen",
-      },
-    ],
-  },
-  cta: {
-    label: "Begin",
-    heading: "See your property clearly.",
-    body: "The request takes five minutes.",
-    buttonLabel: "Request an Audit",
-    buttonHref: "/request",
   },
 };
 

@@ -45,6 +45,7 @@ export function PageHero({ content, variant = "image", imageSrc, imageAlt = "" }
               </span>
             ))}
           </h1>
+          {content.subheadline && <p className={styles.subheadline}>{content.subheadline}</p>}
           {content.body && <p className={styles.body}>{content.body}</p>}
           {(content.ctaPrimary || content.ctaSecondary) && (
             <div className={styles.cta}>

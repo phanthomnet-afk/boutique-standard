@@ -44,6 +44,14 @@
   max-width: 480px;
 }
 
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
 .button {
   display: inline-block;
   font-family: var(--font-sans);
@@ -55,11 +63,36 @@
   background: var(--color-bg);
   text-decoration: none;
   padding: 0.875rem 1.75rem;
-  margin-top: 0.5rem;
   transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
 }
 
 .button:hover {
   background: var(--color-accent);
   color: var(--color-bg);
+}
+
+.buttonSecondary {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 240, 0.65);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 0.5px solid rgba(248, 245, 240, 0.3);
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.buttonSecondary:hover {
+  color: var(--color-text-inverse);
+  border-color: rgba(248, 245, 240, 0.75);
+}
+
+@media (max-width: 640px) {
+  .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

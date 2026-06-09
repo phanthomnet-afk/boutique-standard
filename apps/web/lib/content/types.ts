@@ -31,6 +31,8 @@ export interface SectionCta {
   body: string
   buttonLabel: string
   buttonHref: string
+  buttonSecondaryLabel?: string
+  buttonSecondaryHref?: string
 }
 
 export interface SectionGrid<T> {
@@ -49,36 +51,40 @@ export interface SectionReviews {
   items: Array<{ quote: string; attribution: string }>
 }
 
+export interface SectionEditorialBlock {
+  heading: string
+  paragraphs: string[]
+  listPreamble?: string
+  list: string[]
+  closing?: string
+}
+
 export interface AuditPageContent {
   meta: { title: string; description: string }
   hero: SectionHero
-  valueProps: SectionValueProps
-  methodology: SectionStatement & {
-    pillars: Array<{ number: string; label: string; description: string }>
-  }
-  process: SectionProcess
-  scope: {
-    label: string
+  problem: SectionEditorialBlock
+  whatWeDo: SectionEditorialBlock
+  reportOutcome: {
     heading: string
-    body: string
-    options: Array<{ title: string; description: string; includes: string[] }>
-  }
-  deliverables: {
-    label: string
-    heading: string
-    items: Array<{ title: string; description: string }>
-  }
-  pricing: {
-    label: string
-    heading: string
-    body: string
-    priceDisplay: boolean
-    stages: Array<{ label: string; description: string }>
+    subheading: string
+    versions: Array<{ title: string; pages: string; items: string[] }>
     note: string
   }
-  faq: SectionFaq
-  reviews: SectionReviews
+  process: SectionProcess
+  trustSnippets: {
+    heading: string
+    items: string[]
+  }
+  pricing: {
+    heading: string
+    price: string
+    description: string
+    includes: string[]
+    deliveryFormat: { heading: string; items: string[] }
+    closingLine: string
+  }
   cta: SectionCta
+  faq: SectionFaq
 }
 
 export interface PhilosophyPageContent {

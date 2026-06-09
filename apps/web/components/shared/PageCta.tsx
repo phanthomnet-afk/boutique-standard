@@ -24,9 +24,16 @@ export function PageCta({ content }: PageCtaProps) {
           {content.heading}
         </h2>
         <p className={styles.body}>{content.body}</p>
-        <Link href={content.buttonHref} className={styles.button}>
-          {content.buttonLabel}
-        </Link>
+        <div className={styles.buttons}>
+          <Link href={content.buttonHref} className={styles.button}>
+            {content.buttonLabel}
+          </Link>
+          {content.buttonSecondaryLabel && content.buttonSecondaryHref && (
+            <Link href={content.buttonSecondaryHref} className={styles.buttonSecondary}>
+              {content.buttonSecondaryLabel}
+            </Link>
+          )}
+        </div>
       </div>
     </section>
   );

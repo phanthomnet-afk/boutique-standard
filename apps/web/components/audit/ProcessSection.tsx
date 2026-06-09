@@ -1,11 +1,11 @@
 "use client"
 
 import { useReveal } from "@/lib/useReveal";
-import type { AuditPageContent } from "@/lib/content/types";
+import type { SectionProcess } from "@/lib/content/types";
 import styles from "./ProcessSection.module.css";
 
 interface Props {
-  content: AuditPageContent["process"];
+  content: SectionProcess;
 }
 
 export function ProcessSection({ content }: Props) {

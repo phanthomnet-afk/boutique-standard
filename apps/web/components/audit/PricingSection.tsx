@@ -1,44 +1,53 @@
-"use client";
+"use client"
 
-import { usePrice } from "@/lib/usePrice";
-import { useReveal } from "@/lib/useReveal";
-import type { AuditPageContent } from "@/lib/content/types";
-import styles from "./PricingSection.module.css";
+import { useReveal } from "@/lib/useReveal"
+import type { AuditPageContent } from "@/lib/content/types"
+import styles from "./PricingSection.module.css"
 
 interface Props {
-  content: AuditPageContent["pricing"];
+  content: AuditPageContent["pricing"]
 }
 
 export function PricingSection({ content }: Props) {
-  const price = usePrice();
-  const ref = useReveal();
+  const ref = useReveal()
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
       className={styles.section}
-      aria-labelledby="audit-pricing-heading"
+      aria-labelledby="pricing-heading"
     >
-      <div className={styles.inner}>
-        <div className={`${styles.priceBlock} reveal-on-scroll`}>
-          <p className={styles.priceLabel}>{content.label}</p>
-          <p id="audit-pricing-heading" className={styles.price}>{price}</p>
-          <div className={styles.accentLine} aria-hidden="true" />
+      <div className={`${styles.inner} reveal-on-scroll`}>
+        <div className={styles.top}>
+          <p id="pricing-heading" className={styles.label}>{content.heading}</p>
+          <p className={styles.price}>{content.price}</p>
         </div>
 
-        <p className={`${styles.body} reveal-on-scroll delay-1`}>{content.body}</p>
+        <div className={styles.body}>
+          <p className={styles.description}>{content.description}</p>
 
-        <div className={`${styles.stages} reveal-on-scroll delay-2`}>
-          {content.stages.map((stage, i) => (
-            <div key={i} className={styles.stage}>
-              <p className={styles.stageLabel}>{stage.label}</p>
-              <p className={styles.stageDesc}>{stage.description}</p>
+          <div className={styles.columns}>
+            <div className={styles.col}>
+              <p className={styles.colLabel}>Includes</p>
+              <ul className={styles.list}>
+                {content.includes.map((item, i) => (
+                  <li key={i} className={styles.listItem}>{item}</li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
+            <div className={styles.col}>
+              <p className={styles.colLabel}>{content.deliveryFormat.heading}</p>
+              <ul className={styles.list}>
+                {content.deliveryFormat.items.map((item, i) => (
+                  <li key={i} className={styles.listItem}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-        <p className={`${styles.note} reveal-on-scroll delay-3`}>{content.note}</p>
+          <p className={styles.closingLine}>{content.closingLine}</p>
+        </div>
       </div>
     </section>
-  );
+  )
 }
