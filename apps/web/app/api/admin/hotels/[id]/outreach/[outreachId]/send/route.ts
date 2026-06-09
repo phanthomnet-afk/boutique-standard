@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
 import { buildEmailHtml } from "@/lib/admin/emailTemplate"
 import { sendOutreachEmail } from "@/lib/admin/emailSender"
+import { fireWebhook } from "@/lib/admin/neoWebhook"
 
 interface Params {
   params: { id: string; outreachId: string }
@@ -67,6 +68,18 @@ export async function POST(req: NextRequest, { params }: Params) {
       contactId: resolvedContactId ?? undefined,
     },
   })
+
+  const hotel = await prisma.hotel.findUnique({ where: { id: params.id } })
+  if (hotel) {
+    fireWebhook("outreach.sent", hotel, {
+      channel: outreach.channel,
+      sequencePosition: outreach.sequencePosition,
+      to: toEmail,
+      simulated: result.simulated ?? false,
+    }).catch(console.error)
+  }
+
+  // TODO (Phase 4+): Resend webhook reply tracking - auto-detect replies and fire outreach.replied
 
   return NextResponse.json({
     outreach: updated,

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
+import { fireWebhook } from "@/lib/admin/neoWebhook"
 
 interface Params {
   params: { id: string; outreachId: string }
@@ -25,6 +26,16 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     where: { id: params.outreachId, hotelId: params.id },
     data,
   })
+
+  if ("replySentiment" in data) {
+    const hotel = await prisma.hotel.findUnique({ where: { id: params.id } })
+    if (hotel) {
+      fireWebhook("outreach.replied", hotel, {
+        replySentiment: outreach.replySentiment,
+        sequencePosition: outreach.sequencePosition,
+      }).catch(console.error)
+    }
+  }
 
   return NextResponse.json(outreach)
 }

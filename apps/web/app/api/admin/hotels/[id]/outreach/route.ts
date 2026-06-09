@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
 import { generateDraft } from "@/lib/admin/outreachGenerator"
+import { fireWebhook } from "@/lib/admin/neoWebhook"
 
 interface Params {
   params: { id: string }
@@ -57,6 +58,8 @@ export async function POST(req: NextRequest, { params }: Params) {
       status: "draft",
     },
   })
+
+  fireWebhook("outreach.generated", hotel, { channel, sequencePosition }).catch(console.error)
 
   return NextResponse.json(outreach, { status: 201 })
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
+import { fireWebhook } from "@/lib/admin/neoWebhook"
 
 interface Params {
   params: { id: string }
@@ -43,6 +44,13 @@ export async function PATCH(req: NextRequest, { params }: Params) {
     where: { id: params.id },
     data,
   })
+
+  if ("status" in data) {
+    fireWebhook("hotel.status_changed", hotel, { newStatus: hotel.status }).catch(console.error)
+    if (hotel.status === "booked") {
+      fireWebhook("hotel.booked", hotel).catch(console.error)
+    }
+  }
 
   return NextResponse.json(hotel)
 }

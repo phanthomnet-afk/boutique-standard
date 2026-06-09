@@ -105,7 +105,26 @@ model Settings {
   touch3DelayDays  Int      @default(22)
   nurtureDelayDays Int      @default(60)
   linkedinTargets  String   @default("[]")
+  // NEO integration
+  neoEnabled            Boolean   @default(false)
+  neoApiKey             String?
+  neoWebhookSecret      String?
+  neoWebhookUrl         String?
+  neoLastWebhookFiredAt DateTime?
+  neoLastApiCallAt      DateTime?
   updatedAt        DateTime @updatedAt
+}
+
+model WebhookLog {
+  id         String   @id @default(cuid())
+  event      String
+  hotelId    String?
+  hotelName  String?
+  payload    String
+  status     String
+  statusCode Int?
+  error      String?
+  firedAt    DateTime @default(now())
 }
 
 model JournalSend {

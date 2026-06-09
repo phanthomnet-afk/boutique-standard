@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
 import { calculateIcpScore } from "@/lib/admin/icpScoring"
+import { fireWebhook } from "@/lib/admin/neoWebhook"
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
@@ -83,6 +84,8 @@ export async function POST(req: NextRequest) {
       icpScore: icpResult.score,
     },
   })
+
+  fireWebhook("hotel.created", hotel).catch(console.error)
 
   return NextResponse.json(hotel, { status: 201 })
 }

@@ -4,6 +4,7 @@ export default function SettingsPage() {
   const senderName = process.env.OUTREACH_FROM_NAME ?? "(not set)"
   const senderEmail = process.env.OUTREACH_FROM_EMAIL ?? "(not set)"
   const sendEnabled = process.env.SEND_EMAILS_ENABLED === "true"
+  const vercelUrl = process.env.VERCEL_URL ?? null
 
   const apiStatus = {
     resend: !!process.env.RESEND_API_KEY,
@@ -19,6 +20,7 @@ export default function SettingsPage() {
       senderName={senderName}
       senderEmail={senderEmail}
       sendEnabled={sendEnabled}
+      vercelUrl={vercelUrl}
       apiStatus={apiStatus}
     />
   )
