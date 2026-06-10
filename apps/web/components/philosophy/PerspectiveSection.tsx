@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { PhilosophyPageContent } from "@/lib/content/types";
 import styles from "./PerspectiveSection.module.css";
 
@@ -28,6 +29,18 @@ export function PerspectiveSection({ content }: Props) {
           <blockquote className={styles.pullQuote}>
             {content.pullQuote}
           </blockquote>
+        </div>
+
+        <div className={styles.imageCol}>
+          <div className={styles.imageWrap}>
+            <Image
+              src="/images/website/details/welcome-note.png"
+              alt="Handwritten welcome note"
+              fill
+              className={styles.image}
+              sizes="(max-width: 900px) 0px, 280px"
+            />
+          </div>
         </div>
       </div>
     </section>

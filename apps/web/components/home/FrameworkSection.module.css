@@ -1,7 +1,7 @@
 .section {
-  background: var(--color-bg-secondary);
-  border-top: 0.5px solid var(--color-border);
-  border-bottom: 0.5px solid var(--color-border);
+  background: #1C1C1C;
+  border-top: none;
+  border-bottom: none;
 }
 
 .inner {
@@ -14,41 +14,41 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5px;
-  background: var(--color-border);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .pillar {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
-  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem);
-  background: var(--color-bg-secondary);
+  gap: 0.875rem;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.5rem);
+  background: #1C1C1C;
 }
 
 .number {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   color: var(--color-accent);
-  opacity: 0.45;
+  opacity: 0.6;
   line-height: 1;
 }
 
 .label {
   font-family: var(--font-serif);
-  font-size: 1.125rem;
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
   font-weight: 400;
-  letter-spacing: -0.01em;
-  color: var(--color-text);
-  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #F8F5F0;
+  line-height: 1.15;
 }
 
 .desc {
   font-family: var(--font-sans);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 300;
-  color: var(--color-text-muted);
-  line-height: 1.5;
+  color: rgba(248, 245, 240, 0.45);
+  line-height: 1.55;
 }
 
 @media (max-width: 900px) {

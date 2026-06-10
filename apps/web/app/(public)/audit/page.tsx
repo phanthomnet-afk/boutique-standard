@@ -35,8 +35,8 @@ export default async function AuditPage({ searchParams }: PageProps) {
       <PageHero
         content={content.hero}
         variant="image"
-        imageSrc="/images/website/hero/facade-golden-hour--hero--16x9.png"
-        imageAlt="Hotel facade at golden hour, warm light on stone and glass"
+        imageSrc="/images/website/hero/pool-afternoon - section - 16x9.jpeg"
+        imageAlt="Hotel pool in afternoon light"
       />
       <ProblemSection content={content.problem} />
       <WhatWeDoSection content={content.whatWeDo} />
