@@ -5,6 +5,15 @@ Checkpoint history. Most recent first.
 ---
 
 ## before-client-report
+- **Tag:** `checkpoint/2026-06-09-2153-before-client-report`
+- **Created:** 2026-06-09-2153
+- **Restore all:** `git checkout checkpoint/2026-06-09-2153-before-client-report`
+- **Restore website:** `git checkout checkpoint/2026-06-09-2153-before-client-report -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-09-2153-before-client-report -- apps/web/components/`
+
+---
+
+## before-client-report
 - **Tag:** `checkpoint/2026-06-09-2147-before-client-report`
 - **Created:** 2026-06-09-2147
 - **Restore all:** `git checkout checkpoint/2026-06-09-2147-before-client-report`

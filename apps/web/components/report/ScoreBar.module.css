@@ -1,0 +1,22 @@
+.track {
+  height: 2px;
+  background: var(--color-border, #DDD8D0);
+  position: relative;
+  border-radius: 1px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.fill {
+  height: 100%;
+  background: var(--color-accent, #4A6FA5);
+  border-radius: 1px;
+}
+
+.dark .fill {
+  background: var(--color-accent, #4A6FA5);
+}
+
+.dark {
+  background: rgba(255, 255, 255, 0.12);
+}

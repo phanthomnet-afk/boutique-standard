@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit",
     "checkpoint": "bash scripts/checkpoint.sh",
     "restore": "bash scripts/restore.sh",
-    "snapshots": "git tag -l 'checkpoint/*' | sort -r"
+    "snapshots": "git tag -l 'checkpoint/*' | sort -r",
+    "seed:report": "npx tsx apps/web/scripts/seedReport.ts"
   },
   "devDependencies": {
     "typescript": "^5.4.0"

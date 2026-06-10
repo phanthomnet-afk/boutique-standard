@@ -134,3 +134,18 @@ model JournalSend {
   sentAt      DateTime @default(now())
   opened      Boolean  @default(false)
 }
+
+model ClientReport {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  token          String    @unique
+  passwordHash   String
+  hotelName      String
+  location       String
+  language       String    @default("en")
+  dataPath       String
+  isActive       Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  lastAccessedAt DateTime?
+  accessCount    Int       @default(0)
+}

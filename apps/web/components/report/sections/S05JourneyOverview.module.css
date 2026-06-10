@@ -1,0 +1,163 @@
+.section {
+  min-height: 100vh;
+  background: var(--color-bg-secondary, #F2EDE6);
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem);
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.header {
+  max-width: 600px;
+}
+
+.sectionLabel {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted, #9E9890);
+  margin: 0 0 0.875rem;
+}
+
+.heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 300;
+  color: var(--color-text, #1C1C1C);
+  margin: 0;
+}
+
+/* Desktop timeline */
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 0;
+  min-height: 320px;
+  align-items: center;
+}
+
+.timelineTrack {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 0.5px;
+  background: var(--color-accent, #4A6FA5);
+  opacity: 0.3;
+}
+
+.stageCol {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 320px;
+}
+
+.stageCard {
+  position: absolute;
+  text-align: center;
+  max-width: 100px;
+  padding: 0.75rem 0.5rem;
+}
+
+.top {
+  top: 0;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.stageDot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent, #4A6FA5);
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.stageName {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.75rem;
+  color: var(--color-text, #1C1C1C);
+  margin: 0 0 0.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.stageScore {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-text, #1C1C1C);
+  margin: 0 0 0.125rem;
+}
+
+.stageBand {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Band colours */
+.band_exceptional { color: var(--color-accent, #4A6FA5); }
+.band_strong      { color: var(--color-text-secondary, #4A4744); }
+.band_acceptable  { color: var(--color-text-muted, #9E9890); }
+.band_attention   { color: var(--color-bronze, #8B6F47); }
+.band_critical    { color: #8B3A3A; }
+
+/* Mobile list */
+.mobileList {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobileRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 0;
+  border-bottom: 0.5px solid var(--color-border, #DDD8D0);
+}
+
+.mobileLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobileBand {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mobileScore {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--color-text, #1C1C1C);
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .timeline {
+    display: none;
+  }
+  .mobileList {
+    display: flex;
+  }
+}

@@ -98,6 +98,23 @@
   gap: 0.75rem;
 }
 
+.reportLink {
+  padding: 0.4375rem 0.875rem;
+  background: #1c1c1c;
+  color: #f8f5f0;
+  border: none;
+  font-size: 0.75rem;
+  font-family: inherit;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.reportLink:hover {
+  background: #4a6fa5;
+}
+
 .statusSelect {
   padding: 0.4375rem 0.625rem;
   border: 1px solid #ddd8d0;

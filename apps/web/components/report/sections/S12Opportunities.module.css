@@ -1,0 +1,155 @@
+.section {
+  min-height: 100vh;
+  background: var(--color-bg, #F8F5F0);
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem);
+}
+
+.inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionLabel {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-text-muted, #9E9890);
+  margin: 0;
+}
+
+.heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 300;
+  color: var(--color-text, #1C1C1C);
+  margin: 0;
+}
+
+.subtext {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #9E9890);
+  margin: 0;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.groupLabel {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-olive, #5C6B3E);
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.item {
+  border-top: 0.5px solid var(--color-border, #DDD8D0);
+  padding: 2rem 0;
+}
+
+.item:last-child {
+  border-bottom: 0.5px solid var(--color-border, #DDD8D0);
+}
+
+.itemTop {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.25rem;
+}
+
+.itemNumber {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-text, #1C1C1C);
+  opacity: 0.2;
+  line-height: 1;
+  padding-top: 0.25rem;
+}
+
+.itemBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.itemTitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-text, #1C1C1C);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.itemObservation {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #4A4744);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.itemSuggestion {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #4A4744);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.itemOutcomeLabel {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted, #9E9890);
+  margin: 0.25rem 0 0;
+}
+
+.itemOutcome {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #9E9890);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.badge {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.5625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted, #9E9890);
+  border: 0.5px solid var(--color-border, #DDD8D0);
+  padding: 0.2rem 0.5rem;
+}

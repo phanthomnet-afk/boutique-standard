@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useTransition } from "react"
+import { useState, useTransition, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import styles from "./detail.module.css"
 
@@ -115,7 +115,15 @@ export function HotelDetailClient({ hotel }: Props) {
   const [outreach, setOutreach] = useState<OutreachRecord[]>(hotel.outreach)
   const [contacts, setContacts] = useState<Contact[]>(hotel.contacts)
   const [, startTransition] = useTransition()
+  const [reportToken, setReportToken] = useState<string | null>(null)
   const router = useRouter()
+
+  useEffect(() => {
+    fetch(`/api/admin/reports?hotelName=${encodeURIComponent(hotel.name)}`)
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => { if (data?.token) setReportToken(data.token) })
+      .catch(() => {})
+  }, [hotel.name])
 
   async function runAnalysis() {
     setAnalysing(true)
@@ -160,6 +168,16 @@ export function HotelDetailClient({ hotel }: Props) {
           </a>
         </div>
         <div className={styles.topActions}>
+          {reportToken && (
+            <a
+              href={`/client/${reportToken}/report`}
+              target="_blank"
+              rel="noreferrer"
+              className={styles.reportLink}
+            >
+              View Report
+            </a>
+          )}
           <select
             value={status}
             onChange={(e) => updateStatus(e.target.value)}
