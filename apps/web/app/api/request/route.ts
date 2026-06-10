@@ -3,6 +3,7 @@ import prisma from "@/lib/admin/prismaClient"
 import { sendDirectEmail, TBS_EMAILS } from "@/lib/admin/emailSender"
 
 export const dynamic = "force-dynamic"
+export const revalidate = 0
 
 export async function POST(req: NextRequest) {
   const body = await req.json()

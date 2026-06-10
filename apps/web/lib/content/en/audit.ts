@@ -10,9 +10,6 @@ const content: AuditPageContent = {
   hero: {
     eyebrow: "The Experience Gap Report",
     headline: "Identify the gap between your guest experience and your brand promise.",
-    subheadline:
-      "A structured intelligence report that shows how guests actually experience your hotel - compared to how you intend it to be experienced.",
-    body: "Used by boutique hotels to improve guest consistency, return visits, and review perception.",
     ctaPrimary: { label: "Request a guest experience evaluation", href: "/request" },
     imageAlt: "Hotel facade at golden hour, warm light on stone and glass",
   },
@@ -98,6 +95,12 @@ const content: AuditPageContent = {
         title: "Intelligence Report",
         description:
           "You receive a structured report highlighting misalignments and high-impact improvement opportunities.",
+      },
+      {
+        number: "04",
+        title: "Delivery",
+        description:
+          "Your report is delivered as a private web experience and a downloadable PDF within 14 days. A debrief conversation is included on request.",
       },
     ],
   },

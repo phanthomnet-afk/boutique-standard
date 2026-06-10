@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getContent, getLang } from "@/lib/getContent";
 import type { PhilosophyPageContent } from "@/lib/content/types";
-import { PageHero } from "@/components/shared/PageHero";
+import { PhilosophyHeroSection } from "@/components/philosophy/PhilosophyHeroSection";
 import { PerspectiveSection } from "@/components/philosophy/PerspectiveSection";
 import { WhatWeAreNotSection } from "@/components/philosophy/WhatWeAreNotSection";
 import { PhilosophyMethodologySection } from "@/components/philosophy/PhilosophyMethodologySection";
@@ -28,7 +28,10 @@ export default async function AboutPage({ searchParams }: PageProps) {
 
   return (
     <>
-      <PageHero content={content.hero} variant="typographic" />
+      <PhilosophyHeroSection
+        content={content.hero}
+        imageSrc="/images/website/details/linen-curtain--detail--1x1.png"
+      />
       <PerspectiveSection content={content.perspective} />
       <WhatWeAreNotSection content={content.whatWeAreNot} />
       <PhilosophyMethodologySection content={content.methodology} />

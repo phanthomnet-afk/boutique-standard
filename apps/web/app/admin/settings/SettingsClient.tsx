@@ -65,8 +65,18 @@ export default function SettingsClient({ senderName, senderEmail, sendEnabled, v
   const [healthChecking, setHealthChecking] = useState(false)
   const [healthData, setHealthData] = useState<{
     status: "ok" | "degraded" | "error"
-    services: Record<string, { status: string; message?: string }>
+    services: Record<string, any>
     sendEmailsEnabled: boolean
+  } | null>(null)
+
+  const [initLoading, setInitLoading] = useState(false)
+  const [initResult, setInitResult] = useState<{
+    success: boolean
+    seeded?: string[]
+    message?: string
+    reportUrl?: string
+    reportPassword?: string
+    error?: string
   } | null>(null)
 
   // NEO state
@@ -148,6 +158,20 @@ export default function SettingsClient({ senderName, senderEmail, sendEnabled, v
       if (res.ok) setHealthData(await res.json())
     } finally {
       setHealthChecking(false)
+    }
+  }
+
+  async function initDatabase() {
+    if (!window.confirm("Initialize database? This creates default settings and seeds the Maison du Rivage report if missing.")) return
+    setInitLoading(true)
+    setInitResult(null)
+    try {
+      const res = await fetch("/api/admin/system/init", { method: "POST" })
+      const d = await res.json()
+      setInitResult(d)
+      if (res.ok) runHealthCheck()
+    } finally {
+      setInitLoading(false)
     }
   }
 
@@ -309,6 +333,77 @@ export default function SettingsClient({ senderName, senderEmail, sendEnabled, v
             ))}
           </div>
           <p className={styles.hint}>Status is based on env var presence only - not a live connection check.</p>
+        </div>
+      </section>
+
+      {/* Database Status */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Database Status</h2>
+        <div className={styles.card}>
+          <div className={styles.apiGrid}>
+            {healthData ? (
+              (() => {
+                const db = healthData.services?.database
+                if (!db) return <p className={styles.hint}>No database info available.</p>
+                return (
+                  <>
+                    <div className={styles.apiRow}>
+                      <span className={styles.apiDot} style={{ background: db.status === "ok" ? "#3a7a3a" : "#c03030" }} />
+                      <span className={styles.apiLabel}>Connection</span>
+                      <span className={styles.apiStatus}>{String(db.status)}{db.message ? ` - ${db.message}` : ""}</span>
+                    </div>
+                    {db.status === "ok" && typeof db.hotels === "number" && (
+                      <>
+                        <div className={styles.apiRow}>
+                          <span className={styles.apiDot} style={{ background: "#d0d0d0" }} />
+                          <span className={styles.apiLabel}>Hotels</span>
+                          <span className={styles.apiStatus}>{db.hotels} records</span>
+                        </div>
+                        <div className={styles.apiRow}>
+                          <span className={styles.apiDot} style={{ background: "#d0d0d0" }} />
+                          <span className={styles.apiLabel}>Contacts</span>
+                          <span className={styles.apiStatus}>{db.contacts} records</span>
+                        </div>
+                        <div className={styles.apiRow}>
+                          <span className={styles.apiDot} style={{ background: "#d0d0d0" }} />
+                          <span className={styles.apiLabel}>Reports</span>
+                          <span className={styles.apiStatus}>{db.reports} records</span>
+                        </div>
+                      </>
+                    )}
+                  </>
+                )
+              })()
+            ) : (
+              <p className={styles.hint}>Run a health check below to see database status.</p>
+            )}
+          </div>
+          <div className={styles.actionRow}>
+            <button onClick={initDatabase} disabled={initLoading} className={styles.primaryBtn}>
+              {initLoading ? "Initializing..." : "Initialize / Seed"}
+            </button>
+          </div>
+          {initResult && (
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              <p className={initResult.success ? styles.savedNote : styles.errorNote}>
+                {initResult.success
+                  ? (initResult.message ?? `Initialized: ${initResult.seeded?.join(", ") || "nothing new"}`)
+                  : (initResult.error ?? "Failed")}
+              </p>
+              {initResult.reportUrl && (
+                <>
+                  <div className={styles.readonlyRow}>
+                    <span className={styles.readonlyLabel}>Report URL</span>
+                    <code className={styles.keyCode}>{initResult.reportUrl}</code>
+                  </div>
+                  <div className={styles.readonlyRow}>
+                    <span className={styles.readonlyLabel}>Password</span>
+                    <code className={styles.keyCode}>{initResult.reportPassword}</code>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 export const dynamic = "force-dynamic"
+export const revalidate = 0
 
 import { notFound } from "next/navigation"
 import prisma from "@/lib/admin/prismaClient"

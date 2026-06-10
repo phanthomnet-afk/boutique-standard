@@ -4,6 +4,7 @@ import { validateNeoApiKey, recordNeoApiCall } from "@/lib/admin/neoAuth"
 import { getWeeklyOutreachPlan } from "@/lib/admin/sequenceScheduler"
 
 export const dynamic = "force-dynamic"
+export const revalidate = 0
 
 // Simple in-memory cache for dashboard data
 const cache = new Map<string, { data: unknown; timestamp: number }>()

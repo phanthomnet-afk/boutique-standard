@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
 import { calculateIcpScore } from "@/lib/admin/icpScoring"

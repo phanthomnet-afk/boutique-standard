@@ -1,7 +1,7 @@
 # CLAUDE.md - The Boutique Standard
 ## Shared Project Memory - Always Read This First
 
-**Last updated:** 2026-06-09
+**Last updated:** 2026-06-10
 **Project status:** Lead Engine complete (4 phases).
 Website substantially built. Client web report not yet built.
 
@@ -445,12 +445,12 @@ Target: 200-350KB per image as WebP or JPEG.
 
 ## Build Priority Order
 
-1. Client web report (/client/[token]/report) - THE product
-2. PDF engine sections (complete the 13 sections)
-3. Case report polish (/report/maison-du-rivage)
-4. Sanity CMS integration
-5. Additional journal articles
-6. Email infrastructure (Resend domain setup)
+1. Test full lead engine flow - CURRENT
+2. Resend domain verification (Cloudflare DNS)
+3. Client web report polish (/client/[token]/report)
+4. PDF engine sections (complete the 13 sections)
+5. Case report polish (/report/maison-du-rivage)
+6. Sanity CMS integration
 
 ---
 
@@ -463,3 +463,17 @@ The interactive web report delivered to hotel clients.
 Password-protected. ~20 sections. Uses maison-du-rivage.json.
 
 SYSTEM CORE: core/system/BOUTIQUE_STANDARD_SYSTEM.md
+
+---
+
+## Infrastructure Notes
+
+- `apps/web/.env` contains DATABASE_URL and DIRECT_URL for Prisma CLI - gitignored.
+  Prisma CLI reads `.env` only, NOT `.env.local`.
+- `db:seed` in root `package.json` calls `seed:report` directly (not via workspace).
+  The `seed:report` script only exists in root, not in `apps/web`.
+- All admin pages and API routes have `force-dynamic` + `revalidate = 0` except
+  `admin/login/page.tsx` (client component - static is fine, no DB query).
+- `POST /api/admin/system/init` seeds Settings and ClientReport if missing.
+  Call from admin settings page "Initialize / Seed" button after first deploy.
+- `GET /api/admin/system/health` returns DB connection + table counts + env var presence.

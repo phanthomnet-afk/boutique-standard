@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## resend-configured-system-test-ready
+- **Tag:** `checkpoint/2026-06-10-1228-resend-configured-system-test-ready`
+- **Created:** 2026-06-10-1228
+- **Restore all:** `git checkout checkpoint/2026-06-10-1228-resend-configured-system-test-ready`
+- **Restore website:** `git checkout checkpoint/2026-06-10-1228-resend-configured-system-test-ready -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-10-1228-resend-configured-system-test-ready -- apps/web/components/`
+
+---
+
 ## client-report-built-48-files
 - **Tag:** `checkpoint/2026-06-10-0831-client-report-built-48-files`
 - **Created:** 2026-06-10-0831

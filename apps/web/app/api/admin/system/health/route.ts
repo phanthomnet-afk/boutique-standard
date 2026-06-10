@@ -1,43 +1,59 @@
-import { NextResponse } from "next/server"
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
+import { NextRequest, NextResponse } from "next/server"
 import prisma from "@/lib/admin/prismaClient"
 
-export const dynamic = "force-dynamic"
-
-type ServiceStatus =
-  | { status: "ok"; message?: string }
-  | { status: "error"; message: string }
-  | { status: "configured" }
-  | { status: "missing" }
-  | { status: "skipped" }
-
-export async function GET() {
-  const services: Record<string, ServiceStatus> = {}
-
-  // Database - live ping
-  try {
-    await prisma.$queryRaw`SELECT 1`
-    services.database = { status: "ok" }
-  } catch (err) {
-    services.database = { status: "error", message: err instanceof Error ? err.message : "Connection failed" }
+export async function GET(request: NextRequest) {
+  const cookie = request.headers.get("cookie") || ""
+  if (!cookie.includes("tbs_admin_session")) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 
-  // API keys - presence only
-  services.openai       = process.env.OPENAI_API_KEY      ? { status: "configured" } : { status: "missing" }
-  services.anthropic    = process.env.ANTHROPIC_API_KEY   ? { status: "configured" } : { status: "missing" }
-  services.resend       = process.env.RESEND_API_KEY       ? { status: "configured" } : { status: "missing" }
-  services.googlePlaces = process.env.GOOGLE_PLACES_API_KEY ? { status: "configured" } : { status: "missing" }
-  services.scrapegraph  = process.env.SCRAPEGRAPH_API_KEY  ? { status: "configured" } : { status: "missing" }
-  services.dataforseo   = { status: "skipped" }
-  services.adminPassword = process.env.ADMIN_PASSWORD      ? { status: "configured" } : { status: "missing" }
+  const checks: Record<string, any> = {}
 
-  const dbOk = services.database.status === "ok"
-  const coreOk = services.anthropic.status === "configured" && services.resend.status === "configured"
-  const overallStatus = !dbOk ? "error" : !coreOk ? "degraded" : "ok"
+  try {
+    await prisma.$queryRaw`SELECT 1`
+    checks.database = {
+      status: "ok",
+      hotels: await prisma.hotel.count(),
+      contacts: await prisma.contact.count(),
+      reports: await prisma.clientReport.count(),
+      settings: await prisma.settings.count(),
+    }
+  } catch (e: any) {
+    checks.database = { status: "error", message: e.message }
+  }
+
+  const envKeys = [
+    "OPENAI_API_KEY",
+    "ANTHROPIC_API_KEY",
+    "RESEND_API_KEY",
+    "GOOGLE_PLACES_API_KEY",
+    "SCRAPEGRAPH_API_KEY",
+    "ADMIN_PASSWORD",
+    "DATABASE_URL",
+    "DIRECT_URL",
+  ]
+
+  for (const key of envKeys) {
+    checks[key] = { status: process.env[key] ? "configured" : "missing" }
+  }
+
+  checks.SEND_EMAILS_ENABLED = {
+    status: process.env.SEND_EMAILS_ENABLED === "true" ? "enabled" : "disabled",
+  }
+  checks.DATAFORSEO = { status: "skipped - not required" }
+
+  const hasErrors = Object.values(checks).some((c: any) => c.status === "error")
+  const hasMissing = Object.values(checks).some((c: any) => c.status === "missing")
 
   return NextResponse.json({
-    status: overallStatus,
+    overall: hasErrors ? "error" : hasMissing ? "degraded" : "ok",
+    status: hasErrors ? "error" : hasMissing ? "degraded" : "ok",
     timestamp: new Date().toISOString(),
-    services,
+    checks,
+    services: checks,
     sendEmailsEnabled: process.env.SEND_EMAILS_ENABLED === "true",
   })
 }
