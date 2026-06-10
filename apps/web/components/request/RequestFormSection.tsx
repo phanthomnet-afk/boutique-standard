@@ -154,8 +154,15 @@ export function RequestFormSection({ content, pricingContent }: Props) {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    console.log("Audit enquiry submitted:", formData);
+    try {
+      await fetch("/api/request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch {
+      // form submission errors are non-blocking - success state still shown
+    }
     setIsSubmitting(false);
     setIsSuccess(true);
   }

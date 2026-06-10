@@ -28,7 +28,11 @@ export async function POST(_req: NextRequest, { params }: Params) {
   // Step 2: DataForSEO reviews (if google place id available - skip otherwise)
   let reviewData = { reviews: [] as any[], reviewCount: 0, averageRating: null as number | null, raw: "" }
   if (hotel.googlePlaceId) {
-    reviewData = await getReviews(hotel.name, hotel.location)
+    try {
+      reviewData = await getReviews(hotel.name, hotel.location)
+    } catch (error) {
+      console.log("Review fetch skipped:", error)
+    }
   }
 
   // Step 3: AI signal extraction from reviews (Claude Haiku)

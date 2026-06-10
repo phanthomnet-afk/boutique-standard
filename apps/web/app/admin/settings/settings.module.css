@@ -365,3 +365,52 @@
   font-size: 0.8125rem;
   color: #8b2020;
 }
+
+/* System health */
+.healthActionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.healthGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.healthRow {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.875rem;
+}
+
+.healthDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.healthLabel {
+  flex: 1;
+  color: #4a4744;
+}
+
+.healthStatus {
+  font-size: 0.8125rem;
+  color: #9e9890;
+}
+
+.healthOverall {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+}
+
+.healthOverall_ok       { background: #e8f0e0; color: #3a5020; }
+.healthOverall_degraded { background: #fdf3e0; color: #7a5000; }
+.healthOverall_error    { background: #fde8e8; color: #8b2020; }

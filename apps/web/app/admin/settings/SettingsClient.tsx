@@ -62,6 +62,13 @@ export default function SettingsClient({ senderName, senderEmail, sendEnabled, v
   const [testSending, setTestSending] = useState(false)
   const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null)
 
+  const [healthChecking, setHealthChecking] = useState(false)
+  const [healthData, setHealthData] = useState<{
+    status: "ok" | "degraded" | "error"
+    services: Record<string, { status: string; message?: string }>
+    sendEmailsEnabled: boolean
+  } | null>(null)
+
   // NEO state
   const [neo, setNeo] = useState<NeoSettings>({
     neoEnabled: false,
@@ -133,6 +140,17 @@ export default function SettingsClient({ senderName, senderEmail, sendEnabled, v
     }
   }
 
+  async function runHealthCheck() {
+    setHealthChecking(true)
+    setHealthData(null)
+    try {
+      const res = await fetch("/api/admin/system/health")
+      if (res.ok) setHealthData(await res.json())
+    } finally {
+      setHealthChecking(false)
+    }
+  }
+
   async function sendTest() {
     if (!testEmail.includes("@")) return
     setTestSending(true)
@@ -147,7 +165,7 @@ export default function SettingsClient({ senderName, senderEmail, sendEnabled, v
       setTestResult({
         success: res.ok,
         message: res.ok
-          ? d.simulated ? "Simulated send (SEND_EMAILS_ENABLED=false)" : "Test email sent successfully"
+          ? `Test email sent (ID: ${d.messageId ?? "?"})`
           : d.error ?? "Send failed",
       })
     } finally {
@@ -291,6 +309,46 @@ export default function SettingsClient({ senderName, senderEmail, sendEnabled, v
             ))}
           </div>
           <p className={styles.hint}>Status is based on env var presence only - not a live connection check.</p>
+        </div>
+      </section>
+
+      {/* System health */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>System Health</h2>
+        <div className={styles.card}>
+          <div className={styles.healthActionRow}>
+            <button onClick={runHealthCheck} disabled={healthChecking} className={styles.primaryBtn}>
+              {healthChecking ? "Checking..." : "Run health check"}
+            </button>
+            {healthData && (
+              <span className={`${styles.healthOverall} ${styles[`healthOverall_${healthData.status}`]}`}>
+                {healthData.status.toUpperCase()}
+              </span>
+            )}
+          </div>
+          {healthData && (
+            <div className={styles.healthGrid}>
+              {Object.entries(healthData.services).map(([key, svc]) => {
+                const isOk = svc.status === "ok" || svc.status === "configured"
+                const isSkipped = svc.status === "skipped"
+                const dotColor = isSkipped ? "#c0c0c0" : isOk ? "#3a7a3a" : "#c03030"
+                return (
+                  <div key={key} className={styles.healthRow}>
+                    <span className={styles.healthDot} style={{ background: dotColor }} />
+                    <span className={styles.healthLabel}>{key}</span>
+                    <span className={styles.healthStatus}>
+                      {svc.status}{svc.message ? ` - ${svc.message}` : ""}
+                    </span>
+                  </div>
+                )
+              })}
+              <div className={styles.healthRow}>
+                <span className={styles.healthDot} style={{ background: healthData.sendEmailsEnabled ? "#3a7a3a" : "#c0c0c0" }} />
+                <span className={styles.healthLabel}>sendEmailsEnabled</span>
+                <span className={styles.healthStatus}>{healthData.sendEmailsEnabled ? "true" : "false"}</span>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

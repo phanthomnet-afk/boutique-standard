@@ -15,6 +15,7 @@ export async function getReviews(
   const password = process.env.DATAFORSEO_PASSWORD
 
   if (!login || !password) {
+    console.log("DataForSEO not configured - skipping reviews")
     return { reviews: [], reviewCount: 0, averageRating: null, raw: "" }
   }
 

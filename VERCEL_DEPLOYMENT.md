@@ -110,3 +110,20 @@ The following must be set for the build to succeed and basic admin access to wor
 3. `DIRECT_URL` (from Vercel Postgres)
 
 All other variables can be added after the initial deploy. Missing API keys throw errors only when their features are actually used - not at build time.
+
+---
+
+## Post-Deploy Testing Sequence
+
+Test in this order after each deploy. Document any failures with step number and error.
+
+1. **Homepage** - visit boutiquestandard.com - page loads, no console errors
+2. **Admin login** - visit boutiquestandard.com/admin/login - enter `ADMIN_PASSWORD` - redirects to /admin/hotels
+3. **System health** - admin Settings - click "Run health check" - database should show green, configured APIs green, dataforseo grey (skipped)
+4. **Test email** - admin Settings - send test email to casper@boutiquestandard.com - check inbox
+5. **Audit request form** - visit boutiquestandard.com/request - fill in form and submit - check leads@boutiquestandard.com for notification
+6. **Hotel analysis** - admin Hotels - add hotel manually (Name: Test Hotel Copenhagen, Website: https://cphhospitality.dk, Location: Copenhagen DK) - click Analyse - wait for intelligence to populate
+7. **Outreach generation** - from hotel detail, generate Touch 1 outreach - email and LinkedIn drafts should appear
+8. **Client report** - visit boutiquestandard.com/client/ad7555f70c08bd269ddfa81d085981ca/report - password: rivage2027 - all 13 sections render - keyboard navigation works
+9. **Journal** - visit boutiquestandard.com/journal - 3 articles visible and clickable
+10. **Public pages** - visit /audit, /about, /report - all load correctly
