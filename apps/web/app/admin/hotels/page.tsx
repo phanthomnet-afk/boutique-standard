@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import prisma from "@/lib/admin/prismaClient"
 import { TARGET_COUNTRIES } from "@/lib/admin/countries"
 import { HotelListClient } from "./HotelListClient"

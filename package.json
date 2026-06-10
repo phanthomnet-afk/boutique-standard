@@ -13,7 +13,12 @@
     "checkpoint": "bash scripts/checkpoint.sh",
     "restore": "bash scripts/restore.sh",
     "snapshots": "git tag -l 'checkpoint/*' | sort -r",
-    "seed:report": "npx tsx apps/web/scripts/seedReport.ts"
+    "seed:report": "npx tsx apps/web/scripts/seedReport.ts",
+    "db:push": "npm run db:push --workspace=apps/web",
+    "db:migrate": "npm run db:migrate --workspace=apps/web",
+    "db:generate": "npm run db:generate --workspace=apps/web",
+    "db:studio": "npm run db:studio --workspace=apps/web",
+    "db:seed": "npm run seed:report --workspace=apps/web"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
