@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { AdminErrorBoundary } from "@/components/admin/AdminErrorBoundary"
 import styles from "./admin.module.css"
 
 export const metadata: Metadata = {
@@ -49,7 +50,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               </Link>
             </div>
           </nav>
-          <main className={styles.main}>{children}</main>
+          <main className={styles.main}>
+            <AdminErrorBoundary>{children}</AdminErrorBoundary>
+          </main>
         </div>
       </body>
     </html>

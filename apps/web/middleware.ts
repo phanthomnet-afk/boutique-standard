@@ -13,17 +13,10 @@ export function middleware(req: NextRequest) {
     return NextResponse.next()
   }
 
-  const session = req.cookies.get("admin_session")?.value
-  const adminPassword = process.env.ADMIN_PASSWORD
+  const session = req.cookies.get("tbs_admin_session")
+  const isAuthenticated = session?.value === "authenticated"
 
-  if (!adminPassword) {
-    return NextResponse.json(
-      { error: "Admin not configured" },
-      { status: 500 }
-    )
-  }
-
-  if (session !== adminPassword) {
+  if (!isAuthenticated) {
     // API requests get 401
     if (pathname.startsWith("/api/")) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })

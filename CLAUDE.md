@@ -477,3 +477,8 @@ SYSTEM CORE: core/system/BOUTIQUE_STANDARD_SYSTEM.md
 - `POST /api/admin/system/init` seeds Settings and ClientReport if missing.
   Call from admin settings page "Initialize / Seed" button after first deploy.
 - `GET /api/admin/system/health` returns DB connection + table counts + env var presence.
+- `GET /api/health` is a public diagnostic route (no auth, no DB). Confirms app is live.
+- Admin session cookie: name=`tbs_admin_session`, value=`"authenticated"`, HttpOnly.
+  Set by POST /api/admin/auth. Checked by middleware and API routes.
+- Claude Code never writes to .env.local. Never writes real values to any file.
+  .env.example contains key names only - no secrets, no real passwords.

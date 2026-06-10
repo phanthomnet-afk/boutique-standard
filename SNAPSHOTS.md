@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## admin-live-all-fixes-applied
+- **Tag:** `checkpoint/2026-06-10-1430-admin-live-all-fixes-applied`
+- **Created:** 2026-06-10-1430
+- **Restore all:** `git checkout checkpoint/2026-06-10-1430-admin-live-all-fixes-applied`
+- **Restore website:** `git checkout checkpoint/2026-06-10-1430-admin-live-all-fixes-applied -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-10-1430-admin-live-all-fixes-applied -- apps/web/components/`
+
+---
+
 ## resend-configured-system-test-ready
 - **Tag:** `checkpoint/2026-06-10-1228-resend-configured-system-test-ready`
 - **Created:** 2026-06-10-1228

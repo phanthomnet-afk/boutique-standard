@@ -1,13 +1,14 @@
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 import { NextRequest, NextResponse } from "next/server"
 import { cookies } from "next/headers"
 import prisma from "@/lib/admin/prismaClient"
 
-export const dynamic = "force-dynamic"
-
 export async function GET(req: NextRequest) {
   const cookieStore = cookies()
-  const session = cookieStore.get("admin_session")
-  if (!session || session.value !== process.env.ADMIN_PASSWORD) {
+  const session = cookieStore.get("tbs_admin_session")
+  if (!session || session.value !== "authenticated") {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 

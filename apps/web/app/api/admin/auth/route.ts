@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic"
+export const revalidate = 0
+
 import { NextRequest, NextResponse } from "next/server"
 
 export async function POST(req: NextRequest) {
@@ -7,20 +10,34 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid password" }, { status: 401 })
   }
 
-  const response = NextResponse.json({ ok: true })
-  response.cookies.set("admin_session", process.env.ADMIN_PASSWORD!, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
-    path: "/",
-    maxAge: 60 * 60 * 24 * 7, // 7 days
-  })
+  const isProd = process.env.NODE_ENV === "production"
 
-  return response
+  const cookieOptions = [
+    "tbs_admin_session=authenticated",
+    "Path=/",
+    "HttpOnly",
+    `Max-Age=${60 * 60 * 24}`,
+    isProd ? "Secure" : "",
+    isProd ? "SameSite=Strict" : "SameSite=Lax",
+  ]
+    .filter(Boolean)
+    .join("; ")
+
+  return new Response(JSON.stringify({ ok: true }), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "Set-Cookie": cookieOptions,
+    },
+  })
 }
 
 export async function DELETE() {
-  const response = NextResponse.json({ ok: true })
-  response.cookies.delete("admin_session")
-  return response
+  return new Response(JSON.stringify({ ok: true }), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+      "Set-Cookie": "tbs_admin_session=; Path=/; HttpOnly; Max-Age=0",
+    },
+  })
 }
