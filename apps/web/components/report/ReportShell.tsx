@@ -136,7 +136,7 @@ export default function ReportShell({ data, token: _token }: Props) {
       </button>
 
       {/* Report sections */}
-      <main>
+      <main className={styles.main}>
         <S01ExecutiveSnapshot data={data} />
         <S02PropertyContext data={data} />
         <S04ExperienceDNA data={data} />

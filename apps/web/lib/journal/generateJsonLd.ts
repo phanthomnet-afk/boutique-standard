@@ -10,7 +10,7 @@ export function generateJsonLd(article: Article): string {
     publisher: {
       "@type": "Organization",
       name: "The Boutique Standard",
-      url: "https://theboutiquestandard.com",
+      url: "https://boutiquestandard.com",
     },
     articleSection: CATEGORY_LABELS[article.category],
   }

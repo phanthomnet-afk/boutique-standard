@@ -21,7 +21,7 @@ export function buildEmailHtml(params: EmailTemplateParams): string {
     <div style="margin-top:40px;padding-top:24px;border-top:1px solid #e4e0da;">
       <p style="margin:0 0 4px 0;font-size:13px;color:#4a4744;font-weight:500;">The Boutique Standard</p>
       <p style="margin:0 0 4px 0;font-size:12px;color:#9e9890;">Independent Guest Experience Intelligence</p>
-      <p style="margin:0;font-size:12px;color:#9e9890;">theboutiquestandard.com</p>
+      <p style="margin:0;font-size:12px;color:#9e9890;">boutiquestandard.com</p>
     </div>`
       : ""
 

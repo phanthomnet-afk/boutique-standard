@@ -35,7 +35,7 @@ export function Footer() {
               Independent Guest Experience Intelligence
             </p>
             <p className={styles.tagline} style={{ marginTop: "0.25rem" }}>
-              theboutiquestandard.com
+              boutiquestandard.com
             </p>
           </div>
 

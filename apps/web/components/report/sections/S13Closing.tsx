@@ -60,7 +60,7 @@ export default function S13Closing({ data }: Props) {
           <p className={styles.sigPrepared}>Prepared by</p>
           <p className={styles.sigName}>The Boutique Standard</p>
           <p className={styles.sigTagline}>Independent Guest Experience Intelligence</p>
-          <p className={styles.sigUrl}>theboutiquestandard.com</p>
+          <p className={styles.sigUrl}>boutiquestandard.com</p>
           <p className={styles.confidential}>
             This report is confidential and prepared exclusively for the property named herein.
           </p>

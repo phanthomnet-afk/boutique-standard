@@ -651,7 +651,7 @@ export function closingSection(report: ReportCase): string {
   <div style="margin-top: 64px; padding-top: 24px; border-top: 0.5px solid var(--color-border);">
     <div class="section-label">Prepared by</div>
     <p style="font-family: var(--font-serif); font-size: 14pt; margin-top: 4px;">The Boutique Standard</p>
-    <p style="font-size: 9pt; color: var(--color-text-muted);">Independent Guest Experience Intelligence · theboutiquestandard.com</p>
+    <p style="font-size: 9pt; color: var(--color-text-muted);">Independent Guest Experience Intelligence · boutiquestandard.com</p>
     <p style="font-size: 8pt; color: var(--color-text-muted); margin-top: 12px;">This report is confidential and prepared exclusively for the property named herein.</p>
   </div>
 </section>`;

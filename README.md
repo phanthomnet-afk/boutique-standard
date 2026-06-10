@@ -161,4 +161,4 @@ The system is designed to be controlled externally when ready. The `packages/che
 ---
 
 *The Boutique Standard — Independent Guest Experience Intelligence*
-*theboutiquestandard.com*
+*boutiquestandard.com*

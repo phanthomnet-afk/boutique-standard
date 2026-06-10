@@ -7,7 +7,7 @@
 
 **Name:** The Boutique Standard
 **Tagline:** Independent Guest Experience Audits for Boutique Hotels
-**Domain:** theboutiquestandard.com
+**Domain:** boutiquestandard.com
 **Type:** Standalone independent company. Not connected to Anibot or other CK entities operationally. Controllable via NEO Dashboard Core.
 
 **The one positioning sentence:**
@@ -356,7 +356,7 @@ All generated from data, not designed manually per report.
 
 **Current:** None configured.
 **Need:** One address for testing (can use existing Anibot mail initially).
-**Future:** Custom domain email (theboutiquestandard.com).
+**Future:** Custom domain email (boutiquestandard.com).
 **Transactional:** Resend (for form submissions, report delivery notifications).
 **No Google Workspace right now.**
 
@@ -425,4 +425,4 @@ If it looks like consulting, SaaS, or a startup: redesign it.
 ---
 
 *The Boutique Standard - Independent Guest Experience Intelligence*
-*theboutiquestandard.com*
+*boutiquestandard.com*

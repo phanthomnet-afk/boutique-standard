@@ -16,7 +16,7 @@ export interface EmailSendResult {
 export async function sendOutreachEmail(params: SendEmailParams): Promise<EmailSendResult> {
   const enabled = process.env.SEND_EMAILS_ENABLED === "true"
   const apiKey = process.env.RESEND_API_KEY
-  const fromEmail = process.env.OUTREACH_FROM_EMAIL ?? "hello@theboutiquestandard.com"
+  const fromEmail = process.env.OUTREACH_FROM_EMAIL ?? "hello@boutiquestandard.com"
   const fromName = process.env.OUTREACH_FROM_NAME ?? "The Boutique Standard"
 
   if (!enabled) {

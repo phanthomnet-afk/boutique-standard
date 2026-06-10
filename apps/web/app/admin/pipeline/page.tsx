@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"
+
 import Link from "next/link"
 import prisma from "@/lib/admin/prismaClient"
 import styles from "./pipeline.module.css"

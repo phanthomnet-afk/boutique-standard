@@ -18,7 +18,7 @@ Root `.env.example` exists as a placeholder; no root-level variables are current
 | `NEXT_PUBLIC_SITE_URL` | Yes | Public | Full URL of the deployed site. No trailing slash. |
 
 **Local:** `http://localhost:3000`
-**Production:** `https://theboutiquestandard.com`
+**Production:** `https://boutiquestandard.com`
 
 ---
 
@@ -83,7 +83,7 @@ Only `NEXT_PUBLIC_SITE_URL` is needed to run the site locally. All Sanity, form,
 
 | Scope | When to use |
 |---|---|
-| Production | Live site only (`theboutiquestandard.com`) |
+| Production | Live site only (`boutiquestandard.com`) |
 | Preview | Branch and PR preview deploys |
 | Development | Pulled via `vercel env pull` for local dev |
 
@@ -103,7 +103,7 @@ This is already correct if the Vercel project was created by importing `apps/web
 
 | Variable | Development | Preview | Production |
 |---|---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | `http://localhost:3000` | Preview deploy URL | `https://theboutiquestandard.com` |
+| `NEXT_PUBLIC_SITE_URL` | `http://localhost:3000` | Preview deploy URL | `https://boutiquestandard.com` |
 | `NEXT_PUBLIC_SANITY_DATASET` | `production` or `staging` | `production` | `production` |
 | All secrets | via `.env.local` | Vercel dashboard | Vercel dashboard |
 
