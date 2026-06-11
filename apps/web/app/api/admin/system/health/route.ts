@@ -44,6 +44,10 @@ export async function GET(request: NextRequest) {
     status: process.env.SEND_EMAILS_ENABLED === "true" ? "enabled" : "disabled",
   }
   checks.DATAFORSEO = { status: "skipped - not required" }
+  checks.DB_HOST = {
+    status: "info",
+    value: process.env.DATABASE_URL?.split("@")[1]?.split("/")[0] ?? "not set",
+  }
 
   const hasErrors = Object.values(checks).some((c: any) => c.status === "error")
   const hasMissing = Object.values(checks).some((c: any) => c.status === "missing")

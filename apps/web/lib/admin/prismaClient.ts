@@ -1,11 +1,13 @@
 import { PrismaClient } from "@prisma/client"
 
-// Fall back to Neon's auto-injected vars when explicit DATABASE_URL is not set.
-// Handles Vercel deployments using the Neon Postgres integration.
-if (!process.env.DATABASE_URL && process.env.NEONSTORAGE_POSTGRES_PRISMA_URL) {
+// On Vercel with the Neon integration, NEONSTORAGE_* vars are always
+// authoritative (auto-injected by the integration). Use them unconditionally
+// when present so build and runtime always connect to the same database,
+// regardless of any manually set DATABASE_URL in Vercel's env vars.
+if (process.env.NEONSTORAGE_POSTGRES_PRISMA_URL) {
   process.env.DATABASE_URL = process.env.NEONSTORAGE_POSTGRES_PRISMA_URL
 }
-if (!process.env.DIRECT_URL && process.env.NEONSTORAGE_POSTGRES_URL_NON_POOLING) {
+if (process.env.NEONSTORAGE_POSTGRES_URL_NON_POOLING) {
   process.env.DIRECT_URL = process.env.NEONSTORAGE_POSTGRES_URL_NON_POOLING
 }
 
