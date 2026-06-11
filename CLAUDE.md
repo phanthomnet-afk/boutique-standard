@@ -1,9 +1,10 @@
 # CLAUDE.md - The Boutique Standard
 ## Shared Project Memory - Always Read This First
 
-**Last updated:** 2026-06-10
+**Last updated:** 2026-06-11
 **Project status:** Lead Engine complete (4 phases).
-Website substantially built. Client web report not yet built.
+Website substantially built. Sanity CMS content layer implemented.
+Client web report not yet built.
 
 ---
 
@@ -77,7 +78,7 @@ No looping animations.
 
 - Framework: Next.js 14 (App Router)
 - Database: Prisma + SQLite (dev) / Vercel Postgres (prod)
-- CMS: Sanity (planned - content layer architected for it)
+- CMS: Sanity v3 (content layer implemented - sanity@3, next-sanity@9)
 - Hosting: Vercel
 - Styling: CSS Modules + CSS custom properties
 - Email: Resend
@@ -409,6 +410,16 @@ getContent(page, lang) is the single swap point for Sanity.
 No hardcoded strings in any component.
 Bilingual: EN (default) + DA (geo-detected, DK visitors).
 
+**Sanity CMS (IMPLEMENTED):**
+- sanity@3, next-sanity@9 (React 18 compatible)
+- Studio: redirect from /studio to [projectId].sanity.studio
+- Schemas: apps/web/sanity/schemas/ (14 section types + page/sharedSection docs)
+- Client: apps/web/sanity/client.ts (NEXT_PUBLIC_SANITY_PROJECT_ID gates usage)
+- Seed: npm run sanity:seed (requires SANITY_API_DEV_TOKEN with Editor role)
+- Revalidation: POST /api/sanity/revalidate (verify SANITY_WEBHOOK_SECRET)
+- getContent.ts tries Sanity first, falls back to local TypeScript files
+- NOT a page builder: components never change, only data source changes
+
 ---
 
 ## Image System
@@ -440,17 +451,18 @@ Target: 200-350KB per image as WebP or JPEG.
 - Admin auth: session cookie (ADMIN_PASSWORD env var)
 - Lead Engine API keys: stored in DB Settings model, not env vars
 - Email send guard: SEND_EMAILS_ENABLED=false simulates, still writes DB
+- Sanity: NOT a page builder. Layout is code. Content is data. Never mix.
+- Sanity studio: embedded NextStudio breaks with React 18 - always redirect
 
 ---
 
 ## Build Priority Order
 
-1. Test full lead engine flow - CURRENT
-2. Resend domain verification (Cloudflare DNS)
-3. Client web report polish (/client/[token]/report)
-4. PDF engine sections (complete the 13 sections)
-5. Case report polish (/report/maison-du-rivage)
-6. Sanity CMS integration
+1. Resend domain verification (Cloudflare DNS)
+2. Client web report (/client/[token]/report) - NOT YET BUILT
+3. PDF engine sections (complete the 13 sections)
+4. Case report polish (/report/maison-du-rivage)
+5. Sanity CMS: create project, add env vars, run seed, configure webhook
 
 ---
 
