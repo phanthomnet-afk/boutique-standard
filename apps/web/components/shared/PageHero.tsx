@@ -4,13 +4,14 @@ import type { SectionHero } from "@/lib/content/types";
 import styles from "./PageHero.module.css";
 
 interface PageHeroProps {
-  content: SectionHero;
+  content: SectionHero | undefined;
   variant?: "image" | "typographic";
   imageSrc?: string;
   imageAlt?: string;
 }
 
 export function PageHero({ content, variant = "image", imageSrc, imageAlt = "" }: PageHeroProps) {
+  if (!content) return null
   return (
     <section
       className={`${styles.hero} ${variant === "typographic" ? styles.heroTypographic : styles.heroImage}`}

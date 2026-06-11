@@ -6,6 +6,7 @@
 Website substantially built. Sanity CMS content layer implemented.
 Report Engine Phase 1 + visual quality pass complete.
 Web report loads and renders all 13 sections with real data and images.
+Public pages null-safe. Admin has mobile hamburger sidebar.
 
 ---
 
@@ -368,6 +369,8 @@ boutique-standard/
 - [x] Request/enquiry form (/request, multi-step)
 - [x] Journal hub (/journal)
 - [x] Journal articles (3 live)
+- [x] Public pages null-safe (getContent returns T | null, all 4 public pages guard null)
+- [x] Admin mobile sidebar (AdminShell "use client" component, hamburger at 768px)
 - [ ] Client report (/client/[token]/report) - NOT YET BUILT
 
 ---

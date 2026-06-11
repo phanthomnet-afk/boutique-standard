@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## broken-pages-fixed-admin-mobile
+- **Tag:** `checkpoint/2026-06-11-2158-broken-pages-fixed-admin-mobile`
+- **Created:** 2026-06-11-2158
+- **Restore all:** `git checkout checkpoint/2026-06-11-2158-broken-pages-fixed-admin-mobile`
+- **Restore website:** `git checkout checkpoint/2026-06-11-2158-broken-pages-fixed-admin-mobile -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-11-2158-broken-pages-fixed-admin-mobile -- apps/web/components/`
+
+---
+
 ## web-report-visual-pass-complete
 - **Tag:** `checkpoint/2026-06-11-1942-web-report-visual-pass-complete`
 - **Created:** 2026-06-11-1942

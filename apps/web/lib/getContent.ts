@@ -26,7 +26,12 @@ export async function getContent<T>(page: string, lang: Lang = "en"): Promise<T 
       const data = await sanityClient.fetch(PAGE_QUERY, { slug: page }, { next: { revalidate: 60 } })
       if (data?.sections?.length > 0) {
         const transformed = transformPageData(data, lang)
-        if (transformed) return transformed as T
+        // Only use Sanity data if it contains the full page shape (has hero).
+        // transformPageData currently returns { meta, sections } only - fall
+        // through to local TypeScript content until the transform is complete.
+        if (transformed && 'hero' in (transformed as Record<string, unknown>)) {
+          return transformed as T
+        }
       }
     } catch {
       console.warn(`[getContent] Sanity unavailable for "${page}", using local content`)
