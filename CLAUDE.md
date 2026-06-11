@@ -4,7 +4,7 @@
 **Last updated:** 2026-06-11
 **Project status:** Lead Engine complete (4 phases).
 Website substantially built. Sanity CMS content layer implemented.
-Client web report not yet built.
+Report Engine Phase 1 complete. Client web report not yet built.
 
 ---
 
@@ -394,6 +394,34 @@ neo-integration.md documentation.
 
 ---
 
+## Report Engine - Phase 1 Complete
+
+**Section identifier system:**
+- All web section files renamed S01-S13 with dash convention
+- S03-PromiseAnalysis created (was missing)
+- ReportShell.tsx updated with all 13 imports + nav item
+- SECTIONS.md reference table created
+- promiseAnalysis added to ClientReportData type + transformer
+
+**PDF templates (packages/pdf-engine/templates/):**
+- S01-S13 all implemented with full HTML/CSS
+- S07 has SVG continuity chart with fill zones + intersection detection
+- imageHelper.ts: findImage() checks .png/.jpg/.jpeg/.webp
+- layout.ts: buildFullDocument assembles all 13 sections
+
+**Admin report management (apps/web/app/admin/reports/):**
+- Report Prisma model (slug, hotelName, location, auditDate, dataPath,
+  status, pdfPath, pdfGeneratedAt, clientToken, notes)
+- GET /api/admin/reports/list - all reports + stats
+- GET+PATCH /api/admin/reports/[id] - detail + status/notes update
+- POST /api/admin/reports/[id]/generate-pdf - spawns pdf-engine CLI
+- POST /api/admin/reports/[id]/create-client-access - creates ClientReport
+- POST /api/admin/reports/seed-maison - seeds maison-du-rivage record
+- ReportsClient.tsx: stats bar, seed button, table with PDF + client actions
+- Reports added to admin sidebar (between Hotels and Prospects)
+
+---
+
 ## Pricing
 
 - Audit fee: EUR 1,200 / 7.450 kr. (geo-detected)
@@ -460,9 +488,8 @@ Target: 200-350KB per image as WebP or JPEG.
 
 1. Resend domain verification (Cloudflare DNS)
 2. Client web report (/client/[token]/report) - NOT YET BUILT
-3. PDF engine sections (complete the 13 sections)
-4. Case report polish (/report/maison-du-rivage)
-5. Sanity CMS: create project, add env vars, run seed, configure webhook
+3. Case report polish (/report/maison-du-rivage)
+4. Sanity CMS: create project, add env vars, run seed, configure webhook
 
 ---
 
