@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## report-engine-phase1-complete
+- **Tag:** `checkpoint/2026-06-11-1555-report-engine-phase1-complete`
+- **Created:** 2026-06-11-1555
+- **Restore all:** `git checkout checkpoint/2026-06-11-1555-report-engine-phase1-complete`
+- **Restore website:** `git checkout checkpoint/2026-06-11-1555-report-engine-phase1-complete -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-11-1555-report-engine-phase1-complete -- apps/web/components/`
+
+---
+
 ## before-report-engine-phase1
 - **Tag:** `checkpoint/2026-06-11-1423-before-report-engine-phase1`
 - **Created:** 2026-06-11-1423
