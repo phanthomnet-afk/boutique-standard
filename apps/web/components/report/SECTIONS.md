@@ -19,3 +19,11 @@
 To fix a specific section:
   Web report: edit apps/web/components/report/sections/S[XX]-*.tsx
   PDF: edit packages/pdf-engine/templates/S[XX]-*.ts
+
+## Known Issues
+
+- S04 DnaWheel has no section id (id="dna") - not in nav, intentionally grouped under property scroll zone
+- S06 service culture stage (06.5) shows placeholder image (no asset-service-1 image file exists)
+- S06 departure stage (06.6) shows no image (no asset available - by design)
+- ContinuityMap tooltip renders outside SVG bounds on last data point (cosmetic)
+- PDF generation requires local Node.js with Puppeteer installed; not available on Vercel serverless

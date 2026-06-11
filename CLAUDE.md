@@ -4,7 +4,8 @@
 **Last updated:** 2026-06-11
 **Project status:** Lead Engine complete (4 phases).
 Website substantially built. Sanity CMS content layer implemented.
-Report Engine Phase 1 complete. Client web report not yet built.
+Report Engine Phase 1 + visual quality pass complete.
+Web report loads and renders all 13 sections with real data and images.
 
 ---
 
@@ -394,14 +395,14 @@ neo-integration.md documentation.
 
 ---
 
-## Report Engine - Phase 1 Complete
+## Report Engine - Phase 1 + Visual Pass Complete
 
 **Section identifier system:**
 - All web section files renamed S01-S13 with dash convention
 - S03-PromiseAnalysis created (was missing)
 - ReportShell.tsx updated with all 13 imports + nav item
 - SECTIONS.md reference table created
-- promiseAnalysis added to ClientReportData type + transformer
+- promiseAnalysis and riskIfLost added to ClientReportData type + transformer
 
 **PDF templates (packages/pdf-engine/templates/):**
 - S01-S13 all implemented with full HTML/CSS
@@ -419,6 +420,18 @@ neo-integration.md documentation.
 - POST /api/admin/reports/seed-maison - seeds maison-du-rivage record
 - ReportsClient.tsx: stats bar, seed button, table with PDF + client actions
 - Reports added to admin sidebar (between Hotels and Prospects)
+
+**Visual quality pass (web report):**
+- Critical bug fixed: /api/client/[token]/data had doubled file path
+- ReportImage component: handles asset lookup, aspect ratio, placeholder fallback
+- reportImages.ts: all 10 slots wired (3 were missing src)
+- S02: ReportImage for cover, real promiseAnalysis dimensions (not hardcoded)
+- S06: ReportImage per stage with correct asset IDs (arrival-1, room-1, etc.)
+- S07: guard against empty continuityMapData crash
+- S10: riskIfLost correctly shown (was showing rationale twice)
+- ContinuityMap: animation fixed (opacity fade, was broken strokeDasharray)
+- report.css: print-color-adjust for dark sections, nav/button hidden in print
+- Password: rivage2027 (for Maison du Rivage demo access)
 
 ---
 
@@ -487,9 +500,8 @@ Target: 200-350KB per image as WebP or JPEG.
 ## Build Priority Order
 
 1. Resend domain verification (Cloudflare DNS)
-2. Client web report (/client/[token]/report) - NOT YET BUILT
-3. Case report polish (/report/maison-du-rivage)
-4. Sanity CMS: create project, add env vars, run seed, configure webhook
+2. Case report polish (/report/maison-du-rivage)
+3. Sanity CMS: create project, add env vars, run seed, configure webhook
 
 ---
 
