@@ -10,7 +10,14 @@ const REPORT_IMAGES: ReportImageSlot[] = [
   {
     assetId: "asset-cover",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/cover-exterior--cover--16x9.jpg",
     alt: "Full-bleed exterior of boutique Mediterranean hotel at golden hour, warm light on stone facade",
+    section: "cover",
+  },
+  {
+    assetId: "asset-cover-2",
+    reportSlug: "maison-du-rivage",
+    alt: "Courtyard view, afternoon light, Mediterranean garden",
     section: "cover",
   },
   {
@@ -22,30 +29,35 @@ const REPORT_IMAGES: ReportImageSlot[] = [
   {
     assetId: "asset-arrival-2",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/reception-desk--arrival--4x3.jpg",
     alt: "Reception desk - intimate, well-lit, materials consistent with property identity",
     section: "arrival",
   },
   {
     assetId: "asset-room-1",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/guest-room--room--16x9.jpg",
     alt: "Room wide shot - natural light from Mediterranean windows, quality linen, considered furniture",
     section: "room",
   },
   {
     assetId: "asset-room-2",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/welcome-amenities--room--4x3.jpg",
     alt: "Welcome amenities - regional products, handwritten note, natural presentation",
     section: "room",
   },
   {
     assetId: "asset-room-3",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/bathroom-detail--room--4x3.jpg",
     alt: "Bathroom - quality materials, product selection, lighting detail",
     section: "room",
   },
   {
     assetId: "asset-dining-1",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/breakfast-dining-room--dining--16x9.jpg",
     alt: "Breakfast dining room - morning light, tables elegantly set, courtyard garden visible",
     section: "dining",
   },
@@ -58,6 +70,7 @@ const REPORT_IMAGES: ReportImageSlot[] = [
   {
     assetId: "asset-pool-1",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/pool-area--facilities--16x9.jpg",
     alt: "Pool area - elegant design, consistent with brand identity, natural stone surround",
     section: "facilities",
   },
