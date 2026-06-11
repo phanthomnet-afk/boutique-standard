@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## pre-sanity-cms
+- **Tag:** `checkpoint/2026-06-11-1010-pre-sanity-cms`
+- **Created:** 2026-06-11-1010
+- **Restore all:** `git checkout checkpoint/2026-06-11-1010-pre-sanity-cms`
+- **Restore website:** `git checkout checkpoint/2026-06-11-1010-pre-sanity-cms -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-11-1010-pre-sanity-cms -- apps/web/components/`
+
+---
+
 ## auth-cookie-env-diagnostic-fixes
 - **Tag:** `checkpoint/2026-06-10-1448-auth-cookie-env-diagnostic-fixes`
 - **Created:** 2026-06-10-1448
