@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## auth-cookie-env-diagnostic-fixes
+- **Tag:** `checkpoint/2026-06-10-1448-auth-cookie-env-diagnostic-fixes`
+- **Created:** 2026-06-10-1448
+- **Restore all:** `git checkout checkpoint/2026-06-10-1448-auth-cookie-env-diagnostic-fixes`
+- **Restore website:** `git checkout checkpoint/2026-06-10-1448-auth-cookie-env-diagnostic-fixes -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-10-1448-auth-cookie-env-diagnostic-fixes -- apps/web/components/`
+
+---
+
 ## admin-live-all-fixes-applied
 - **Tag:** `checkpoint/2026-06-10-1430-admin-live-all-fixes-applied`
 - **Created:** 2026-06-10-1430
