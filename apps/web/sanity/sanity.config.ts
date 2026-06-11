@@ -6,7 +6,7 @@ import { schemaTypes } from "./schemas"
 export default defineConfig({
   name: "boutique-standard",
   title: "The Boutique Standard",
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
+  projectId: "tj5t0866",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "boutique-standard-data",
   plugins: [
     structureTool(),
