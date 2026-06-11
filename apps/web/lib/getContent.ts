@@ -18,24 +18,38 @@ const PAGE_QUERY = `
   }
 `
 
-export async function getContent<T>(page: string, lang: Lang = "en"): Promise<T> {
-  // Try Sanity first when project is configured
+export async function getContent<T>(page: string, lang: Lang = "en"): Promise<T | null> {
+  // Try Sanity first (only when project is configured)
   if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
     try {
-      // Dynamic import so sanity client is never bundled when Sanity is not configured
       const { sanityClient } = await import("@/sanity/client")
-      const data = await sanityClient.fetch(PAGE_QUERY, { slug: page })
-      if (data) {
-        return transformPageData(data, lang) as T
+      const data = await sanityClient.fetch(PAGE_QUERY, { slug: page }, { next: { revalidate: 60 } })
+      if (data?.sections?.length > 0) {
+        const transformed = transformPageData(data, lang)
+        if (transformed) return transformed as T
       }
-    } catch (error) {
-      console.warn("[getContent] Sanity fetch failed, falling back to local content:", error)
+    } catch {
+      console.warn(`[getContent] Sanity unavailable for "${page}", using local content`)
     }
   }
 
-  // Fallback: local TypeScript content files (always present, zero breaking changes)
-  const mod = await import(`./content/${lang}/${page}`)
-  return mod.default as T
+  // Fallback: local TypeScript content files
+  try {
+    const mod = await import(`./content/${lang}/${page}`)
+    return mod.default as T
+  } catch {
+    // Try English fallback if localised import fails
+    if (lang !== "en") {
+      try {
+        const mod = await import(`./content/en/${page}`)
+        return mod.default as T
+      } catch {
+        // fall through
+      }
+    }
+    console.warn(`[getContent] No content found for "${page}" (${lang})`)
+    return null
+  }
 }
 
 // Transform Sanity page document to the shape components expect

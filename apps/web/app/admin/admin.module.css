@@ -87,3 +87,72 @@
   padding: 2rem 2.5rem;
   min-width: 0;
 }
+
+/* Mobile hamburger button - hidden on desktop */
+.menuButton {
+  display: none;
+}
+
+/* Backdrop */
+.backdrop {
+  display: none;
+}
+
+/* Mobile sidebar overlay */
+@media (max-width: 768px) {
+  .shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -220px;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    height: 100%;
+    transition: left 200ms ease;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .sidebarOpen {
+    left: 0;
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+
+  .backdropOpen {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menuButton {
+    display: flex;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 101;
+    background: #1c1c1c;
+    color: #f8f5f0;
+    border: none;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
+  .main {
+    padding: 4rem 1rem 2rem;
+  }
+}

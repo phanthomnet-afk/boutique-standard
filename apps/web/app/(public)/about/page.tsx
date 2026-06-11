@@ -15,6 +15,12 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   const params = await searchParams;
   const lang = getLang(params);
   const content = await getContent<PhilosophyPageContent>("philosophy", lang);
+  if (!content) {
+    return {
+      title: "Our Philosophy - The Boutique Standard",
+      description: "",
+    };
+  }
   return {
     title: content.meta.title,
     description: content.meta.description,
@@ -25,6 +31,15 @@ export default async function AboutPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const lang = getLang(params);
   const content = await getContent<PhilosophyPageContent>("philosophy", lang);
+
+  if (!content) {
+    return (
+      <div style={{ padding: "4rem 2rem", fontFamily: "sans-serif" }}>
+        <p>Content temporarily unavailable.</p>
+        <p>Please try again in a moment.</p>
+      </div>
+    );
+  }
 
   return (
     <>

@@ -19,6 +19,12 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
   const params = await searchParams;
   const lang = getLang(params);
   const content = await getContent<AuditPageContent>("audit", lang);
+  if (!content) {
+    return {
+      title: "The Audit - The Boutique Standard",
+      description: "",
+    };
+  }
   return {
     title: content.meta.title,
     description: content.meta.description,
@@ -29,6 +35,15 @@ export default async function AuditPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const lang = getLang(params);
   const content = await getContent<AuditPageContent>("audit", lang);
+
+  if (!content) {
+    return (
+      <div style={{ padding: "4rem 2rem", fontFamily: "sans-serif" }}>
+        <p>Content temporarily unavailable.</p>
+        <p>Please try again in a moment.</p>
+      </div>
+    );
+  }
 
   return (
     <>

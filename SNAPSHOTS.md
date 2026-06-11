@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## web-report-visual-pass-complete
+- **Tag:** `checkpoint/2026-06-11-1942-web-report-visual-pass-complete`
+- **Created:** 2026-06-11-1942
+- **Restore all:** `git checkout checkpoint/2026-06-11-1942-web-report-visual-pass-complete`
+- **Restore website:** `git checkout checkpoint/2026-06-11-1942-web-report-visual-pass-complete -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-11-1942-web-report-visual-pass-complete -- apps/web/components/`
+
+---
+
 ## before-web-report-visual-pass
 - **Tag:** `checkpoint/2026-06-11-1558-before-web-report-visual-pass`
 - **Created:** 2026-06-11-1558
