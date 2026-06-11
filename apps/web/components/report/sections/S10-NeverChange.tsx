@@ -32,8 +32,12 @@ export default function S10NeverChange({ data }: Props) {
                   )}
                 </div>
                 <p className={styles.rationale}>{item.rationale}</p>
-                <p className={styles.riskLabel}>Risk if lost</p>
-                <p className={styles.risk}>{item.rationale}</p>
+                {item.riskIfLost && (
+                  <>
+                    <p className={styles.riskLabel}>Risk if lost</p>
+                    <p className={styles.risk}>{item.riskIfLost}</p>
+                  </>
+                )}
               </div>
             </div>
           ))}

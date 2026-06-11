@@ -80,7 +80,7 @@ export type ClientReportData = {
     positive: Array<{ moment: string; description: string; likelyReviewMention: boolean }>;
     negative: Array<{ moment: string; description: string }>;
   };
-  neverChange: Array<{ element: string; rationale: string; priority: string }>;
+  neverChange: Array<{ element: string; rationale: string; riskIfLost: string; priority: string }>;
   recommendations: Array<{
     title: string;
     observation: string;
@@ -177,9 +177,10 @@ export function toClientReportData(report: ReportCase): ClientReportData {
         .map((a) => ({ moment: a.moment, description: a.description })),
     },
     neverChange: report.neverChangeElements.map((e) => ({
-      element:  e.element,
-      rationale: e.rationale,
-      priority: e.priority,
+      element:    e.element,
+      rationale:  e.rationale,
+      riskIfLost: e.riskIfLost,
+      priority:   e.priority,
     })),
     recommendations: report.recommendations
       .sort((a, b) => a.priority - b.priority)

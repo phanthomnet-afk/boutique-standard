@@ -128,10 +128,9 @@ export default function ContinuityMap({ data }: Props) {
   const expPromiseGap = gapPath(promisePts, expPts)
 
   const pathStyle = (delay: number) => ({
-    strokeDasharray: animated ? "none" : "0 9999",
-    strokeDashoffset: 0,
+    opacity: animated ? 1 : 0,
     transition: animated
-      ? `stroke-dasharray 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`
+      ? `opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}ms`
       : "none",
   })
 

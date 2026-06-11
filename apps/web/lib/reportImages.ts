@@ -17,12 +17,14 @@ const REPORT_IMAGES: ReportImageSlot[] = [
   {
     assetId: "asset-cover-2",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/cover-courtyard--cover--16x9.png",
     alt: "Courtyard view, afternoon light, Mediterranean garden",
     section: "cover",
   },
   {
     assetId: "asset-arrival-1",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/arrival-approach--arrival--16x9.png",
     alt: "Parking entrance approach from street, minimal signage visible, walking path unclear",
     section: "arrival",
   },
@@ -64,6 +66,7 @@ const REPORT_IMAGES: ReportImageSlot[] = [
   {
     assetId: "asset-dining-2",
     reportSlug: "maison-du-rivage",
+    src: "/images/reports/maison-du-rivage/breakfast-food-detail--dining--4x3.png",
     alt: "Signature local breakfast items - regional produce, seasonal selection",
     section: "dining",
   },

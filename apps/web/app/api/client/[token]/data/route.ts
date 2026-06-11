@@ -27,7 +27,7 @@ export async function GET(
     return NextResponse.json({ error: "Not found" }, { status: 404 })
   }
 
-  const filePath = join(process.cwd(), "..", "..", "data", "reports", report.dataPath)
+  const filePath = join(process.cwd(), "..", "..", report.dataPath)
   const raw: ReportCase = JSON.parse(readFileSync(filePath, "utf8"))
   const data = toClientReportData(raw)
 

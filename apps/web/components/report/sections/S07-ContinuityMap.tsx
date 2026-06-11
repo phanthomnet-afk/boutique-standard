@@ -14,12 +14,12 @@ export default function S07ContinuityMap({ data }: Props) {
     memory: d.memory,
   }))
 
-  const strongest = data.continuityMapData.reduce((a, b) =>
-    b.experience - b.promise > a.experience - a.promise ? b : a
-  )
-  const weakest = data.continuityMapData.reduce((a, b) =>
-    b.experience - b.promise < a.experience - a.promise ? b : a
-  )
+  const strongest = mapData.length > 0
+    ? mapData.reduce((a, b) => b.experience - b.promise > a.experience - a.promise ? b : a)
+    : null
+  const weakest = mapData.length > 0
+    ? mapData.reduce((a, b) => b.experience - b.promise < a.experience - a.promise ? b : a)
+    : null
 
   const STAGE_LABELS: Record<string, string> = {
     discovery: "Discovery", booking: "Booking", preArrival: "Pre-Arrival",
@@ -41,12 +41,14 @@ export default function S07ContinuityMap({ data }: Props) {
 
         <ContinuityMap data={mapData} />
 
-        <div className={styles.readingBox}>
-          <p className={styles.readingText}>
-            The experience most exceeds its promise at <strong>{STAGE_LABELS[strongest.stage]}</strong> (+{(strongest.experience - strongest.promise).toFixed(1)} points).
-            The greatest gap occurs at <strong>{STAGE_LABELS[weakest.stage]}</strong>, where experience falls {Math.abs(weakest.experience - weakest.promise).toFixed(1)} points below the communicated promise.
-          </p>
-        </div>
+        {strongest && weakest && (
+          <div className={styles.readingBox}>
+            <p className={styles.readingText}>
+              The experience most exceeds its promise at <strong>{STAGE_LABELS[strongest.stage]}</strong> (+{(strongest.experience - strongest.promise).toFixed(1)} points).
+              The greatest gap occurs at <strong>{STAGE_LABELS[weakest.stage]}</strong>, where experience falls {Math.abs(weakest.experience - weakest.promise).toFixed(1)} points below the communicated promise.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   )
