@@ -4,6 +4,15 @@ Checkpoint history. Most recent first.
 
 ---
 
+## before-report-engine-phase1
+- **Tag:** `checkpoint/2026-06-11-1423-before-report-engine-phase1`
+- **Created:** 2026-06-11-1423
+- **Restore all:** `git checkout checkpoint/2026-06-11-1423-before-report-engine-phase1`
+- **Restore website:** `git checkout checkpoint/2026-06-11-1423-before-report-engine-phase1 -- apps/web/`
+- **Restore components:** `git checkout checkpoint/2026-06-11-1423-before-report-engine-phase1 -- apps/web/components/`
+
+---
+
 ## sanity-cms-implemented
 - **Tag:** `checkpoint/2026-06-11-1048-sanity-cms-implemented`
 - **Created:** 2026-06-11-1048
