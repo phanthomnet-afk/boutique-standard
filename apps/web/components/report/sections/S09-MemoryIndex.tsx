@@ -1,5 +1,5 @@
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S09Memory.module.css"
+import styles from "./S09-MemoryIndex.module.css"
 
 interface Props {
   data: ClientReportData

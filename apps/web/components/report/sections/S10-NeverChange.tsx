@@ -1,5 +1,5 @@
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S10NeverChange.module.css"
+import styles from "./S10-NeverChange.module.css"
 
 interface Props {
   data: ClientReportData

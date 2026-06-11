@@ -23,6 +23,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   </Link>
                 </li>
                 <li>
+                  <Link href="/admin/reports" className={styles.navLink}>
+                    Reports
+                  </Link>
+                </li>
+                <li>
                   <Link href="/admin/prospects" className={styles.navLink}>
                     Prospects
                   </Link>

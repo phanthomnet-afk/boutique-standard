@@ -1,5 +1,5 @@
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S11Scoreboard.module.css"
+import styles from "./S11-Scoreboard.module.css"
 import { ScoreBar } from "../ScoreBar"
 
 interface Props {

@@ -35,6 +35,16 @@ export type ClientReportData = {
     memory: number;
   };
   executiveSummary: string;
+  promiseAnalysis: {
+    coreStatement: string;
+    narrative: string;
+    dimensions: Array<{
+      label: string;
+      score: { value: number; band: string };
+      observation: string;
+    }>;
+    overallAlignment: { value: number; band: string; note: string };
+  };
   experienceDNA: Record<string, number>;
   continuityMapData: Array<{
     stage: string;
@@ -108,6 +118,20 @@ export function toClientReportData(report: ReportCase): ClientReportData {
       memory:     report.memoryImpactScore.value,
     },
     executiveSummary: report.executiveSummary,
+    promiseAnalysis: {
+      coreStatement:    report.promiseAnalysis.coreStatement,
+      narrative:        report.promiseAnalysis.narrative,
+      dimensions:       report.promiseAnalysis.dimensions.map((d) => ({
+        label:       d.label,
+        score:       { value: d.score.value, band: d.score.band },
+        observation: d.observation,
+      })),
+      overallAlignment: {
+        value: report.promiseAnalysis.overallAlignment.value,
+        band:  report.promiseAnalysis.overallAlignment.band,
+        note:  report.promiseAnalysis.overallAlignment.note ?? "",
+      },
+    },
     experienceDNA: report.experienceDNA as Record<string, number>,
     continuityMapData: report.continuityMapData.map((p) => ({
       stage:      p.stage,

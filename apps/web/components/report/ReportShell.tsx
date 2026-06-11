@@ -5,22 +5,24 @@ import type { ClientReportData } from "@tbs/web-engine"
 import styles from "./ReportShell.module.css"
 import "./report.css"
 
-import S01ExecutiveSnapshot from "./sections/S01ExecutiveSnapshot"
-import S02PropertyContext from "./sections/S02PropertyContext"
-import S04ExperienceDNA from "./sections/S04ExperienceDNA"
-import S05JourneyOverview from "./sections/S05JourneyOverview"
-import S06JourneyNarratives from "./sections/S06JourneyNarratives"
-import S07ContinuityMap from "./sections/S07ContinuityMap"
-import S08Misalignments from "./sections/S08Misalignments"
-import S09Memory from "./sections/S09Memory"
-import S10NeverChange from "./sections/S10NeverChange"
-import S11Scoreboard from "./sections/S11Scoreboard"
-import S12Opportunities from "./sections/S12Opportunities"
-import S13Closing from "./sections/S13Closing"
+import S01ExecutiveSnapshot from "./sections/S01-ExecutiveSnapshot"
+import S02PropertyContext from "./sections/S02-PropertyContext"
+import S03PromiseAnalysis from "./sections/S03-PromiseAnalysis"
+import S04ExperienceDNA from "./sections/S04-ExperienceDNA"
+import S05JourneyOverview from "./sections/S05-JourneyOverview"
+import S06JourneyNarratives from "./sections/S06-JourneyNarratives"
+import S07ContinuityMap from "./sections/S07-ContinuityMap"
+import S08Misalignments from "./sections/S08-Misalignments"
+import S09MemoryIndex from "./sections/S09-MemoryIndex"
+import S10NeverChange from "./sections/S10-NeverChange"
+import S11Scoreboard from "./sections/S11-Scoreboard"
+import S12Opportunities from "./sections/S12-Opportunities"
+import S13Closing from "./sections/S13-Closing"
 
 const NAV_ITEMS = [
   { key: "overview",       label: "Overview",      sectionId: "overview" },
   { key: "property",       label: "Property",      sectionId: "property" },
+  { key: "promise",        label: "Promise",       sectionId: "promise" },
   { key: "journey",        label: "Journey",       sectionId: "journey" },
   { key: "continuity",     label: "Continuity",    sectionId: "continuity" },
   { key: "misalignments",  label: "Misalignments", sectionId: "misalignments" },
@@ -139,12 +141,13 @@ export default function ReportShell({ data, token: _token }: Props) {
       <main className={styles.main}>
         <S01ExecutiveSnapshot data={data} />
         <S02PropertyContext data={data} />
+        <S03PromiseAnalysis data={data} />
         <S04ExperienceDNA data={data} />
         <S05JourneyOverview data={data} />
         <S06JourneyNarratives data={data} />
         <S07ContinuityMap data={data} />
         <S08Misalignments data={data} />
-        <S09Memory data={data} />
+        <S09MemoryIndex data={data} />
         <S10NeverChange data={data} />
         <S11Scoreboard data={data} />
         <S12Opportunities data={data} />

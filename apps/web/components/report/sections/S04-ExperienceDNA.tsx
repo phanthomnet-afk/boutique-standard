@@ -1,5 +1,5 @@
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S04ExperienceDNA.module.css"
+import styles from "./S04-ExperienceDNA.module.css"
 import DnaWheel from "../charts/DnaWheel"
 import { ScoreBar } from "../ScoreBar"
 

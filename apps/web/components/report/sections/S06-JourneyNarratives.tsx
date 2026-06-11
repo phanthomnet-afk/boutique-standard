@@ -1,5 +1,5 @@
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S06JourneyNarratives.module.css"
+import styles from "./S06-JourneyNarratives.module.css"
 
 interface Props {
   data: ClientReportData

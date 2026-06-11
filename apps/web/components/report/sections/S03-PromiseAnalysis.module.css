@@ -1,0 +1,127 @@
+.section {
+  min-height: 100vh;
+  background: var(--color-bg, #F8F5F0);
+  padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 6vw, 6rem);
+}
+
+.inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionLabel {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #9E9890);
+  margin: 0;
+}
+
+.heading {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-text, #1C1C1C);
+  margin: 0;
+}
+
+.pullQuote {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text, #1C1C1C);
+  border-left: 1.5px solid var(--color-accent, #4A6FA5);
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.narrative {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary, #4A4744);
+  max-width: 640px;
+  margin: 0;
+}
+
+.dimensions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dimension {
+  padding: 1.5rem 0;
+  border-bottom: 0.5px solid var(--color-border, #DDD8D0);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dimensionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.dimensionLabel {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text, #1C1C1C);
+}
+
+.dimensionScore {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-accent, #4A6FA5);
+}
+
+.dimensionObservation {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary, #4A4744);
+  margin: 0;
+}
+
+.overallTile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+  background: var(--color-bg-secondary, #F2EDE6);
+  border: 0.5px solid var(--color-border, #DDD8D0);
+}
+
+.overallLabel {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #9E9890);
+}
+
+.overallScore {
+  font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--color-text, #1C1C1C);
+  line-height: 1;
+}
+
+.overallNote {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary, #4A4744);
+}

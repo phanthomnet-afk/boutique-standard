@@ -149,3 +149,19 @@ model ClientReport {
   lastAccessedAt DateTime?
   accessCount    Int       @default(0)
 }
+
+model Report {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  hotelName      String
+  location       String
+  auditDate      String
+  dataPath       String
+  status         String    @default("draft")
+  pdfPath        String?
+  pdfGeneratedAt DateTime?
+  clientToken    String?
+  notes          String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}

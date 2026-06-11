@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react"
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S05JourneyOverview.module.css"
+import styles from "./S05-JourneyOverview.module.css"
 
 interface Props {
   data: ClientReportData

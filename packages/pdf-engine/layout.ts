@@ -1,178 +1,149 @@
 /**
  * THE BOUTIQUE STANDARD
- * PDF Layout — Document Assembly
+ * PDF Layout - Document Assembly
  *
- * Assembles all section templates into a single HTML document
- * that Puppeteer renders to PDF.
- *
- * Each section is a named template function.
- * Section order follows the final report architecture.
+ * Assembles S01-S13 sections into a single HTML document
+ * that Puppeteer renders to A4 PDF (~35-40 pages).
  */
 
-import { ReportCase } from "@tbs/schema";
-import { toCSSVariables } from "@tbs/schema/tokens";
+import { ReportCase } from "@tbs/schema"
+import { toCSSVariables } from "@tbs/schema/tokens"
 
-import { coverSection }           from "./templates/cover";
-import { observerLetterSection }  from "./templates/observerLetter";
-import { frameworkSection }       from "./templates/framework";
-import { propertyContextSection } from "./templates/propertyContext";
-import { promiseSection }         from "./templates/promise";
-import { experienceDNASection }   from "./templates/experienceDNA";
-import { journeyOverviewSection } from "./templates/journeyOverview";
-import { journeyStageSection }    from "./templates/journeyStage";
-import { continuityMapSection }   from "./templates/continuityMap";
-import { misalignmentsSection }   from "./templates/misalignments";
-import { memorySection }          from "./templates/memory";
-import { neverChangeSection }     from "./templates/neverChange";
-import { scoreboardSection }      from "./templates/scoreboard";
-import { opportunitiesSection }   from "./templates/opportunities";
-import { closingSection }         from "./templates/closing";
+import { s01ExecutiveSnapshot } from "./templates/S01-executive-snapshot"
+import { s02PropertyContext }   from "./templates/S02-property-context"
+import { s03PromiseAnalysis }   from "./templates/S03-promise-analysis"
+import { s04ExperienceDNA }     from "./templates/S04-experience-dna"
+import { s05JourneyOverview }   from "./templates/S05-journey-overview"
+import { s06JourneyNarratives } from "./templates/S06-journey-narratives"
+import { s07ContinuityMap }     from "./templates/S07-continuity-map"
+import { s08Misalignments }     from "./templates/S08-misalignments"
+import { s09MemoryIndex }       from "./templates/S09-memory-index"
+import { s10NeverChange }       from "./templates/S10-never-change"
+import { s11Scoreboard }        from "./templates/S11-scoreboard"
+import { s12Opportunities }     from "./templates/S12-opportunities"
+import { s13Closing }           from "./templates/S13-closing"
 
 export function buildFullDocument(report: ReportCase): string {
   const sections = [
-    coverSection(report),
-    observerLetterSection(report),
-    frameworkSection(),
-    propertyContextSection(report),
-    promiseSection(report),
-    experienceDNASection(report),
-    journeyOverviewSection(report),
-    // Individual journey stage sections
-    ...(["arrival", "room", "dining", "facilities", "serviceCulture", "departure"] as const)
-      .filter((key) => report.journey[key])
-      .map((key) => journeyStageSection(report.journey[key]!)),
-    continuityMapSection(report),
-    misalignmentsSection(report),
-    memorySection(report),
-    neverChangeSection(report),
-    scoreboardSection(report),
-    opportunitiesSection(report),
-    closingSection(report),
-  ];
+    s01ExecutiveSnapshot(report),
+    s02PropertyContext(report),
+    s03PromiseAnalysis(report),
+    s04ExperienceDNA(report),
+    s05JourneyOverview(report),
+    s06JourneyNarratives(report),
+    s07ContinuityMap(report),
+    s08Misalignments(report),
+    s09MemoryIndex(report),
+    s10NeverChange(report),
+    s11Scoreboard(report),
+    s12Opportunities(report),
+    s13Closing(report),
+  ]
 
+  return buildHTML(report, sections.join("\n\n"))
+}
+
+function buildHTML(report: ReportCase, body: string): string {
   return `<!DOCTYPE html>
 <html lang="${report.language}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Boutique Standard — ${report.property.name}</title>
+  <title>The Boutique Standard - ${report.property.name}</title>
   <style>
     ${toCSSVariables()}
     ${pdfBaseStyles()}
   </style>
 </head>
 <body>
-  ${sections.join("\n\n")}
+  ${body}
 </body>
-</html>`;
+</html>`
 }
 
 function pdfBaseStyles(): string {
   return `
-    /* PDF Base — The Boutique Standard */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       width: 210mm;
-      background: var(--color-bg);
-      color: var(--color-text);
-      font-family: var(--font-sans);
+      background: var(--color-bg, #F8F5F0);
+      color: var(--color-text, #1C1C1C);
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
       font-size: 10pt;
       line-height: 1.7;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    /* Page breaks */
     .page-break        { page-break-after: always; break-after: page; }
     .page-break-before { page-break-before: always; break-before: page; }
     .no-break          { page-break-inside: avoid; break-inside: avoid; }
 
-    /* Section base */
     .tbs-section {
       padding: 18mm 20mm 22mm 18mm;
       min-height: 100vh;
     }
 
-    .tbs-section--full {
-      padding: 0;
-      min-height: 100vh;
-    }
-
-    /* Typography */
     h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      color: var(--color-text);
-      letter-spacing: -0.02em;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      color: var(--color-text, #1C1C1C);
+      letter-spacing: -0.01em;
     }
-
-    h1 { font-size: 36pt; line-height: 1.1; }
     h2 { font-size: 22pt; line-height: 1.2; }
-    h3 { font-size: 14pt; line-height: 1.3; }
     h4 { font-size: 11pt; line-height: 1.4; }
+    p  { font-size: 10pt; line-height: 1.75; }
 
-    p {
-      font-size: 10pt;
-      line-height: 1.75;
-      color: var(--color-text);
-    }
-
-    /* Score display */
     .score-value {
-      font-family: var(--font-serif);
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 48pt;
-      font-weight: 400;
-      color: var(--color-text);
+      font-weight: 300;
+      color: var(--color-text, #1C1C1C);
       line-height: 1;
-      letter-spacing: -0.03em;
     }
 
     .score-band {
-      font-size: 8pt;
+      font-size: 7pt;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--color-text-muted);
+      color: var(--color-text-muted, #9E9890);
     }
 
-    /* Accent line */
     .accent-line {
       width: 40px;
       height: 1px;
-      background: var(--color-accent);
+      background: var(--color-accent, #4A6FA5);
       margin: 16px 0;
     }
 
-    /* Pull quote */
     .pull-quote {
-      font-family: var(--font-serif);
-      font-size: 16pt;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 14pt;
       font-style: italic;
-      font-weight: 400;
-      line-height: 1.5;
-      color: var(--color-text);
-      border-left: 1.5px solid var(--color-accent);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--color-text, #1C1C1C);
+      border-left: 1.5px solid var(--color-accent, #4A6FA5);
       padding-left: 20px;
       margin: 24px 0;
     }
 
-    /* Section label — small caps style */
     .section-label {
       font-size: 7pt;
       font-weight: 500;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--color-text-muted);
+      color: var(--color-text-muted, #9E9890);
       margin-bottom: 8px;
     }
 
-    /* Image placeholder */
     .img-placeholder {
-      background: var(--color-bg-secondary);
-      border: 0.5px solid var(--color-border);
+      background: var(--color-bg-secondary, #F2EDE6);
+      border: 0.5px solid var(--color-border, #DDD8D0);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -181,17 +152,16 @@ function pdfBaseStyles(): string {
 
     .img-placeholder-text {
       font-size: 8pt;
-      color: var(--color-text-muted);
+      color: var(--color-text-muted, #9E9890);
       letter-spacing: 0.06em;
     }
 
-    /* TBS header — appears on interior pages */
     .tbs-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding-bottom: 12px;
-      border-bottom: 0.5px solid var(--color-border);
+      border-bottom: 0.5px solid var(--color-border, #DDD8D0);
       margin-bottom: 32px;
     }
 
@@ -200,84 +170,60 @@ function pdfBaseStyles(): string {
       font-weight: 500;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--color-text-muted);
+      color: var(--color-text-muted, #9E9890);
     }
 
     .tbs-header-property {
       font-size: 7pt;
-      color: var(--color-text-muted);
+      color: var(--color-text-muted, #9E9890);
     }
 
-    /* Score grid */
-    .score-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .score-item {
-      padding: 16px;
-      background: var(--color-bg-secondary);
-      border: 0.5px solid var(--color-border);
-    }
-
-    /* Tag */
-    .tag {
-      display: inline-block;
-      font-size: 7pt;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-accent);
-      border: 0.5px solid var(--color-accent-light);
-      padding: 3px 8px;
-    }
-
-    /* List */
     .tbs-list {
       list-style: none;
       padding: 0;
     }
 
     .tbs-list li {
-      font-size: 10pt;
-      line-height: 1.6;
-      padding: 6px 0;
-      border-bottom: 0.5px solid var(--color-border-light);
-      display: flex;
-      gap: 12px;
+      font-size: 9.5pt;
+      line-height: 1.65;
+      padding: 5px 0;
+      border-bottom: 0.5px solid var(--color-border-light, #EAE5DC);
     }
 
-    .tbs-list li::before {
-      content: "—";
-      color: var(--color-accent);
-      flex-shrink: 0;
-    }
-
-    /* Two-column layout */
     .col-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 32px;
     }
 
-    /* Insight box */
     .insight-box {
-      background: var(--color-bg-secondary);
-      border-left: 2px solid var(--color-accent);
+      background: var(--color-bg-secondary, #F2EDE6);
+      border-left: 2px solid var(--color-accent, #4A6FA5);
       padding: 16px 20px;
       margin: 20px 0;
     }
 
     .insight-box p {
-      font-family: var(--font-serif);
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-size: 11pt;
       font-style: italic;
-      line-height: 1.6;
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 7pt;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent, #4A6FA5);
+      border: 0.5px solid var(--color-accent-light, #D4E0EF);
+      padding: 3px 8px;
     }
 
     @media print {
       html, body { width: 210mm; }
     }
-  `;
+  `
 }

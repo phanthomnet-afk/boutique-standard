@@ -1,5 +1,5 @@
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S08Misalignments.module.css"
+import styles from "./S08-Misalignments.module.css"
 
 interface Props {
   data: ClientReportData

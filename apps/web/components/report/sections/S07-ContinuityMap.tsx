@@ -1,5 +1,5 @@
 import type { ClientReportData } from "@tbs/web-engine"
-import styles from "./S07ContinuityMap.module.css"
+import styles from "./S07-ContinuityMap.module.css"
 import ContinuityMap from "../charts/ContinuityMap"
 
 interface Props {
