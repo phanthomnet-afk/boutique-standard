@@ -18,7 +18,8 @@
     "db:migrate": "npm run db:migrate --workspace=apps/web",
     "db:generate": "npm run db:generate --workspace=apps/web",
     "db:studio": "npm run db:studio --workspace=apps/web",
-    "db:seed": "npm run seed:report"
+    "db:seed": "npm run seed:report",
+    "sanity:seed": "npx tsx apps/web/sanity/seed/seedContent.ts"
   },
   "devDependencies": {
     "typescript": "^5.4.0"
