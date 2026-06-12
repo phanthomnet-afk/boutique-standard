@@ -4,11 +4,24 @@ import { NextRequest } from "next/server"
 import { prisma } from "@/lib/admin/prismaClient"
 import crypto from "crypto"
 
-const SLUG      = "maison-du-rivage"
-const PASSWORD  = "rivage2027"
-const HOTEL     = "Maison du Rivage"
-const LOCATION  = "Antibes, French Riviera"
-const DATA_PATH = "data/reports/maison-du-rivage.json"
+const REPORTS = [
+  {
+    slug:      "maison-du-rivage",
+    password:  "rivage2027",
+    hotelName: "Maison du Rivage",
+    location:  "Antibes, French Riviera",
+    auditDate: "2025-01-15",
+    dataPath:  "data/reports/maison-du-rivage.json",
+  },
+  {
+    slug:      "hotel-lumiere",
+    password:  "lumiere2027",
+    hotelName: "Hotel Lumiere",
+    location:  "Mallorca, Spain",
+    auditDate: "2027-09-14",
+    dataPath:  "data/reports/hotel-lumiere.json",
+  },
+]
 
 export async function POST(request: NextRequest) {
   const cookie = request.headers.get("cookie") || ""
@@ -16,45 +29,49 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: "Unauthorized" }, { status: 401 })
   }
 
-  const passwordHash = crypto.createHash("sha256").update(PASSWORD).digest("hex")
-  const token        = crypto.randomBytes(16).toString("hex")
-
-  await prisma.report.upsert({
-    where:  { slug: SLUG },
-    update: {},
-    create: {
-      slug:      SLUG,
-      hotelName: HOTEL,
-      location:  LOCATION,
-      auditDate: "2025-01-15",
-      dataPath:  DATA_PATH,
-      status:    "draft",
-    },
-  })
-
-  await prisma.clientReport.upsert({
-    where:  { slug: SLUG },
-    update: { isActive: true },
-    create: {
-      slug:         SLUG,
-      token,
-      passwordHash,
-      hotelName:    HOTEL,
-      location:     LOCATION,
-      language:     "en",
-      dataPath:     DATA_PATH,
-      isActive:     true,
-    },
-  })
-
-  const existing = await prisma.clientReport.findUnique({ where: { slug: SLUG } })
-
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://boutiquestandard.com"
+  const results = []
 
-  return Response.json({
-    success:   true,
-    clientUrl: `${baseUrl}/client/${existing!.token}/report`,
-    password:  PASSWORD,
-    token:     existing!.token,
-  })
+  for (const r of REPORTS) {
+    const passwordHash = crypto.createHash("sha256").update(r.password).digest("hex")
+    const token        = crypto.randomBytes(16).toString("hex")
+
+    await prisma.report.upsert({
+      where:  { slug: r.slug },
+      update: {},
+      create: {
+        slug:      r.slug,
+        hotelName: r.hotelName,
+        location:  r.location,
+        auditDate: r.auditDate,
+        dataPath:  r.dataPath,
+        status:    "draft",
+      },
+    })
+
+    await prisma.clientReport.upsert({
+      where:  { slug: r.slug },
+      update: { isActive: true },
+      create: {
+        slug:         r.slug,
+        token,
+        passwordHash,
+        hotelName:    r.hotelName,
+        location:     r.location,
+        language:     "en",
+        dataPath:     r.dataPath,
+        isActive:     true,
+      },
+    })
+
+    const existing = await prisma.clientReport.findUnique({ where: { slug: r.slug } })
+    results.push({
+      slug:      r.slug,
+      clientUrl: `${baseUrl}/client/${existing!.token}/report`,
+      password:  r.password,
+      token:     existing!.token,
+    })
+  }
+
+  return Response.json({ success: true, reports: results })
 }

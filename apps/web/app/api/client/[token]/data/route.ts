@@ -5,12 +5,15 @@ import { prisma } from "@/lib/admin/prismaClient"
 import { toClientReportData } from "@tbs/web-engine"
 import type { ReportCase } from "@tbs/schema"
 import mdrData from "@/data/reports/maison-du-rivage.json"
+import hlData  from "@/data/reports/hotel-lumiere.json"
 
 // Embedded report data - bundled at build time, no file system access at runtime.
 // Add new report slugs here when new audits are delivered.
 const EMBEDDED_REPORTS: Record<string, ReportCase> = {
   "data/reports/maison-du-rivage.json": mdrData as unknown as ReportCase,
   "maison-du-rivage.json":              mdrData as unknown as ReportCase,
+  "data/reports/hotel-lumiere.json":    hlData  as unknown as ReportCase,
+  "hotel-lumiere.json":                 hlData  as unknown as ReportCase,
 }
 
 export async function GET(

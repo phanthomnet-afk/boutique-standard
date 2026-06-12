@@ -156,13 +156,6 @@
   align-items: flex-end;
 }
 
-.reportHeroBg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-}
-
 .heroOverlay {
   position: absolute;
   inset: 0;

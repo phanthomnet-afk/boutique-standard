@@ -23,7 +23,7 @@ const STAGE_IMAGE: Record<string, string | null> = {
   dining:        "asset-dining-1",
   facilities:    "asset-pool-1",
   serviceCulture:"asset-arrival-2",
-  departure:     "asset-arrival-2",
+  departure:     "asset-room-2",
 }
 
 const BAND_LABELS: Record<string, string> = {
@@ -55,6 +55,7 @@ export default function S06JourneyNarratives({ data }: Props) {
                   <h2 className={styles.stageName}>{stage.label}</h2>
                   <div className={`${styles.scorePill} ${styles[`band_${stage.band}`]}`}>
                     <span className={styles.scoreVal}>{stage.score.toFixed(1)}</span>
+                    <span className={styles.scoreSep}> - </span>
                     <span className={styles.scoreBand}>{BAND_LABELS[stage.band] ?? stage.band}</span>
                   </div>
                 </div>

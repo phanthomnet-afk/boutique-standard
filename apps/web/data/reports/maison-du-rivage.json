@@ -2,7 +2,7 @@
   "id": "mdr-001",
   "slug": "maison-du-rivage",
   "language": "en",
-  "isPublicCase": true,
+  "isPublicCase": false,
   "clientToken": "REPLACE_WITH_HASHED_TOKEN",
 
   "property": {

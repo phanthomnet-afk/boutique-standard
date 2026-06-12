@@ -1,0 +1,640 @@
+{
+  "id": "hl-001",
+  "slug": "hotel-lumiere",
+  "language": "en",
+  "isPublicCase": true,
+  "clientToken": "REPLACE_WITH_HASHED_TOKEN",
+
+  "property": {
+    "name": "Hotel Lumiere",
+    "location": "Mallorca, Spain",
+    "country": "Spain",
+    "category": "coastal-retreat",
+    "starRating": 4,
+    "roomCount": 18,
+    "averageRateEur": 340,
+    "corePromise": "An intimate Mallorcan retreat where the rhythm of the island sets the pace for every moment of the stay.",
+    "website": "https://example.com"
+  },
+
+  "guestProfile": {
+    "primaryTypes": [
+      "Design-conscious couples aged 28-55",
+      "Remote workers seeking a productive retreat",
+      "Repeat visitors to Mallorca seeking alternatives to mainstream resorts"
+    ],
+    "coreExpectations": [
+      "Personal attention from first contact",
+      "Immediate sense of arrival and belonging",
+      "Consistent quality across the stay",
+      "A property that remembers them"
+    ],
+    "motivations": [
+      "Authentic local experience over resort tourism",
+      "Privacy without isolation",
+      "Design quality that matches the price point"
+    ]
+  },
+
+  "auditMetadata": {
+    "auditDate": "2027-09-14",
+    "reportDate": "2027-09-28",
+    "reportVersion": "1.0",
+    "auditorProfile": "Solo traveller, first visit, design-conscious, arrived by rental car",
+    "stayDuration": 3,
+    "roomCategory": "Garden Suite",
+    "scope": [
+      "Pre-arrival communication",
+      "Arrival and check-in",
+      "Room experience",
+      "Breakfast and dining",
+      "Pool and outdoor facilities",
+      "Service culture throughout",
+      "Departure experience",
+      "Post-stay communication"
+    ]
+  },
+
+  "overallAlignmentScore": { "value": 6.8, "band": "acceptable", "note": "Physical space delivers on its promise. The operational layer does not." },
+  "experienceScore":       { "value": 6.5, "band": "acceptable", "note": "Core stay has genuine high points; bookends are the weakest moments." },
+  "continuityScore":       { "value": 5.9, "band": "acceptable", "note": "Atmospheric continuity is high. Operational continuity is not." },
+  "memoryImpactScore":     { "value": 6.2, "band": "acceptable", "note": "Strong visual and spatial memories sit alongside avoidable negative ones." },
+
+  "promiseAnalysis": {
+    "coreStatement": "An intimate Mallorcan retreat where the rhythm of the island sets the pace for every moment of the stay.",
+    "dimensions": [
+      {
+        "label": "Rhythm and pace",
+        "score": { "value": 5.2, "band": "acceptable", "note": "Promised by the space. Not consistently delivered by the operation." },
+        "observation": "The physical property creates a genuinely unhurried atmosphere. The service layer operates to its own rhythm - reactive, inconsistent, and occasionally absent. The promise of the island setting the pace does not extend to the arrival process or the departure."
+      },
+      {
+        "label": "Intimacy and personal attention",
+        "score": { "value": 5.8, "band": "acceptable", "note": "Scale enables intimacy. Operations do not yet deliver it." },
+        "observation": "At 18 rooms, Hotel Lumiere has every structural advantage for genuine personalisation. The gap is not one of scale - it is one of intention. Some team members demonstrate exactly what intimate service looks like. The standard is not yet property-wide."
+      },
+      {
+        "label": "Mallorcan identity",
+        "score": { "value": 6.4, "band": "acceptable", "note": "Architecture and landscape convincingly local. Dining and service add less." },
+        "observation": "The architecture and setting are authentically Mallorcan - stone, light, garden, altitude. The breakfast experience adds little to this identity. No local producer is referenced, no seasonal Mallorcan ingredient is present, no staff member mentions the island with genuine knowledge."
+      },
+      {
+        "label": "Every moment of the stay",
+        "score": { "value": 4.2, "band": "attention", "note": "Pre-arrival and departure represent complete failures against this dimension." },
+        "observation": "The promise explicitly claims every moment. The pre-arrival period is defined by silence. The departure moment is defined by a billing error and no farewell. These are not peripheral moments. They are the beginning and end of the guest experience."
+      }
+    ],
+    "overallAlignment": { "value": 6.4, "band": "acceptable", "note": "Promise is compelling but delivery is uneven." },
+    "narrative": "Hotel Lumiere makes a promise that is specific, aspirational, and differentiating. The challenge is not in the communication - it is in the operational consistency required to deliver it. The moments that most directly test the promise are the moments that most clearly fail to meet it."
+  },
+
+  "experienceDNA": {
+    "warmth":           5.8,
+    "privacy":          8.2,
+    "locality":         5.1,
+    "design":           8.8,
+    "luxuryExpression": 7.2,
+    "serviceIntimacy":  5.4,
+    "calmness":         7.9
+  },
+
+  "journey": {
+    "discovery": {
+      "key": "discovery",
+      "label": "Digital Discovery",
+      "score": { "value": 8.2, "band": "strong", "note": "Website and visual identity communicate the promise well." },
+      "narrative": "Hotel Lumiere's digital presence communicates its positioning with clarity and restraint. The website is architectural in feel - stone, light, garden, pool at golden hour - and correctly signals what the physical experience should deliver. Photography is unhurried and specific. The copy does not overclaim. A prospective guest arriving at the website leaves with a clear and accurate mental image of the property.",
+      "strengths": [
+        "Cohesive visual identity across website and booking platforms",
+        "Photography accurately represents the physical space",
+        "Positioning clear - intimate Mallorcan retreat, not resort",
+        "Price point communicated with appropriate confidence"
+      ],
+      "frictionPoints": [
+        "No mention of parking, access, or arrival logistics in any pre-booking materials"
+      ],
+      "guestMemoryImpact": "The digital impression is strong enough to create genuine anticipation. The experience of arriving is the first moment it is tested.",
+      "recommendations": []
+    },
+    "booking": {
+      "key": "booking",
+      "label": "Booking Process",
+      "score": { "value": 6.1, "band": "acceptable", "note": "Functional but disorienting. Confidence built in discovery is partially eroded." },
+      "narrative": "The booking process is the first point of friction in the journey. The online interface presents three rate categories - Standard, Premium, and Experience - with room descriptions that do not meaningfully distinguish between them. Cancellation policy language appears at the checkout stage, not before. After payment is confirmed, the policy details are sent in a separate email with no clear reference to the transaction. A guest who approaches booking with confidence based on the website must navigate unnecessary complexity to complete it.",
+      "strengths": [
+        "Booking system functional and mobile-compatible",
+        "Confirmation email arrives promptly"
+      ],
+      "frictionPoints": [
+        "Three overlapping rate types with non-intuitive naming and unclear differentiation",
+        "Cancellation policy not visible until payment stage",
+        "Policy details sent separately with no transaction reference",
+        "No opportunity to note preferences or arrival time during booking"
+      ],
+      "guestMemoryImpact": "The booking process neither builds on the strong digital discovery nor actively damages it. It is a missed opportunity to extend the intimacy the property promises into the first direct interaction.",
+      "recommendations": [
+        {
+          "id": "rec-book-01",
+          "title": "Booking process simplification",
+          "observation": "Three rate categories with unclear naming create friction at a critical trust-building moment.",
+          "guestImpact": "Confidence built during discovery is partially eroded before the guest has arrived.",
+          "suggestion": "Reduce to two rate categories with plain-language descriptions. Show cancellation policy at the point of rate selection, not at payment confirmation.",
+          "expectedOutcome": "Reduced booking friction. Stronger trust entering the stay.",
+          "difficulty": "medium",
+          "estimatedCost": "low",
+          "priority": 4,
+          "isQuickWin": false
+        }
+      ]
+    },
+    "preArrival": {
+      "key": "preArrival",
+      "label": "Pre-Arrival Communication",
+      "score": { "value": 4.8, "band": "attention", "note": "No pre-arrival communication of any kind. A direct contradiction of the core promise." },
+      "narrative": "Between booking confirmation and arrival day, Hotel Lumiere communicates nothing. No welcome email. No arrival guidance. No parking information. No recommended arrival time. No orientation of any kind. A guest arriving by rental car - a significant proportion of Mediterranean island arrivals - has no information about where to park, how to access the property, or what to expect. For a property whose core promise includes the rhythm of the island setting the pace from the moment you plan your stay, the silence between booking and arrival is not a minor operational gap. It is a direct contradiction of the promise.",
+      "strengths": [],
+      "frictionPoints": [
+        "No pre-arrival communication of any kind following booking confirmation",
+        "No parking information provided",
+        "No arrival time guidance",
+        "No walking route or property orientation",
+        "No personal welcome before the physical arrival"
+      ],
+      "guestMemoryImpact": "Guests arrive informed only by the website and their own research. The anxiety created by the absence of practical information is the first real experience of the property.",
+      "recommendations": [
+        {
+          "id": "rec-pre-01",
+          "title": "Pre-arrival welcome sequence",
+          "observation": "Zero communication between booking and arrival creates unnecessary anxiety and contradicts the intimacy promised.",
+          "guestImpact": "Guests arrive uninformed and uncertain. The property's first opportunity to set the pace is wasted.",
+          "suggestion": "A single email sent 48 hours before arrival. Parking instructions, recommended arrival time, a brief welcome from a team member, and one specific local recommendation. Personal in tone. Not a form letter.",
+          "expectedOutcome": "Guests arrive calm and oriented. The property's character begins to communicate before the car door opens.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 1,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "arrival": {
+      "key": "arrival",
+      "label": "Arrival Experience",
+      "score": { "value": 5.2, "band": "acceptable", "note": "Beautiful space. Absent welcome. The contrast is the finding." },
+      "narrative": "The property itself is the arrival experience. The approach is genuinely beautiful - a stone-paved track, bougainvillea, light through olive trees at the September afternoon angle. None of this is communicated in advance, which means it lands as a pleasant surprise rather than a promised arrival. The parking area is well-maintained and adequately signed. The reception building is visible from the car park. What is not visible - and was not present - is a member of staff. Reception was unmanned for twelve minutes. There was no bell to ring. No indication of where to find assistance. The property was navigated by wandering through a garden corridor until a member of the dining team was encountered near the terrace. The physical space is exceptional. The welcome was absent.",
+      "strengths": [
+        "Approach to property genuinely beautiful - stone track, garden, afternoon light",
+        "Parking area well-maintained and adequately signed",
+        "Reception building clearly visible from car park",
+        "Dining team member encountered was warm and helpful once found"
+      ],
+      "frictionPoints": [
+        "Reception unmanned for twelve minutes on arrival",
+        "No bell or clear instruction for how to summon assistance",
+        "No visible staff member in reception area or entrance on arrival",
+        "Property navigated independently until help was encountered by chance"
+      ],
+      "guestMemoryImpact": "The beauty of the physical approach does not survive the twelve-minute wait. The first specific memory of a staff interaction is found by accident, not by design.",
+      "recommendations": [
+        {
+          "id": "rec-arr-01",
+          "title": "Arrival coverage protocol",
+          "observation": "Reception unmanned for twelve minutes during a standard afternoon arrival.",
+          "guestImpact": "A twelve-minute wait alone at a property promising intimate retreat is the opposite of the experience communicated.",
+          "suggestion": "A staff member present at or near reception during all standard check-in hours - 2pm to 8pm minimum. This does not require a dedicated receptionist. It requires a commitment that someone is always within visible range of the entrance.",
+          "expectedOutcome": "The arrival experience matches the quality of the physical approach. The promise of intimacy begins at the car door.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 1,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "room": {
+      "key": "room",
+      "label": "Room Experience",
+      "score": { "value": 7.8, "band": "strong", "note": "Architecture and materials exceptional. Housekeeping standard does not match them." },
+      "narrative": "The room is the property at its best. The Garden Suite is genuinely exceptional in its architecture and material quality - exposed stone, original wooden ceiling, linen that absorbs morning light rather than reflecting it. The terrace delivers exactly what the photography communicates. The view at dusk is the most memorable physical moment of the stay. The inconsistency is operational rather than designed: dust visible on the skirting and window ledge on arrival, grout staining in the bathroom tiles, and a minibar that contained the previous guest's half-consumed water bottle. None of these require investment to resolve. All of them communicate a maintenance standard that does not match the room's quality.",
+      "strengths": [
+        "Architecture and material quality genuinely exceptional",
+        "Natural light management outstanding - morning and evening",
+        "Terrace view at dusk the most memorable physical moment of the stay",
+        "Sound quality - genuine silence - reinforces the retreat positioning",
+        "Linen quality and sleep environment excellent"
+      ],
+      "frictionPoints": [
+        "Dust visible on skirting and window ledge on arrival",
+        "Grout staining in bathroom tiles",
+        "Minibar contained previous guest's half-consumed bottle on check-in",
+        "No room orientation card or welcome note of any kind"
+      ],
+      "guestMemoryImpact": "The room creates strong positive memories through its architecture and light. The cleanliness failures create specific negative memories that sit uneasily alongside the quality of the space.",
+      "recommendations": [
+        {
+          "id": "rec-room-01",
+          "title": "Pre-arrival room inspection protocol",
+          "observation": "Room presented with visible dust, grout staining, and unconsumed minibar items from previous guest.",
+          "guestImpact": "The physical quality of the room is undermined by a cleaning standard that does not match it.",
+          "suggestion": "A documented room inspection checklist - surfaces, bathroom, minibar, terrace - completed and signed before every new arrival.",
+          "expectedOutcome": "Room experience consistently reflects the quality of the physical space.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 2,
+          "isQuickWin": false
+        }
+      ]
+    },
+    "dining": {
+      "key": "dining",
+      "label": "Dining Experience",
+      "score": { "value": 6.4, "band": "acceptable", "note": "Competent. No Mallorcan identity. Menu unchanged across three mornings." },
+      "narrative": "Breakfast is adequate but offers nothing that connects the guest to Mallorca. The space is attractive. The produce is acceptable. The service is present. What is absent is any particular identity: the menu does not change across a three-night stay, the coffee arrives consistently lukewarm, service operates at a slow rhythm that reads as relaxed on day one and begins to test patience by day three, and nothing on the table - no local cheese, no ensaimada, no reference to any producer - suggests that this breakfast is happening in Mallorca rather than in a competent hotel anywhere in Southern Europe.",
+      "strengths": [
+        "Dining space attractive with good natural light",
+        "Service present and adequately attentive",
+        "Portion quality reasonable for the price point"
+      ],
+      "frictionPoints": [
+        "Coffee consistently delivered lukewarm across all three mornings",
+        "Menu unchanged for entire three-night stay",
+        "No local produce, supplier, or ingredient identified or communicated",
+        "No staff knowledge of local food culture shared unprompted",
+        "Service rhythm slow - acceptable on day one, noticeable by day three"
+      ],
+      "guestMemoryImpact": "The breakfast is remembered as fine. Nothing more. For a property on Mallorca in September, fine is a significant underperformance.",
+      "recommendations": [
+        {
+          "id": "rec-din-01",
+          "title": "Mallorcan breakfast identity",
+          "observation": "Breakfast offers no connection to local food culture or seasonal Mallorcan produce.",
+          "guestImpact": "The strongest recurring daily experience of the stay communicates nothing about where the guest is.",
+          "suggestion": "One rotating local element daily - an ensaimada from a named Palma bakery, a local cheese from a specific producer, a seasonal fruit element. Staff able to speak to it with genuine knowledge.",
+          "expectedOutcome": "Breakfast becomes a daily moment of genuine Mallorcan identity. Guests leave with something specific to share.",
+          "difficulty": "medium",
+          "estimatedCost": "low",
+          "priority": 4,
+          "isQuickWin": false
+        }
+      ]
+    },
+    "facilities": {
+      "key": "facilities",
+      "label": "Facilities",
+      "score": { "value": 7.2, "band": "strong", "note": "Pool design excellent. Service layer absent." },
+      "narrative": "The pool is the property's strongest continuous experience. Its siting, proportions, and views are exceptional - water, stone, mountain, afternoon light. Guests who find it at golden hour will remember it clearly. The loungers are adequate. The pool area is well-maintained by mid-morning. The service layer is entirely absent: towels must be carried from the room, no drinks are offered at any point during pool hours, and the area is not cleaned until 11am, meaning guests who arrive early encounter glasses from the previous evening. The physical asset is outstanding. The experience of using it reflects the broader service gap.",
+      "strengths": [
+        "Pool design, siting, and proportions exceptional",
+        "Views from pool area among the most memorable of the stay",
+        "Pool well-maintained once cleaning is complete",
+        "Privacy and atmosphere consistently excellent throughout the day"
+      ],
+      "frictionPoints": [
+        "Pool area not cleaned until 11am - previous evening glasses visible on early arrival",
+        "No towel service - guests must carry towels from room",
+        "No drinks or refreshments offered during pool hours",
+        "No staff visible or available in pool area during the day"
+      ],
+      "guestMemoryImpact": "The pool at golden hour is the single strongest ambient memory of the stay. It is the one experience guests will lead with when describing the property. The service gap diminishes it without eliminating it.",
+      "recommendations": [
+        {
+          "id": "rec-fac-01",
+          "title": "Pool area service and morning reset",
+          "observation": "Pool area not cleaned until 11am. No service layer throughout pool hours.",
+          "guestImpact": "The property's best physical asset is not supported by the service standard it requires.",
+          "suggestion": "Pool area reset completed by 8am. Towels available at poolside from 9am. Minimum one proactive drinks offer during morning and afternoon pool hours.",
+          "expectedOutcome": "Pool experience becomes consistently exceptional rather than visually exceptional with operational gaps.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 3,
+          "isQuickWin": false
+        }
+      ]
+    },
+    "serviceCulture": {
+      "key": "serviceCulture",
+      "label": "Service Culture",
+      "score": { "value": 5.8, "band": "acceptable", "note": "The warmth exists. It is not consistent across the team." },
+      "narrative": "The service culture at Hotel Lumiere is the most revealing finding of this audit. It is not that the property lacks warmth - it is that the warmth is unevenly distributed. Rosa, a member of the dining team observed across all three mornings, demonstrates exactly the standard the property communicates: names remembered from the first morning, preferences noted without prompting, recommendations offered with genuine local knowledge and personal conviction. Other interactions are transactional: calls taken during check-in conversation, no eye contact sustained, no use of the guest's name. The benchmark exists within the building. The question is not how to create it but how to make it the standard.",
+      "strengths": [
+        "Rosa - dining team - names remembered, preferences noted, recommendations specific and local",
+        "Maintenance request resolved within four hours",
+        "Dining team warmth generally consistent",
+        "Staff respond well when engaged directly and personally"
+      ],
+      "frictionPoints": [
+        "Front desk staff on phone during check-in - no eye contact, no name used",
+        "No personalisation visible outside of Rosa's interactions",
+        "Service culture does not extend consistently to poolside or corridor interactions",
+        "Language barrier with some staff members limits natural warmth"
+      ],
+      "guestMemoryImpact": "Rosa is remembered by name. No other staff member is. This is the clearest single metric of service culture quality in this report.",
+      "recommendations": [
+        {
+          "id": "rec-svc-01",
+          "title": "Service culture standardisation",
+          "observation": "One team member demonstrates exactly the service standard the property communicates. The rest of the team does not.",
+          "guestImpact": "Guest experience quality depends on which staff member is encountered. This is inconsistency, not intimacy.",
+          "suggestion": "Document Rosa's specific behaviours as the observable standard: guest name used, one personal observation or recommendation made, eye contact sustained during all interactions. Three behaviours. Specific. Measurable.",
+          "expectedOutcome": "Rosa's standard becomes the floor, not the ceiling. Service culture consistency improves across all touchpoints.",
+          "difficulty": "medium",
+          "estimatedCost": "low",
+          "priority": 3,
+          "isQuickWin": false
+        }
+      ]
+    },
+    "departure": {
+      "key": "departure",
+      "label": "Departure Experience",
+      "score": { "value": 4.2, "band": "attention", "note": "The lowest point of the stay. A billing error with no apology and no farewell." },
+      "narrative": "The departure experience is the lowest point of a stay that contains several low points. The bill presented at checkout contained an error - a minibar charge for items that were not consumed and that the room inspection note confirms were found pre-stocked from a previous guest. Resolving the error took twenty minutes and required two staff members. The resolution was polite but contained no acknowledgement that an error had occurred. There was no farewell offered at any point in the checkout process. No follow-up of any kind was suggested. The guest carried bags to the car alone. The stay that began with a twelve-minute unmanned reception ended with a twenty-minute billing dispute and silence.",
+      "strengths": [
+        "Staff polite during billing dispute resolution",
+        "Error ultimately resolved without additional payment required"
+      ],
+      "frictionPoints": [
+        "Bill contained error - minibar charge for unconsumed items",
+        "Error resolution took twenty minutes and required two staff members",
+        "No acknowledgement that an error had occurred, no apology offered",
+        "No farewell offered at any point during checkout",
+        "No suggestion of return or continued relationship",
+        "Guest departed entirely without any personal acknowledgement"
+      ],
+      "guestMemoryImpact": "The billing error and its resolution will be the most clearly remembered operational moment of the stay. A departure defined by a dispute and silence is the conclusion a reviewer will find hardest to overlook.",
+      "recommendations": [
+        {
+          "id": "rec-dep-01",
+          "title": "Departure experience redesign",
+          "observation": "Departure defined by a billing error, a twenty-minute resolution, and no farewell.",
+          "guestImpact": "The stay ends on its worst moment. Review sentiment and return intent are directly shaped by the last experience.",
+          "suggestion": "Two actions. First: a pre-departure bill review by a team member before the guest is called to checkout - eliminates the category of error that occurred. Second: a genuine farewell - a handwritten note, a local product, or a specific personalised acknowledgement from a team member the guest connected with.",
+          "expectedOutcome": "Departure becomes a conclusion rather than a transaction. The last memory is warmth rather than a dispute.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 1,
+          "isQuickWin": true
+        }
+      ]
+    },
+    "postStay": {
+      "key": "postStay",
+      "label": "Post-Stay Communication",
+      "score": { "value": 3.1, "band": "attention", "note": "No post-stay communication of any kind. The relationship ends at checkout." },
+      "narrative": "No post-stay communication of any kind was received following a three-night stay. No email acknowledging the visit. No review request. No message from a team member. No reference to any interaction, preference, or moment from the stay. Hotel Lumiere had three days of contact with a guest who stayed in a Garden Suite, ate breakfast three times, and spoke to at least five members of staff. The post-stay silence communicates one thing clearly: none of that data was retained or used.",
+      "strengths": [],
+      "frictionPoints": [
+        "No post-stay email of any kind received",
+        "No review request",
+        "No acknowledgement from any team member",
+        "No reference to the stay, the room, or any interaction",
+        "Relationship ends entirely at the moment of departure"
+      ],
+      "guestMemoryImpact": "The silence reinforces the departure experience. A guest who left with a billing dispute and no farewell received nothing to suggest the property valued the stay.",
+      "recommendations": [
+        {
+          "id": "rec-post-01",
+          "title": "Post-stay communication sequence",
+          "observation": "Zero post-stay contact following a three-night stay in a Garden Suite.",
+          "guestImpact": "The easiest recovery mechanism from the departure experience is entirely absent.",
+          "suggestion": "A single email within 24 hours of departure. Guest name, a reference to one specific moment from the stay, and a genuine invitation to return. This is the lowest-cost intervention in this entire report.",
+          "expectedOutcome": "Post-stay silence replaced with a recovery touchpoint. Review intent and return intent both improved.",
+          "difficulty": "low",
+          "estimatedCost": "low",
+          "priority": 2,
+          "isQuickWin": true
+        }
+      ]
+    }
+  },
+
+  "continuityMapData": [
+    { "stage": "discovery",      "promiseScore": 8.2, "experienceScore": 8.2, "memoryScore": 8.0 },
+    { "stage": "booking",        "promiseScore": 8.0, "experienceScore": 6.1, "memoryScore": 6.0 },
+    { "stage": "preArrival",     "promiseScore": 8.2, "experienceScore": 4.8, "memoryScore": 5.0 },
+    { "stage": "arrival",        "promiseScore": 8.5, "experienceScore": 5.2, "memoryScore": 5.8 },
+    { "stage": "room",           "promiseScore": 8.2, "experienceScore": 7.8, "memoryScore": 8.2 },
+    { "stage": "dining",         "promiseScore": 7.8, "experienceScore": 6.4, "memoryScore": 6.0 },
+    { "stage": "facilities",     "promiseScore": 7.5, "experienceScore": 7.2, "memoryScore": 8.5 },
+    { "stage": "serviceCulture", "promiseScore": 8.5, "experienceScore": 5.8, "memoryScore": 6.5 },
+    { "stage": "departure",      "promiseScore": 8.0, "experienceScore": 4.2, "memoryScore": 4.0 },
+    { "stage": "postStay",       "promiseScore": 7.5, "experienceScore": 3.1, "memoryScore": 3.5 }
+  ],
+
+  "misalignments": [
+    {
+      "id": "mis-01",
+      "title": "Pre-arrival silence",
+      "promise": "The rhythm of the island sets the pace from the moment you plan your stay",
+      "reality": "No communication of any kind between booking confirmation and arrival day. Guests arrive with no parking information, no orientation, no practical context.",
+      "guestImpact": "Anxiety and uncertainty replace the calm the property promises before the guest has even arrived.",
+      "severity": "high",
+      "recommendation": "A single pre-arrival email 48 hours before check-in with parking, arrival time, and a personal welcome."
+    },
+    {
+      "id": "mis-02",
+      "title": "Arrival without welcome",
+      "promise": "An intimate retreat - personal attention from the moment of arrival",
+      "reality": "Reception unmanned for twelve minutes. Property navigated independently until a staff member was encountered by chance near the dining terrace.",
+      "guestImpact": "The first direct experience of the property contradicts its most fundamental positioning.",
+      "severity": "high",
+      "recommendation": "A staff member visible and present near reception during all standard arrival hours."
+    },
+    {
+      "id": "mis-03",
+      "title": "Cleanliness inconsistency",
+      "promise": "Meticulous attention to every detail of the guest experience",
+      "reality": "Dust on surfaces, stained grout, and a minibar stocked with the previous guest's unconsumed items on check-in.",
+      "guestImpact": "The physical quality of the space is undermined by operational failures that are entirely preventable.",
+      "severity": "high",
+      "recommendation": "A documented pre-arrival room inspection checklist completed and signed before every new arrival."
+    },
+    {
+      "id": "mis-04",
+      "title": "Post-stay disappearance",
+      "promise": "A stay you will want to return to",
+      "reality": "No post-stay communication of any kind. The relationship ends at a billing dispute.",
+      "guestImpact": "Every positive memory of the stay is unacknowledged. Every avenue for recovery from the departure experience is unused.",
+      "severity": "high",
+      "recommendation": "A single personal email within 24 hours of departure referencing a specific moment from the stay."
+    }
+  ],
+
+  "memoryAnchors": [
+    {
+      "moment": "The pool at sunset",
+      "description": "Siting, light, and proportions create a genuinely exceptional ambient experience. The single moment most likely to anchor positive review language.",
+      "type": "positive",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "The room terrace at dusk",
+      "description": "View, silence, and light quality combine to create the most privately memorable moment of the stay.",
+      "type": "positive",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "Rosa's warmth on the second morning",
+      "description": "Named and specific in memory. Remembered preferences, offered a genuine local recommendation, made the guest feel seen.",
+      "type": "positive",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "Waiting alone at reception on arrival",
+      "description": "Twelve minutes unmanned. First direct interaction with the property after the approach.",
+      "type": "negative",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "Dust on the room surfaces",
+      "description": "Visible on arrival day. Specific and avoidable. Sits in direct contrast with the room's architectural quality.",
+      "type": "negative",
+      "likelyReviewMention": false
+    },
+    {
+      "moment": "The billing error at checkout",
+      "description": "Twenty minutes to resolve an error the property created. No apology. The last interaction before leaving.",
+      "type": "negative",
+      "likelyReviewMention": true
+    },
+    {
+      "moment": "The silence after departure",
+      "description": "No email. No acknowledgement. No follow-up of any kind. The property communicated nothing once the guest left.",
+      "type": "negative",
+      "likelyReviewMention": false
+    }
+  ],
+
+  "protectedElements": [
+    {
+      "element": "The physical beauty of the property",
+      "rationale": "The architecture, pool, views, and garden are genuinely exceptional and represent the property's strongest competitive advantage.",
+      "priority": "high",
+      "riskIfLost": "Any renovation that prioritises trend over authenticity will dilute the quality that currently distinguishes the property from the wider market."
+    },
+    {
+      "element": "Rosa and staff members like her",
+      "rationale": "The warmth demonstrated by Rosa is not a training outcome - it is a personality quality. It is the single most valuable human asset in this audit.",
+      "priority": "high",
+      "riskIfLost": "The moment Rosa's approach becomes the exception rather than the visible standard, the property loses its most credible claim to intimacy."
+    },
+    {
+      "element": "The pool experience at golden hour",
+      "rationale": "The pool at golden hour is the memory that could anchor loyalty and generate the review language that attracts the next guest. It costs nothing and is already extraordinary.",
+      "priority": "high",
+      "riskIfLost": "Any service failure in the pool area diminishes the experience without improving it elsewhere."
+    }
+  ],
+
+  "neverChangeElements": [
+    {
+      "element": "The physical beauty of the property",
+      "rationale": "The architecture, pool, views, and garden are genuinely exceptional and represent the property's strongest competitive advantage.",
+      "priority": "high",
+      "riskIfLost": "Any renovation that prioritises trend over authenticity will dilute the quality that currently distinguishes the property from the wider market."
+    },
+    {
+      "element": "Rosa and staff members like her",
+      "rationale": "The warmth demonstrated by Rosa is not a training outcome - it is a personality quality. It is the single most valuable human asset in this audit.",
+      "priority": "high",
+      "riskIfLost": "The moment Rosa's approach becomes the exception rather than the visible standard, the property loses its most credible claim to intimacy."
+    },
+    {
+      "element": "The pool experience at golden hour",
+      "rationale": "The pool at golden hour is the memory that could anchor loyalty and generate the review language that attracts the next guest. It costs nothing and is already extraordinary.",
+      "priority": "high",
+      "riskIfLost": "Any service failure in the pool area diminishes the experience without improving it elsewhere."
+    }
+  ],
+
+  "recommendations": [
+    {
+      "id": "rec-pre-01",
+      "title": "Pre-arrival welcome sequence",
+      "observation": "Zero communication between booking and arrival. Guests arrive uninformed and anxious.",
+      "guestImpact": "The first impression of the property begins with uncertainty rather than the calm the brand promises.",
+      "suggestion": "A single personal email 48 hours before arrival with parking, arrival time, and a genuine welcome from a team member.",
+      "expectedOutcome": "Guests arrive calm and oriented. The property's character begins to communicate before check-in.",
+      "difficulty": "low",
+      "estimatedCost": "low",
+      "priority": 1,
+      "isQuickWin": true
+    },
+    {
+      "id": "rec-arr-01",
+      "title": "Arrival coverage protocol",
+      "observation": "Reception unmanned for twelve minutes during a standard afternoon arrival.",
+      "guestImpact": "A twelve-minute wait alone at a property promising intimate retreat is the opposite of the experience communicated.",
+      "suggestion": "A staff member visible and present near the entrance during all standard check-in hours. 2pm to 8pm minimum.",
+      "expectedOutcome": "The arrival experience matches the quality of the physical approach. The promise of intimacy begins at the car door.",
+      "difficulty": "low",
+      "estimatedCost": "low",
+      "priority": 1,
+      "isQuickWin": true
+    },
+    {
+      "id": "rec-room-01",
+      "title": "Housekeeping standards audit",
+      "observation": "Dust on surfaces, stained grout, and unconsumed minibar items from a previous guest on arrival.",
+      "guestImpact": "The physical quality of the space is undercut by cleaning failures that are entirely preventable.",
+      "suggestion": "A documented room inspection checklist with sign-off before every new arrival. Three minutes per room. Applied without exception.",
+      "expectedOutcome": "Room experience consistently reflects the architecture and investment.",
+      "difficulty": "low",
+      "estimatedCost": "low",
+      "priority": 2,
+      "isQuickWin": false
+    },
+    {
+      "id": "rec-post-01",
+      "title": "Post-stay communication sequence",
+      "observation": "No post-stay contact of any kind following a three-night stay in a Garden Suite.",
+      "guestImpact": "The guest who left with a billing dispute and no farewell received nothing to suggest the stay was valued.",
+      "suggestion": "A single personal email within 24 hours of departure. Guest name, one specific reference to a moment from the stay, a genuine invitation to return.",
+      "expectedOutcome": "Post-stay silence replaced with a recovery moment. Review intent and return intent both improved.",
+      "difficulty": "low",
+      "estimatedCost": "low",
+      "priority": 2,
+      "isQuickWin": true
+    },
+    {
+      "id": "rec-svc-01",
+      "title": "Service culture consistency - Rosa as the benchmark",
+      "observation": "One team member demonstrates the service standard the property communicates. The rest do not.",
+      "guestImpact": "Guest experience quality depends on which staff member is encountered. This is inconsistency, not intimacy.",
+      "suggestion": "Document Rosa's three specific behaviours - name use, personal observation, eye contact - as the observable standard for all guest-facing staff.",
+      "expectedOutcome": "Rosa's standard becomes the floor. Service culture consistency improves across all touchpoints.",
+      "difficulty": "medium",
+      "estimatedCost": "low",
+      "priority": 3,
+      "isQuickWin": false
+    }
+  ],
+
+  "executiveSummary": "Hotel Lumiere is a property of genuine beauty and real potential that has not yet aligned its operations with its positioning. The physical space - the architecture, the pool, the views - consistently exceeds expectations. The service and operational layer consistently falls short of them. The gap between what this property communicates and what guests actually experience is significant, specific, and entirely addressable. None of the findings in this report require capital investment. They require intention.",
+
+  "closingAssessment": "Hotel Lumiere has something genuinely difficult to manufacture: a beautiful space, a compelling location, and at least one member of staff - Rosa - who embodies exactly the kind of hospitality the property communicates. The challenge is not to create something new. It is to make consistent what already exists in its best moments. The pre-arrival silence, the unmanned reception, the post-stay disappearance - these are not failures of investment. They are failures of attention. And attention is the one thing a property of this scale has no excuse not to give.",
+
+  "scoreboard": {
+    "brandPromiseAlignment":  { "value": 6.4, "band": "acceptable", "note": "Promise compelling. Delivery uneven." },
+    "preArrivalExperience":   { "value": 4.8, "band": "attention",  "note": "No communication. Direct contradiction of the promise." },
+    "arrivalExperience":      { "value": 5.2, "band": "acceptable", "note": "Beautiful approach. Absent welcome." },
+    "roomExperience":         { "value": 6.9, "band": "acceptable", "note": "Architecture exceptional. Housekeeping inconsistent." },
+    "diningExperience":       { "value": 6.4, "band": "acceptable", "note": "Competent. No Mallorcan identity." },
+    "facilities":             { "value": 7.2, "band": "strong",     "note": "Pool design outstanding. Service absent." },
+    "serviceCulture":         { "value": 5.8, "band": "acceptable", "note": "Rosa is the benchmark. The team is not." },
+    "experienceContinuity":   { "value": 5.9, "band": "acceptable", "note": "Physical continuity high. Operational continuity low." },
+    "departureExperience":    { "value": 4.2, "band": "attention",  "note": "Billing error, no farewell, complete silence." },
+    "overallGuestExperience": { "value": 6.1, "band": "acceptable", "note": "Below category potential. Fully addressable." }
+  },
+
+  "assets": [
+    { "id": "asset-cover",     "section": "cover",          "description": "Pool at golden hour - water, stone, mountain light. The property's defining visual moment.", "aspectRatio": "16:9", "src": null },
+    { "id": "asset-arrival-1", "section": "arrival",        "description": "Approach to property - stone track, bougainvillea, afternoon light through olive trees", "aspectRatio": "16:9", "src": null },
+    { "id": "asset-arrival-2", "section": "arrival",        "description": "Reception area - stone interior, quality materials, empty of staff on arrival", "aspectRatio": "4:3", "src": null },
+    { "id": "asset-room-1",    "section": "room",           "description": "Garden Suite - exposed stone ceiling, morning light on linen, terrace door open to garden", "aspectRatio": "16:9", "src": null },
+    { "id": "asset-room-2",    "section": "room",           "description": "Room terrace at dusk - view across garden to mountains, evening light", "aspectRatio": "4:3", "src": null },
+    { "id": "asset-room-3",    "section": "room",           "description": "Bathroom detail - materials and light quality, grout staining visible", "aspectRatio": "4:3", "src": null },
+    { "id": "asset-dining-1",  "section": "dining",         "description": "Breakfast dining area - morning light, standard table setting, no local identity visible", "aspectRatio": "16:9", "src": null },
+    { "id": "asset-dining-2",  "section": "dining",         "description": "Breakfast plate - adequate, no Mallorcan produce identified or communicated", "aspectRatio": "4:3", "src": null },
+    { "id": "asset-pool-1",    "section": "facilities",     "description": "Pool in afternoon - siting and proportions exceptional, no staff visible in area", "aspectRatio": "16:9", "src": null },
+    { "id": "asset-service-1", "section": "serviceCulture", "description": "Dining team interaction - natural warmth, genuine local knowledge", "aspectRatio": "4:3", "src": null }
+  ]
+}

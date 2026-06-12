@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react"
 import type { ClientReportData } from "@tbs/web-engine"
 import styles from "./ReportShell.module.css"
 import "./report.css"
-import { ReportImage } from "./ReportImage"
+import Image from "next/image"
 
 import S01ExecutiveSnapshot from "./sections/S01-ExecutiveSnapshot"
 import S02PropertyContext from "./sections/S02-PropertyContext"
@@ -140,14 +140,13 @@ export default function ReportShell({ data, token: _token }: Props) {
 
       {/* Hero */}
       <div className={styles.reportHero}>
-        <div className={styles.reportHeroBg}>
-          <ReportImage
-            assetId="asset-cover"
-            aspectRatio="16:9"
-            priority
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-          />
-        </div>
+        <Image
+          src="/images/website/sections/view_1_1X2.png"
+          alt="Hotel guest suite view"
+          fill
+          priority
+          style={{ objectFit: "cover", zIndex: 0 }}
+        />
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <p className={styles.heroEyebrow}>Guest Experience Intelligence Report</p>

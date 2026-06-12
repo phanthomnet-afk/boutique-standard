@@ -45,7 +45,7 @@ export default async function AboutPage({ searchParams }: PageProps) {
     <>
       <PhilosophyHeroSection
         content={content.hero}
-        imageSrc="/images/website/details/linen-curtain--detail--1x1.png"
+        imageSrc="/images/website/details/welcome-note.png"
       />
       <PerspectiveSection content={content.perspective} />
       <WhatWeAreNotSection content={content.whatWeAreNot} />
