@@ -7,6 +7,7 @@ import crypto from "crypto"
 const REPORTS = [
   {
     slug:      "maison-du-rivage",
+    name:      "Maison du Rivage",
     password:  "rivage2027",
     hotelName: "Maison du Rivage",
     location:  "Antibes, French Riviera",
@@ -15,11 +16,12 @@ const REPORTS = [
   },
   {
     slug:      "hotel-lumiere",
+    name:      "Hotel Lumiere",
     password:  "lumiere2027",
     hotelName: "Hotel Lumiere",
     location:  "Mallorca, Spain",
     auditDate: "2027-09-14",
-    dataPath:  "data/reports/hotel-lumiere.json",
+    dataPath:  "hotel-lumiere.json",
   },
 ]
 
@@ -66,10 +68,9 @@ export async function POST(request: NextRequest) {
 
     const existing = await prisma.clientReport.findUnique({ where: { slug: r.slug } })
     results.push({
-      slug:      r.slug,
+      name:      r.name,
       clientUrl: `${baseUrl}/client/${existing!.token}/report`,
       password:  r.password,
-      token:     existing!.token,
     })
   }
 

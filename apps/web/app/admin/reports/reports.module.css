@@ -208,15 +208,28 @@
 /* Seed result banner */
 .seedResult {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 0.625rem;
   background: #f0f7ee;
   border: 1px solid #c3dfc0;
   border-radius: 4px;
   padding: 0.875rem 1rem;
   margin-bottom: 1.5rem;
   font-size: 0.875rem;
+}
+
+.seedResultRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.seedResultName {
+  font-weight: 600;
+  color: #1c4a18;
+  white-space: nowrap;
+  min-width: 140px;
 }
 
 .seedResultLabel {

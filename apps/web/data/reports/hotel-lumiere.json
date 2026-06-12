@@ -81,7 +81,7 @@
       {
         "label": "Every moment of the stay",
         "score": { "value": 4.2, "band": "attention", "note": "Pre-arrival and departure represent complete failures against this dimension." },
-        "observation": "The promise explicitly claims every moment. The pre-arrival period is defined by silence. The departure moment is defined by a billing error and no farewell. These are not peripheral moments. They are the beginning and end of the guest experience."
+        "observation": "The promise explicitly claims every moment. The pre-arrival period is defined by silence. The departure moment is defined by a discrepancy in the final bill and no farewell. These are not peripheral moments. They are the beginning and end of the guest experience."
       }
     ],
     "overallAlignment": { "value": 6.4, "band": "acceptable", "note": "Promise is compelling but delivery is uneven." },
@@ -180,7 +180,7 @@
       "key": "arrival",
       "label": "Arrival Experience",
       "score": { "value": 5.2, "band": "acceptable", "note": "Beautiful space. Absent welcome. The contrast is the finding." },
-      "narrative": "The property itself is the arrival experience. The approach is genuinely beautiful - a stone-paved track, bougainvillea, light through olive trees at the September afternoon angle. None of this is communicated in advance, which means it lands as a pleasant surprise rather than a promised arrival. The parking area is well-maintained and adequately signed. The reception building is visible from the car park. What is not visible - and was not present - is a member of staff. Reception was unmanned for twelve minutes. There was no bell to ring. No indication of where to find assistance. The property was navigated by wandering through a garden corridor until a member of the dining team was encountered near the terrace. The physical space is exceptional. The welcome was absent.",
+      "narrative": "The property itself is the arrival experience. The approach is genuinely beautiful - a stone-paved track, bougainvillea, light through olive trees at the September afternoon angle. None of this is communicated in advance, which means it lands as a pleasant surprise rather than a promised arrival. The parking area is well-maintained and adequately signed. The reception building is visible from the car park. What is not visible - and was not present - is a member of staff. Reception was unmanned for twelve minutes. There was no bell to ring. No indication of where to find assistance. Orientation took longer than expected - a member of the dining team was found near the terrace and guided the arrival from there. The physical space is exceptional. The welcome was absent.",
       "strengths": [
         "Approach to property genuinely beautiful - stone track, garden, afternoon light",
         "Parking area well-maintained and adequately signed",
@@ -191,7 +191,7 @@
         "Reception unmanned for twelve minutes on arrival",
         "No bell or clear instruction for how to summon assistance",
         "No visible staff member in reception area or entrance on arrival",
-        "Property navigated independently until help was encountered by chance"
+        "Orientation took longer than expected - assistance was found near the dining terrace"
       ],
       "guestMemoryImpact": "The beauty of the physical approach does not survive the twelve-minute wait. The first specific memory of a staff interaction is found by accident, not by design.",
       "recommendations": [
@@ -345,10 +345,10 @@
     "departure": {
       "key": "departure",
       "label": "Departure Experience",
-      "score": { "value": 4.2, "band": "attention", "note": "The lowest point of the stay. A billing error with no apology and no farewell." },
-      "narrative": "The departure experience is the lowest point of a stay that contains several low points. The bill presented at checkout contained an error - a minibar charge for items that were not consumed and that the room inspection note confirms were found pre-stocked from a previous guest. Resolving the error took twenty minutes and required two staff members. The resolution was polite but contained no acknowledgement that an error had occurred. There was no farewell offered at any point in the checkout process. No follow-up of any kind was suggested. The guest carried bags to the car alone. The stay that began with a twelve-minute unmanned reception ended with a twenty-minute billing dispute and silence.",
+      "score": { "value": 4.2, "band": "attention", "note": "The lowest point of the stay. A discrepancy in the final bill, no apology, no farewell." },
+      "narrative": "The departure experience is the lowest point of a stay that contains several low points. The bill presented at checkout contained a discrepancy - a minibar charge for items that were not consumed and that the room inspection note confirms were found pre-stocked from a previous guest. Resolving the discrepancy took twenty minutes and required two staff members. The resolution was polite but contained no acknowledgement that the charge was in error. There was no farewell offered at any point in the checkout process. No follow-up of any kind was suggested. The guest carried bags to the car alone. The stay that began with a twelve-minute unmanned reception ended with a twenty-minute bill review and silence.",
       "strengths": [
-        "Staff polite during billing dispute resolution",
+        "Staff polite during the bill review process",
         "Error ultimately resolved without additional payment required"
       ],
       "frictionPoints": [
@@ -359,12 +359,12 @@
         "No suggestion of return or continued relationship",
         "Guest departed entirely without any personal acknowledgement"
       ],
-      "guestMemoryImpact": "The billing error and its resolution will be the most clearly remembered operational moment of the stay. A departure defined by a dispute and silence is the conclusion a reviewer will find hardest to overlook.",
+      "guestMemoryImpact": "The discrepancy in the final bill and its resolution will be the most clearly remembered operational moment of the stay. A departure defined by a bill review and silence is the conclusion a reviewer will find hardest to overlook.",
       "recommendations": [
         {
           "id": "rec-dep-01",
           "title": "Departure experience redesign",
-          "observation": "Departure defined by a billing error, a twenty-minute resolution, and no farewell.",
+          "observation": "Departure defined by a discrepancy in the final bill, a twenty-minute resolution, and no farewell.",
           "guestImpact": "The stay ends on its worst moment. Review sentiment and return intent are directly shaped by the last experience.",
           "suggestion": "Two actions. First: a pre-departure bill review by a team member before the guest is called to checkout - eliminates the category of error that occurred. Second: a genuine farewell - a handwritten note, a local product, or a specific personalised acknowledgement from a team member the guest connected with.",
           "expectedOutcome": "Departure becomes a conclusion rather than a transaction. The last memory is warmth rather than a dispute.",
@@ -388,7 +388,7 @@
         "No reference to the stay, the room, or any interaction",
         "Relationship ends entirely at the moment of departure"
       ],
-      "guestMemoryImpact": "The silence reinforces the departure experience. A guest who left with a billing dispute and no farewell received nothing to suggest the property valued the stay.",
+      "guestMemoryImpact": "The silence reinforces the departure experience. A guest who left with an unresolved bill question and no farewell received nothing to suggest the property valued the stay.",
       "recommendations": [
         {
           "id": "rec-post-01",
@@ -433,7 +433,7 @@
       "id": "mis-02",
       "title": "Arrival without welcome",
       "promise": "An intimate retreat - personal attention from the moment of arrival",
-      "reality": "Reception unmanned for twelve minutes. Property navigated independently until a staff member was encountered by chance near the dining terrace.",
+      "reality": "Reception unmanned on arrival. Orientation took longer than expected - a staff member was found near the dining terrace and guided the check-in from there.",
       "guestImpact": "The first direct experience of the property contradicts its most fundamental positioning.",
       "severity": "high",
       "recommendation": "A staff member visible and present near reception during all standard arrival hours."
@@ -451,7 +451,7 @@
       "id": "mis-04",
       "title": "Post-stay disappearance",
       "promise": "A stay you will want to return to",
-      "reality": "No post-stay communication of any kind. The relationship ends at a billing dispute.",
+      "reality": "No post-stay communication followed the checkout. The relationship ends at the car park.",
       "guestImpact": "Every positive memory of the stay is unacknowledged. Every avenue for recovery from the departure experience is unused.",
       "severity": "high",
       "recommendation": "A single personal email within 24 hours of departure referencing a specific moment from the stay."
@@ -490,7 +490,7 @@
       "likelyReviewMention": false
     },
     {
-      "moment": "The billing error at checkout",
+      "moment": "A discrepancy at checkout",
       "description": "Twenty minutes to resolve an error the property created. No apology. The last interaction before leaving.",
       "type": "negative",
       "likelyReviewMention": true
@@ -586,7 +586,7 @@
       "id": "rec-post-01",
       "title": "Post-stay communication sequence",
       "observation": "No post-stay contact of any kind following a three-night stay in a Garden Suite.",
-      "guestImpact": "The guest who left with a billing dispute and no farewell received nothing to suggest the stay was valued.",
+      "guestImpact": "The guest who left with an unresolved bill question and no farewell received nothing to suggest the stay was valued.",
       "suggestion": "A single personal email within 24 hours of departure. Guest name, one specific reference to a moment from the stay, a genuine invitation to return.",
       "expectedOutcome": "Post-stay silence replaced with a recovery moment. Review intent and return intent both improved.",
       "difficulty": "low",
@@ -608,9 +608,9 @@
     }
   ],
 
-  "executiveSummary": "Hotel Lumiere is a property of genuine beauty and real potential that has not yet aligned its operations with its positioning. The physical space - the architecture, the pool, the views - consistently exceeds expectations. The service and operational layer consistently falls short of them. The gap between what this property communicates and what guests actually experience is significant, specific, and entirely addressable. None of the findings in this report require capital investment. They require intention.",
+  "executiveSummary": "Hotel Lumiere is a property of genuine beauty and real potential that has not yet aligned its operations with its positioning. The physical space - the architecture, the pool, the views - consistently exceeds expectations. The service and operational layer consistently falls short of them. The gap between what this property communicates and what guests actually experience is significant, each one specific and addressable. None of the findings in this report require capital investment. They require intention.",
 
-  "closingAssessment": "Hotel Lumiere has something genuinely difficult to manufacture: a beautiful space, a compelling location, and at least one member of staff - Rosa - who embodies exactly the kind of hospitality the property communicates. The challenge is not to create something new. It is to make consistent what already exists in its best moments. The pre-arrival silence, the unmanned reception, the post-stay disappearance - these are not failures of investment. They are failures of attention. And attention is the one thing a property of this scale has no excuse not to give.",
+  "closingAssessment": "Hotel Lumiere has something genuinely difficult to manufacture: a beautiful space, a compelling location, and at least one member of staff - Rosa - who embodies exactly the kind of hospitality the property communicates. The challenge is not to create something new. It is to make consistent what already exists in its best moments. The pre-arrival silence, the unmanned reception, the post-stay disappearance - these are not questions of investment. They are questions of consistency. And consistency is the one thing a property of this scale has every reason to prioritise.",
 
   "scoreboard": {
     "brandPromiseAlignment":  { "value": 6.4, "band": "acceptable", "note": "Promise compelling. Delivery uneven." },
@@ -621,20 +621,21 @@
     "facilities":             { "value": 7.2, "band": "strong",     "note": "Pool design outstanding. Service absent." },
     "serviceCulture":         { "value": 5.8, "band": "acceptable", "note": "Rosa is the benchmark. The team is not." },
     "experienceContinuity":   { "value": 5.9, "band": "acceptable", "note": "Physical continuity high. Operational continuity low." },
-    "departureExperience":    { "value": 4.2, "band": "attention",  "note": "Billing error, no farewell, complete silence." },
+    "departureExperience":    { "value": 4.2, "band": "attention",  "note": "A discrepancy in the final bill, no farewell, no post-stay contact." },
     "overallGuestExperience": { "value": 6.1, "band": "acceptable", "note": "Below category potential. Fully addressable." }
   },
 
   "assets": [
-    { "id": "asset-cover",     "section": "cover",          "description": "Pool at golden hour - water, stone, mountain light. The property's defining visual moment.", "aspectRatio": "16:9", "src": null },
-    { "id": "asset-arrival-1", "section": "arrival",        "description": "Approach to property - stone track, bougainvillea, afternoon light through olive trees", "aspectRatio": "16:9", "src": null },
-    { "id": "asset-arrival-2", "section": "arrival",        "description": "Reception area - stone interior, quality materials, empty of staff on arrival", "aspectRatio": "4:3", "src": null },
-    { "id": "asset-room-1",    "section": "room",           "description": "Garden Suite - exposed stone ceiling, morning light on linen, terrace door open to garden", "aspectRatio": "16:9", "src": null },
-    { "id": "asset-room-2",    "section": "room",           "description": "Room terrace at dusk - view across garden to mountains, evening light", "aspectRatio": "4:3", "src": null },
-    { "id": "asset-room-3",    "section": "room",           "description": "Bathroom detail - materials and light quality, grout staining visible", "aspectRatio": "4:3", "src": null },
-    { "id": "asset-dining-1",  "section": "dining",         "description": "Breakfast dining area - morning light, standard table setting, no local identity visible", "aspectRatio": "16:9", "src": null },
-    { "id": "asset-dining-2",  "section": "dining",         "description": "Breakfast plate - adequate, no Mallorcan produce identified or communicated", "aspectRatio": "4:3", "src": null },
-    { "id": "asset-pool-1",    "section": "facilities",     "description": "Pool in afternoon - siting and proportions exceptional, no staff visible in area", "aspectRatio": "16:9", "src": null },
-    { "id": "asset-service-1", "section": "serviceCulture", "description": "Dining team interaction - natural warmth, genuine local knowledge", "aspectRatio": "4:3", "src": null }
+    { "id": "asset-cover",     "section": "cover",          "description": "Hotel Lumiere exterior, Mallorca", "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/cover-exterior--cover--16x9.png",       "alt": "Hotel Lumiere exterior, Mallorca" },
+    { "id": "asset-cover-2",   "section": "cover",          "description": "Hotel Lumiere courtyard",         "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/cover-courtyard--cover--16x9.png",      "alt": "Hotel Lumiere courtyard" },
+    { "id": "asset-arrival-1", "section": "arrival",        "description": "Arrival approach, Hotel Lumiere", "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/arrival-driveway--arrival--16x9.png",   "alt": "Arrival approach, Hotel Lumiere" },
+    { "id": "asset-arrival-2", "section": "arrival",        "description": "Reception, Hotel Lumiere",        "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/reception-empty--arrival--4x3.png",    "alt": "Reception, Hotel Lumiere" },
+    { "id": "asset-room-1",    "section": "room",           "description": "Garden suite, Hotel Lumiere",     "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/guest-room--room--16x9.png",           "alt": "Garden suite, Hotel Lumiere" },
+    { "id": "asset-room-2",    "section": "room",           "description": "Room detail, Hotel Lumiere",      "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/minibar-detail--room--4x3.png",        "alt": "Room detail, Hotel Lumiere" },
+    { "id": "asset-room-3",    "section": "room",           "description": "Hotel Lumiere",                   "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/checkout-desk--departure--4x3.png",    "alt": "Hotel Lumiere" },
+    { "id": "asset-dining-1",  "section": "dining",         "description": "Breakfast terrace, Hotel Lumiere","aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/breakfast-terrace--dining--16x9.png",  "alt": "Breakfast terrace, Hotel Lumiere" },
+    { "id": "asset-dining-2",  "section": "dining",         "description": "Breakfast, Hotel Lumiere",        "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/breakfast-food--dining--4x3.png",      "alt": "Breakfast, Hotel Lumiere" },
+    { "id": "asset-pool-1",    "section": "facilities",     "description": "Pool at golden hour, Hotel Lumiere","aspectRatio": "16:9","src": "/images/reports/hotel-lumiere/pool-golden-hour--facilities--16x9.png","alt": "Pool at golden hour, Hotel Lumiere" },
+    { "id": "asset-service-1", "section": "serviceCulture", "description": "Hotel Lumiere",                   "aspectRatio": "4:3",  "src": null,                                                                   "alt": "Hotel Lumiere" }
   ]
 }

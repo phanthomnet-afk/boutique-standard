@@ -24,6 +24,12 @@ interface AccessResult {
   password: string | null
 }
 
+interface SeedReportResult {
+  name:      string
+  clientUrl: string
+  password:  string
+}
+
 interface Props {
   initialReports: Report[]
 }
@@ -44,7 +50,7 @@ function makeClientUrl(token: string): string {
 export function ReportsClient({ initialReports }: Props) {
   const [reports, setReports]         = useState<Report[]>(initialReports)
   const [loading, setLoading]         = useState<string | null>(null)
-  const [seedResult, setSeedResult]   = useState<AccessResult | null>(null)
+  const [seedResults, setSeedResults] = useState<SeedReportResult[]>([])
   const [accessResults, setAccessResults] = useState<Record<string, AccessResult>>({})
   const [copied, setCopied]           = useState<string | null>(null)
   const [error, setError]             = useState<string | null>(null)
@@ -80,7 +86,7 @@ export function ReportsClient({ initialReports }: Props) {
     if (!res.ok) {
       setError(data.error || "Seed failed")
     } else {
-      setSeedResult({ url: data.clientUrl, password: data.password })
+      setSeedResults(data.reports || [])
       await refresh()
     }
     setLoading(null)
@@ -155,28 +161,31 @@ export function ReportsClient({ initialReports }: Props) {
         </button>
       </div>
 
-      {seedResult && (
+      {seedResults.length > 0 && (
         <div className={styles.seedResult}>
-          <span className={styles.seedResultLabel}>Demo report ready</span>
-          <a
-            href={seedResult.url}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.seedResultLink}
-          >
-            {seedResult.url}
-          </a>
-          {seedResult.password && (
-            <span className={styles.seedResultPassword}>
-              Password: <strong>{seedResult.password}</strong>
-            </span>
-          )}
-          <button
-            className={styles.copyBtn}
-            onClick={() => handleCopy(seedResult.url)}
-          >
-            {copied === seedResult.url ? "Copied!" : "Copy URL"}
-          </button>
+          <span className={styles.seedResultLabel}>Demo reports ready</span>
+          {seedResults.map((r) => (
+            <div key={r.clientUrl} className={styles.seedResultRow}>
+              <span className={styles.seedResultName}>{r.name}</span>
+              <a
+                href={r.clientUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.seedResultLink}
+              >
+                {r.clientUrl}
+              </a>
+              <span className={styles.seedResultPassword}>
+                Password: <strong>{r.password}</strong>
+              </span>
+              <button
+                className={styles.copyBtn}
+                onClick={() => handleCopy(r.clientUrl)}
+              >
+                {copied === r.clientUrl ? "Copied!" : "Copy URL"}
+              </button>
+            </div>
+          ))}
         </div>
       )}
 

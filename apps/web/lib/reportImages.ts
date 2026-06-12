@@ -83,6 +83,84 @@ const REPORT_IMAGES: ReportImageSlot[] = [
     alt: "Reception interaction - staff engaged, natural body language, authentic connection",
     section: "serviceCulture",
   },
+
+  // Hotel Lumiere
+  {
+    assetId: "asset-cover",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/cover-exterior--cover--16x9.png",
+    alt: "Hotel Lumiere exterior, Mallorca",
+    section: "cover",
+  },
+  {
+    assetId: "asset-cover-2",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/cover-courtyard--cover--16x9.png",
+    alt: "Hotel Lumiere courtyard",
+    section: "cover",
+  },
+  {
+    assetId: "asset-arrival-1",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/arrival-driveway--arrival--16x9.png",
+    alt: "Arrival approach, Hotel Lumiere",
+    section: "arrival",
+  },
+  {
+    assetId: "asset-arrival-2",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/reception-empty--arrival--4x3.png",
+    alt: "Reception, Hotel Lumiere",
+    section: "arrival",
+  },
+  {
+    assetId: "asset-room-1",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/guest-room--room--16x9.png",
+    alt: "Garden suite, Hotel Lumiere",
+    section: "room",
+  },
+  {
+    assetId: "asset-room-2",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/minibar-detail--room--4x3.png",
+    alt: "Room detail, Hotel Lumiere",
+    section: "room",
+  },
+  {
+    assetId: "asset-room-3",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/checkout-desk--departure--4x3.png",
+    alt: "Hotel Lumiere",
+    section: "room",
+  },
+  {
+    assetId: "asset-dining-1",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/breakfast-terrace--dining--16x9.png",
+    alt: "Breakfast terrace, Hotel Lumiere",
+    section: "dining",
+  },
+  {
+    assetId: "asset-dining-2",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/breakfast-food--dining--4x3.png",
+    alt: "Breakfast, Hotel Lumiere",
+    section: "dining",
+  },
+  {
+    assetId: "asset-pool-1",
+    reportSlug: "hotel-lumiere",
+    src: "/images/reports/hotel-lumiere/pool-golden-hour--facilities--16x9.png",
+    alt: "Pool at golden hour, Hotel Lumiere",
+    section: "facilities",
+  },
+  {
+    assetId: "asset-service-1",
+    reportSlug: "hotel-lumiere",
+    alt: "Hotel Lumiere",
+    section: "serviceCulture",
+  },
 ]
 
 export function getReportImage(
