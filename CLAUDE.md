@@ -1,11 +1,13 @@
 # CLAUDE.md - The Boutique Standard
 ## Shared Project Memory - Always Read This First
 
-**Last updated:** 2026-06-11
+**Last updated:** 2026-06-12
 **Project status:** Lead Engine complete (4 phases).
 Website substantially built. Sanity CMS content layer implemented.
 Report Engine Phase 1 + visual quality pass complete.
 Web report loads and renders all 13 sections with real data and images.
+Two case study reports: Hotel Lumiere (primary public case, placeholder page)
+and Maison du Rivage (internal). Client report (/client/[token]/report) built.
 Public pages null-safe. Admin has mobile hamburger sidebar.
 
 ---
@@ -221,15 +223,17 @@ boutique-standard/
         report/
           page.tsx                   <- Report showcase index
           maison-du-rivage/
-            page.tsx                 <- Case report (editorial, public)
+            page.tsx                 <- Case report (editorial, internal)
             page.module.css
+          hotel-lumiere/
+            page.tsx                 <- Placeholder page (full case report to build)
         request/page.tsx             <- Audit enquiry form (multi-step)
         journal/
           page.tsx                   <- Journal hub
           [category]/[slug]/page.tsx <- Article page
 
       (client)/
-        client/[token]/report/       <- (to build) Password-protected client report
+        client/[token]/report/       <- Password-protected client report (BUILT)
 
     components/
       admin/
@@ -261,7 +265,8 @@ boutique-standard/
     next.config.js
     package.json
 
-  data/reports/maison-du-rivage.json <- Complete Maison du Rivage data
+  data/reports/maison-du-rivage.json <- Complete Maison du Rivage data (isPublicCase: false)
+  data/reports/hotel-lumiere.json    <- Complete Hotel Lumiere data (isPublicCase: true)
   outputs/pdf/ outputs/web/
 ```
 
@@ -272,10 +277,11 @@ boutique-standard/
 | Surface | Route | Status |
 |---------|-------|--------|
 | PDF (~40p) | Generated file | Skeleton built, needs sections |
-| Web report (~20 sections) | /client/[token]/report | NOT BUILT |
-| Case report (public) | /report/maison-du-rivage | Basic version live |
+| Web report (13 sections) | /client/[token]/report | BUILT - loads Hotel Lumiere + Maison du Rivage |
+| Case report (public) | /report/[slug] | Maison du Rivage live; Hotel Lumiere placeholder |
 
-**All consume data/reports/maison-du-rivage.json**
+**Both reports in data/reports/ - hotel-lumiere.json is primary public case.**
+**Passwords: rivage2027 (Maison du Rivage), lumiere2027 (Hotel Lumiere)**
 
 ---
 
@@ -283,25 +289,27 @@ boutique-standard/
 
 ### Public
 ```
-/                Home (6 sections)
-/audit           Audit service page
-/report          Case report showcase
-/report/[slug]   Individual case (Maison du Rivage done)
-/journal         Journal hub
-/journal/[category]/[slug]  Article pages (3 articles live)
-/about           Philosophy / Why We Exist
-/request         Audit enquiry form (multi-step)
+/                          Home (6 sections)
+/audit                     Audit service page
+/report                    Case report showcase
+/report/maison-du-rivage   Editorial case report (internal reference)
+/report/hotel-lumiere      Placeholder (full case report to build)
+/journal                   Journal hub
+/journal/[category]/[slug] Article pages (3 articles live)
+/about                     Philosophy / Why We Exist
+/request                   Audit enquiry form (multi-step)
 ```
 
 ### Private
 ```
-/client/[token]/report   Full web report (password-protected, not yet built)
+/client/[token]/report   Full web report - 13 sections, password-protected (BUILT)
 ```
 
 ### Admin
 ```
 /admin/hotels            Hotel list + filters
 /admin/hotels/[id]       Hotel detail (intelligence/contacts/outreach/notes)
+/admin/reports           Report management - seed, PDF, client access
 /admin/prospects         Discovery: Places search, Collective scraper, CSV import
 /admin/pipeline          Status pipeline view
 /admin/outreach          Weekly plan + LinkedIn calendar + OutreachModal
@@ -363,15 +371,16 @@ boutique-standard/
 - [x] Footer
 - [x] Homepage (all 6 sections)
 - [x] Audit page (/audit)
-- [x] About/Philosophy page (/about)
+- [x] About/Philosophy page (/about) - hero: welcome-note.png, PerspectiveSection 2-col
 - [x] Report showcase (/report)
-- [x] Case report: Maison du Rivage (/report/maison-du-rivage)
+- [x] Case report: Maison du Rivage (/report/maison-du-rivage) - internal reference
+- [x] Case report: Hotel Lumiere (/report/hotel-lumiere) - placeholder, full build pending
 - [x] Request/enquiry form (/request, multi-step)
 - [x] Journal hub (/journal)
 - [x] Journal articles (3 live)
 - [x] Public pages null-safe (getContent returns T | null, all 4 public pages guard null)
 - [x] Admin mobile sidebar (AdminShell "use client" component, hamburger at 768px)
-- [ ] Client report (/client/[token]/report) - NOT YET BUILT
+- [x] Client report (/client/[token]/report) - BUILT (13 sections, full-viewport hero)
 
 ---
 
@@ -416,25 +425,41 @@ neo-integration.md documentation.
 **Admin report management (apps/web/app/admin/reports/):**
 - Report Prisma model (slug, hotelName, location, auditDate, dataPath,
   status, pdfPath, pdfGeneratedAt, clientToken, notes)
+  NO country or language fields on Report model.
 - GET /api/admin/reports/list - all reports + stats
 - GET+PATCH /api/admin/reports/[id] - detail + status/notes update
 - POST /api/admin/reports/[id]/generate-pdf - spawns pdf-engine CLI
 - POST /api/admin/reports/[id]/create-client-access - creates ClientReport
-- POST /api/admin/reports/seed-maison - seeds maison-du-rivage record
-- ReportsClient.tsx: stats bar, seed button, table with PDF + client actions
+- POST /api/admin/reports/seed-maison - seeds BOTH Maison du Rivage + Hotel Lumiere
+- ReportsClient.tsx: stats bar, seed button shows both URLs after seed
 - Reports added to admin sidebar (between Hotels and Prospects)
 
 **Visual quality pass (web report):**
 - Critical bug fixed: /api/client/[token]/data had doubled file path
 - ReportImage component: handles asset lookup, aspect ratio, placeholder fallback
-- reportImages.ts: all 10 slots wired (3 were missing src)
+- reportImages.ts: Maison du Rivage (10 slots) + Hotel Lumiere (11 slots)
 - S02: ReportImage for cover, real promiseAnalysis dimensions (not hardcoded)
-- S06: ReportImage per stage with correct asset IDs (arrival-1, room-1, etc.)
+- S04: DNA wheel container max-width 560px, benchmark scale legend added
+- S05: Journey overview redesigned as animated bar chart (was timeline with dots)
+- S06: ReportImage per stage with correct asset IDs; departure uses asset-room-2;
+  score separator " - " between value and band label
 - S07: guard against empty continuityMapData crash
 - S10: riskIfLost correctly shown (was showing rationale twice)
 - ContinuityMap: animation fixed (opacity fade, was broken strokeDasharray)
 - report.css: print-color-adjust for dark sections, nav/button hidden in print
-- Password: rivage2027 (for Maison du Rivage demo access)
+- ReportShell hero: full-viewport Next.js Image fill (view_1_1X2.png)
+- Passwords: rivage2027 (Maison du Rivage), lumiere2027 (Hotel Lumiere)
+
+**Hotel Lumiere case study:**
+- data/reports/hotel-lumiere.json: Mallorca, Spain. 18 rooms. EUR 340/night.
+  10 journey stages, overallAlignmentScore 6.8, 4 high-severity misalignments.
+  Rosa as positive service anchor. Tone: observational, not accusatory.
+- hotel-lumiere isPublicCase: true (primary public case)
+- maison-du-rivage isPublicCase: false
+- Image assets: public/images/reports/hotel-lumiere/ - 10 images committed.
+  NOTE: files have double .png.png extension. Rename before images display:
+  cd apps/web/public/images/reports/hotel-lumiere
+  for f in *.png.png; do mv "$f" "${f%.png}"; done
 
 ---
 
@@ -469,8 +494,9 @@ Bilingual: EN (default) + DA (geo-detected, DK visitors).
 ## Image System
 
 lib/images.ts - typed manifest, 7 website images
-lib/reportImages.ts - 10 Maison du Rivage asset slots
+lib/reportImages.ts - two properties: Maison du Rivage (10 slots) + Hotel Lumiere (11 slots)
 public/images/ - organised by use and format
+public/images/reports/hotel-lumiere/ - 10 report images (need .png.png -> .png rename)
 Naming: subject--use--format.png
 All images: compress before committing.
 Target: 200-350KB per image as WebP or JPEG.
@@ -502,9 +528,10 @@ Target: 200-350KB per image as WebP or JPEG.
 
 ## Build Priority Order
 
-1. Resend domain verification (Cloudflare DNS)
-2. Case report polish (/report/maison-du-rivage)
-3. Sanity CMS: create project, add env vars, run seed, configure webhook
+1. Rename hotel-lumiere image files (.png.png -> .png) so assets display
+2. Build /report/hotel-lumiere full case report sections (currently placeholder)
+3. Resend domain verification (Cloudflare DNS)
+4. Sanity CMS: create project, add env vars, run seed, configure webhook
 
 ---
 
@@ -512,9 +539,13 @@ Target: 200-350KB per image as WebP or JPEG.
 
 Say: "Read CLAUDE.md first, then [what to build]"
 
-Next priority: /client/[token]/report
-The interactive web report delivered to hotel clients.
-Password-protected. ~20 sections. Uses maison-du-rivage.json.
+Next priority: /report/hotel-lumiere full editorial case report.
+This is the public-facing showcase. Hotel Lumiere data is complete in
+data/reports/hotel-lumiere.json. Build editorial sections matching the
+quality and style of /report/maison-du-rivage.
+
+After that: client report polish - verify all 13 sections render
+correctly for Hotel Lumiere (lumiere2027) via /client/[token]/report.
 
 SYSTEM CORE: core/system/BOUTIQUE_STANDARD_SYSTEM.md
 
