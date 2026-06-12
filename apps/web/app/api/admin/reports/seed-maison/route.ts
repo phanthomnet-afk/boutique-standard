@@ -83,5 +83,5 @@ export async function POST() {
   const baseUrl   = process.env.NEXT_PUBLIC_SITE_URL || "https://boutiquestandard.com"
   const clientUrl = `${baseUrl}/client/${token}/report`
 
-  return NextResponse.json({ success: true, clientUrl, password: DEMO_PASSWORD, isNew })
+  return NextResponse.json({ success: true, clientUrl, password: DEMO_PASSWORD, token, isNew })
 }

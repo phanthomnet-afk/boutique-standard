@@ -48,6 +48,7 @@ export function ReportsClient({ initialReports }: Props) {
   const [accessResults, setAccessResults] = useState<Record<string, AccessResult>>({})
   const [copied, setCopied]           = useState<string | null>(null)
   const [error, setError]             = useState<string | null>(null)
+  const [message, setMessage]         = useState<string | null>(null)
 
   const stats = {
     total:     reports.length,
@@ -85,15 +86,19 @@ export function ReportsClient({ initialReports }: Props) {
     setLoading(null)
   }
 
-  async function generatePDF(id: string) {
+  async function handleGeneratePDF(id: string) {
     setLoading(`pdf-${id}`)
     setError(null)
-    const res = await fetch(`/api/admin/reports/${id}/generate-pdf`, { method: "POST" })
+    setMessage(null)
+    const res  = await fetch(`/api/admin/reports/${id}/create-client-access`, { method: "POST" })
     const data = await res.json()
-    if (!res.ok) {
-      setError(data.error || "PDF generation failed")
+    if (data.clientUrl) {
+      window.open(data.clientUrl, "_blank")
+      setMessage(
+        `Report opened in new tab. Use Cmd+P (Mac) or Ctrl+P (Windows) to save as PDF. Password: ${data.password}`
+      )
     } else {
-      await refresh()
+      setError("Could not get report URL - create client access first.")
     }
     setLoading(null)
   }
@@ -179,6 +184,10 @@ export function ReportsClient({ initialReports }: Props) {
         <div className={styles.errorBar}>{error}</div>
       )}
 
+      {message && (
+        <div className={styles.messageBar}>{message}</div>
+      )}
+
       <div className={styles.statBar}>
         <div className={styles.stat}>
           <span className={styles.statValue}>{stats.total}</span>
@@ -232,17 +241,13 @@ export function ReportsClient({ initialReports }: Props) {
                       </span>
                     </td>
                     <td>
-                      {r.pdfPath ? (
-                        <span className={styles.pdfReady}>Ready</span>
-                      ) : (
-                        <button
-                          className={styles.actionBtn}
-                          onClick={() => generatePDF(r.id)}
-                          disabled={loading === `pdf-${r.id}` || r.status === "generating"}
-                        >
-                          {loading === `pdf-${r.id}` ? "Generating..." : "Generate PDF"}
-                        </button>
-                      )}
+                      <button
+                        className={styles.actionBtn}
+                        onClick={() => handleGeneratePDF(r.id)}
+                        disabled={loading === `pdf-${r.id}`}
+                      >
+                        {loading === `pdf-${r.id}` ? "Opening..." : "Open & Print PDF"}
+                      </button>
                     </td>
                     <td>
                       {displayUrl ? (
@@ -295,6 +300,11 @@ export function ReportsClient({ initialReports }: Props) {
           </table>
         </div>
       )}
+
+      <p className={styles.pdfNote}>
+        PDF export: open the web report and use Cmd+P (Mac) or Ctrl+P (Windows) to save as PDF.
+        Full Puppeteer PDF generation coming in a future update.
+      </p>
     </div>
   )
 }

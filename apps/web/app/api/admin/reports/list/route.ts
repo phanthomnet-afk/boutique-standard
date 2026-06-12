@@ -18,7 +18,7 @@ export async function GET() {
 
   const stats = {
     total:     reports.length,
-    ready:     reports.filter((r) => r.status === "ready").length,
+    ready:     reports.filter((r) => r.clientToken !== null).length,
     delivered: reports.filter((r) => r.status === "delivered").length,
     draft:     reports.filter((r) => r.status === "draft").length,
   }

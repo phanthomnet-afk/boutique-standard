@@ -52,6 +52,23 @@
   margin-bottom: 1.5rem;
 }
 
+.messageBar {
+  background: #f0f7ff;
+  border: 1px solid #bfdbfe;
+  color: #1e3a5f;
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+
+.pdfNote {
+  font-size: 0.8125rem;
+  color: #9e9890;
+  margin: 1.5rem 0 0;
+  line-height: 1.5;
+}
+
 .statBar {
   display: flex;
   gap: 1px;
