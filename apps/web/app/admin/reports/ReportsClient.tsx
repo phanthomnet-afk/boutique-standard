@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import styles from "./reports.module.css"
 
 interface Report {
@@ -19,6 +19,11 @@ interface Report {
   updatedAt:      string
 }
 
+interface AccessResult {
+  url:      string
+  password: string | null
+}
+
 interface Props {
   initialReports: Report[]
 }
@@ -30,11 +35,19 @@ const STATUS_LABEL: Record<string, string> = {
   delivered:  "Delivered",
 }
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://boutiquestandard.com"
+
+function makeClientUrl(token: string): string {
+  return `${BASE_URL}/client/${token}/report`
+}
+
 export function ReportsClient({ initialReports }: Props) {
-  const [reports, setReports]     = useState<Report[]>(initialReports)
-  const [loading, setLoading]     = useState<string | null>(null)
-  const [seedDone, setSeedDone]   = useState(false)
-  const [error, setError]         = useState<string | null>(null)
+  const [reports, setReports]         = useState<Report[]>(initialReports)
+  const [loading, setLoading]         = useState<string | null>(null)
+  const [seedResult, setSeedResult]   = useState<AccessResult | null>(null)
+  const [accessResults, setAccessResults] = useState<Record<string, AccessResult>>({})
+  const [copied, setCopied]           = useState<string | null>(null)
+  const [error, setError]             = useState<string | null>(null)
 
   const stats = {
     total:     reports.length,
@@ -48,6 +61,16 @@ export function ReportsClient({ initialReports }: Props) {
     if (data.reports) setReports(data.reports)
   }
 
+  const handleCopy = useCallback(async (url: string) => {
+    try {
+      await navigator.clipboard.writeText(url)
+    } catch {
+      // Clipboard API unavailable - silent fail
+    }
+    setCopied(url)
+    setTimeout(() => setCopied(null), 2000)
+  }, [])
+
   async function seedMaison() {
     setLoading("seed")
     setError(null)
@@ -56,7 +79,7 @@ export function ReportsClient({ initialReports }: Props) {
     if (!res.ok) {
       setError(data.error || "Seed failed")
     } else {
-      setSeedDone(true)
+      setSeedResult({ url: data.clientUrl, password: data.password })
       await refresh()
     }
     setLoading(null)
@@ -78,15 +101,23 @@ export function ReportsClient({ initialReports }: Props) {
   async function createClientAccess(id: string) {
     setLoading(`client-${id}`)
     setError(null)
-    const res = await fetch(`/api/admin/reports/${id}/create-client-access`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({}) })
+    const res = await fetch(`/api/admin/reports/${id}/create-client-access`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    })
     const data = await res.json()
     if (!res.ok) {
       setError(data.error || "Failed to create client access")
     } else {
-      const token    = data.clientReport?.token
-      const password = data.password
-      const url      = token ? `/client/${token}/report` : null
-      if (url && password) alert(`Client access created.\n\nURL: ${url}\nPassword: ${password}\n\nSave the password - it cannot be recovered.`)
+      const token    = data.token || data.clientReport?.token
+      const password = data.password || null
+      if (token) {
+        setAccessResults((prev) => ({
+          ...prev,
+          [id]: { url: makeClientUrl(token), password },
+        }))
+      }
       await refresh()
     }
     setLoading(null)
@@ -115,9 +146,34 @@ export function ReportsClient({ initialReports }: Props) {
           onClick={seedMaison}
           disabled={loading === "seed"}
         >
-          {loading === "seed" ? "Seeding..." : seedDone ? "Seeded" : "Seed Maison du Rivage"}
+          {loading === "seed" ? "Seeding..." : "Seed Demo Report"}
         </button>
       </div>
+
+      {seedResult && (
+        <div className={styles.seedResult}>
+          <span className={styles.seedResultLabel}>Demo report ready</span>
+          <a
+            href={seedResult.url}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.seedResultLink}
+          >
+            {seedResult.url}
+          </a>
+          {seedResult.password && (
+            <span className={styles.seedResultPassword}>
+              Password: <strong>{seedResult.password}</strong>
+            </span>
+          )}
+          <button
+            className={styles.copyBtn}
+            onClick={() => handleCopy(seedResult.url)}
+          >
+            {copied === seedResult.url ? "Copied!" : "Copy URL"}
+          </button>
+        </div>
+      )}
 
       {error && (
         <div className={styles.errorBar}>{error}</div>
@@ -140,7 +196,7 @@ export function ReportsClient({ initialReports }: Props) {
 
       {reports.length === 0 ? (
         <div className={styles.empty}>
-          <p>No reports yet. Click "Seed Maison du Rivage" to add the sample report.</p>
+          <p>No reports yet. Click "Seed Demo Report" to add the sample report.</p>
         </div>
       ) : (
         <div className={styles.tableWrap}>
@@ -157,65 +213,84 @@ export function ReportsClient({ initialReports }: Props) {
               </tr>
             </thead>
             <tbody>
-              {reports.map((r) => (
-                <tr key={r.id}>
-                  <td>
-                    <span className={styles.hotelName}>{r.hotelName}</span>
-                    <span className={styles.slug}>{r.slug}</span>
-                  </td>
-                  <td>{r.location}</td>
-                  <td>{r.auditDate}</td>
-                  <td>
-                    <span className={`${styles.badge} ${styles[`badge_${r.status}`]}`}>
-                      {STATUS_LABEL[r.status] ?? r.status}
-                    </span>
-                  </td>
-                  <td>
-                    {r.pdfPath ? (
-                      <span className={styles.pdfReady}>Ready</span>
-                    ) : (
-                      <button
-                        className={styles.actionBtn}
-                        onClick={() => generatePDF(r.id)}
-                        disabled={loading === `pdf-${r.id}` || r.status === "generating"}
-                      >
-                        {loading === `pdf-${r.id}` ? "Generating..." : "Generate PDF"}
-                      </button>
-                    )}
-                  </td>
-                  <td>
-                    {r.clientToken ? (
-                      <a
-                        href={`/client/${r.clientToken}/report`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={styles.clientLink}
-                      >
-                        View
-                      </a>
-                    ) : (
-                      <button
-                        className={styles.actionBtn}
-                        onClick={() => createClientAccess(r.id)}
-                        disabled={loading === `client-${r.id}`}
-                      >
-                        {loading === `client-${r.id}` ? "Creating..." : "Create Access"}
-                      </button>
-                    )}
-                  </td>
-                  <td>
-                    {r.status === "ready" && (
-                      <button
-                        className={styles.actionBtn}
-                        onClick={() => markDelivered(r.id)}
-                        disabled={loading === `status-${r.id}`}
-                      >
-                        Mark Delivered
-                      </button>
-                    )}
-                  </td>
-                </tr>
-              ))}
+              {reports.map((r) => {
+                const rowResult  = accessResults[r.id]
+                const viewUrl    = r.clientToken ? makeClientUrl(r.clientToken) : null
+                const displayUrl = rowResult?.url || viewUrl
+
+                return (
+                  <tr key={r.id}>
+                    <td>
+                      <span className={styles.hotelName}>{r.hotelName}</span>
+                      <span className={styles.slug}>{r.slug}</span>
+                    </td>
+                    <td>{r.location}</td>
+                    <td>{r.auditDate}</td>
+                    <td>
+                      <span className={`${styles.badge} ${styles[`badge_${r.status}`]}`}>
+                        {STATUS_LABEL[r.status] ?? r.status}
+                      </span>
+                    </td>
+                    <td>
+                      {r.pdfPath ? (
+                        <span className={styles.pdfReady}>Ready</span>
+                      ) : (
+                        <button
+                          className={styles.actionBtn}
+                          onClick={() => generatePDF(r.id)}
+                          disabled={loading === `pdf-${r.id}` || r.status === "generating"}
+                        >
+                          {loading === `pdf-${r.id}` ? "Generating..." : "Generate PDF"}
+                        </button>
+                      )}
+                    </td>
+                    <td>
+                      {displayUrl ? (
+                        <div className={styles.accessCell}>
+                          <a
+                            href={displayUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className={styles.clientLink}
+                          >
+                            View Report
+                          </a>
+                          {rowResult?.password && (
+                            <span className={styles.cellPassword}>
+                              pw: <strong>{rowResult.password}</strong>
+                            </span>
+                          )}
+                          <button
+                            className={styles.copyBtnSmall}
+                            onClick={() => handleCopy(displayUrl)}
+                          >
+                            {copied === displayUrl ? "Copied!" : "Copy"}
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          className={styles.actionBtn}
+                          onClick={() => createClientAccess(r.id)}
+                          disabled={loading === `client-${r.id}`}
+                        >
+                          {loading === `client-${r.id}` ? "Creating..." : "Create Access"}
+                        </button>
+                      )}
+                    </td>
+                    <td>
+                      {r.status === "ready" && (
+                        <button
+                          className={styles.actionBtn}
+                          onClick={() => markDelivered(r.id)}
+                          disabled={loading === `status-${r.id}`}
+                        >
+                          Mark Delivered
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>

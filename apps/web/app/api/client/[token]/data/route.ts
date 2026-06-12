@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import { cookies } from "next/headers"
-import { readFileSync } from "fs"
+import { existsSync, readFileSync } from "fs"
 import { join } from "path"
 import prisma from "@/lib/admin/prismaClient"
 import { toClientReportData } from "@tbs/web-engine"
@@ -18,23 +18,44 @@ export async function GET(
   const authCookie = cookieStore.get(`tbs_report_${token}`)
 
   if (!authCookie || authCookie.value !== "authenticated") {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    return NextResponse.json(
+      { error: "unauthorized", message: "Please enter your access code" },
+      { status: 401 }
+    )
   }
 
   const report = await prisma.clientReport.findUnique({ where: { token } })
 
   if (!report || !report.isActive) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 })
+    return NextResponse.json(
+      { error: "not_found", message: "Report not found" },
+      { status: 404 }
+    )
   }
 
   const filePath = join(process.cwd(), "..", "..", report.dataPath)
-  const raw: ReportCase = JSON.parse(readFileSync(filePath, "utf8"))
-  const data = toClientReportData(raw)
 
-  await prisma.clientReport.update({
-    where: { token },
-    data: { lastAccessedAt: new Date() },
-  })
+  if (!existsSync(filePath)) {
+    return NextResponse.json(
+      { error: "no_data", message: "Report data unavailable" },
+      { status: 500 }
+    )
+  }
 
-  return NextResponse.json(data)
+  try {
+    const raw: ReportCase = JSON.parse(readFileSync(filePath, "utf8"))
+    const data = toClientReportData(raw)
+
+    await prisma.clientReport.update({
+      where: { token },
+      data: { lastAccessedAt: new Date() },
+    })
+
+    return NextResponse.json(data)
+  } catch {
+    return NextResponse.json(
+      { error: "no_data", message: "Report data unavailable" },
+      { status: 500 }
+    )
+  }
 }
