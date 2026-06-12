@@ -51,6 +51,20 @@ export default function S04ExperienceDNA({ data }: Props) {
             ))}
           </div>
         </div>
+
+        <div className={styles.dnaExplanation}>
+          {[
+            { range: "9 - 10", label: "Exceptional", color: "var(--color-accent, #4A6FA5)" },
+            { range: "7 - 8",  label: "Strong",      color: "var(--color-text-secondary, #4A4744)" },
+            { range: "5 - 6",  label: "Developing",  color: "var(--color-text-muted, #9E9890)" },
+            { range: "Below 5", label: "Weak",       color: "#8B3A3A" },
+          ].map(({ range, label, color }) => (
+            <div key={label} className={styles.dnaScaleItem}>
+              <span className={styles.dnaScaleDot} style={{ background: color }} />
+              <span className={styles.dnaScaleDesc}><strong>{range}</strong> {label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

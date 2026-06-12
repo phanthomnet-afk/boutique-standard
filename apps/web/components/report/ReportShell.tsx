@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react"
 import type { ClientReportData } from "@tbs/web-engine"
 import styles from "./ReportShell.module.css"
 import "./report.css"
+import { ReportImage } from "./ReportImage"
 
 import S01ExecutiveSnapshot from "./sections/S01-ExecutiveSnapshot"
 import S02PropertyContext from "./sections/S02-PropertyContext"
@@ -136,6 +137,24 @@ export default function ReportShell({ data, token: _token }: Props) {
       >
         Print / Save PDF
       </button>
+
+      {/* Hero */}
+      <div className={styles.reportHero}>
+        <div className={styles.reportHeroBg}>
+          <ReportImage
+            assetId="asset-cover"
+            aspectRatio="16:9"
+            priority
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
+        </div>
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <p className={styles.heroEyebrow}>Guest Experience Intelligence Report</p>
+          <h1 className={styles.heroTitle}>{data.property.name}</h1>
+          <p className={styles.heroLocation}>{data.property.location}</p>
+        </div>
+      </div>
 
       {/* Report sections */}
       <main className={styles.main}>

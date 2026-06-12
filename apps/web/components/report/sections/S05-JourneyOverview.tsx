@@ -10,10 +10,10 @@ interface Props {
 
 const BAND_LABELS: Record<string, string> = {
   exceptional: "Exceptional",
-  strong: "Strong",
-  acceptable: "Acceptable",
-  attention: "Requires Attention",
-  critical: "Critical",
+  strong:      "Strong",
+  acceptable:  "Acceptable",
+  attention:   "Requires Attention",
+  critical:    "Critical",
 }
 
 export default function S05JourneyOverview({ data }: Props) {
@@ -41,49 +41,31 @@ export default function S05JourneyOverview({ data }: Props) {
           <h2 className={styles.heading}>The Experience Mapped</h2>
         </div>
 
-        {/* Desktop timeline */}
-        <div className={styles.timeline}>
-          <div className={styles.timelineTrack} />
-          {stages.map((stage, i) => {
-            const isTop = i % 2 === 0
-            const scoreNorm = (stage.score / 10)
-            const dotOffset = isTop
-              ? `calc(50% - ${scoreNorm * 60}px)`
-              : `calc(50% + ${scoreNorm * 60}px)`
-
-            return (
-              <div key={stage.key} className={styles.stageCol}>
+        <div className={styles.stageList}>
+          {stages.map((stage, i) => (
+            <div
+              key={stage.key}
+              className={styles.stageRow}
+              style={{
+                opacity: animated ? 1 : 0,
+                transform: animated ? "none" : "translateY(8px)",
+                transition: `opacity 0.5s ease ${i * 60}ms, transform 0.5s ease ${i * 60}ms`,
+              }}
+            >
+              <span className={styles.stageName}>{stage.label}</span>
+              <div className={styles.stageBar}>
                 <div
-                  className={`${styles.stageCard} ${isTop ? styles.top : styles.bottom}`}
-                  style={{ opacity: animated ? 1 : 0, transform: animated ? "none" : "translateY(8px)", transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms` }}
-                >
-                  <p className={styles.stageName}>{stage.label}</p>
-                  <p className={styles.stageScore}>{stage.score.toFixed(1)}</p>
-                  <p className={`${styles.stageBand} ${styles[`band_${stage.band}`]}`}>
-                    {BAND_LABELS[stage.band] ?? stage.band}
-                  </p>
-                </div>
-
-                <div
-                  className={styles.stageDot}
-                  style={{ top: dotOffset }}
+                  className={styles.stageBarFill}
+                  style={{
+                    width: animated ? `${stage.score * 10}%` : "0%",
+                    transition: `width 0.6s ease ${i * 60 + 200}ms`,
+                  }}
                 />
               </div>
-            )
-          })}
-        </div>
-
-        {/* Mobile list */}
-        <div className={styles.mobileList}>
-          {stages.map((stage) => (
-            <div key={stage.key} className={styles.mobileRow}>
-              <div className={styles.mobileLeft}>
-                <p className={styles.stageName}>{stage.label}</p>
-                <span className={`${styles.mobileBand} ${styles[`band_${stage.band}`]}`}>
-                  {BAND_LABELS[stage.band] ?? stage.band}
-                </span>
-              </div>
-              <p className={styles.mobileScore}>{stage.score.toFixed(1)}</p>
+              <span className={styles.stageScore}>{stage.score.toFixed(1)}</span>
+              <span className={`${styles.stageBand} ${styles[`band_${stage.band}`]}`}>
+                {BAND_LABELS[stage.band] ?? stage.band}
+              </span>
             </div>
           ))}
         </div>

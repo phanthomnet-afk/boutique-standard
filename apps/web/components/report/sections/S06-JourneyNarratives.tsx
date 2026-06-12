@@ -22,8 +22,8 @@ const STAGE_IMAGE: Record<string, string | null> = {
   room:          "asset-room-1",
   dining:        "asset-dining-1",
   facilities:    "asset-pool-1",
-  serviceCulture:"asset-service-1",
-  departure:     null,
+  serviceCulture:"asset-arrival-2",
+  departure:     "asset-arrival-2",
 }
 
 const BAND_LABELS: Record<string, string> = {

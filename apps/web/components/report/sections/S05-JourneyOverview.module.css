@@ -33,81 +33,60 @@
   margin: 0;
 }
 
-/* Desktop timeline */
-.timeline {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 0;
-  min-height: 320px;
-  align-items: center;
-}
-
-.timelineTrack {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 0.5px;
-  background: var(--color-accent, #4A6FA5);
-  opacity: 0.3;
-}
-
-.stageCol {
-  position: relative;
+.stageList {
   display: flex;
   flex-direction: column;
+}
+
+.stageRow {
+  display: grid;
+  grid-template-columns: 180px 1fr 60px 80px;
   align-items: center;
-  height: 320px;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 0.5px solid var(--color-border, #DDD8D0);
 }
 
-.stageCard {
-  position: absolute;
-  text-align: center;
-  max-width: 100px;
-  padding: 0.75rem 0.5rem;
-}
-
-.top {
-  top: 0;
-}
-
-.bottom {
-  bottom: 0;
-}
-
-.stageDot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-accent, #4A6FA5);
-  transform: translateX(-50%);
-  left: 50%;
+.stageRow:last-child {
+  border-bottom: none;
 }
 
 .stageName {
   font-family: "DM Sans", sans-serif;
-  font-size: 0.75rem;
-  color: var(--color-text, #1C1C1C);
-  margin: 0 0 0.25rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  line-height: 1.3;
+  color: var(--color-text, #1C1C1C);
+  margin: 0;
+}
+
+.stageBar {
+  height: 4px;
+  background: var(--color-border, #DDD8D0);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stageBarFill {
+  height: 100%;
+  background: var(--color-accent, #4A6FA5);
+  border-radius: 2px;
 }
 
 .stageScore {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 300;
   color: var(--color-text, #1C1C1C);
-  margin: 0 0 0.125rem;
+  text-align: right;
+  line-height: 1;
 }
 
 .stageBand {
   font-family: "DM Sans", sans-serif;
-  font-size: 0.5625rem;
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-align: right;
 }
 
 /* Band colours */
@@ -117,47 +96,18 @@
 .band_attention   { color: var(--color-bronze, #8B6F47); }
 .band_critical    { color: #8B3A3A; }
 
-/* Mobile list */
-.mobileList {
-  display: none;
-  flex-direction: column;
-  gap: 0;
-}
-
-.mobileRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.875rem 0;
-  border-bottom: 0.5px solid var(--color-border, #DDD8D0);
-}
-
-.mobileLeft {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.mobileBand {
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.5625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.mobileScore {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.75rem;
-  font-weight: 300;
-  color: var(--color-text, #1C1C1C);
-  margin: 0;
-}
-
-@media (max-width: 800px) {
-  .timeline {
-    display: none;
+@media (max-width: 640px) {
+  .stageRow {
+    grid-template-columns: 1fr 60px;
+    row-gap: 0.5rem;
+    gap: 0.75rem;
   }
-  .mobileList {
-    display: flex;
+
+  .stageBar {
+    grid-column: 1 / -1;
+  }
+
+  .stageBand {
+    display: none;
   }
 }

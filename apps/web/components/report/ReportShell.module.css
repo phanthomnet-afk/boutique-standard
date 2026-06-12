@@ -146,10 +146,72 @@
   }
 }
 
+/* Report hero */
+.reportHero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.reportHeroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28, 28, 28, 0.85) 0%, rgba(28, 28, 28, 0.15) 55%, transparent 100%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 6vw, 6rem);
+  color: #F8F5F0;
+}
+
+.heroEyebrow {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(248, 245, 240, 0.6);
+  margin: 0 0 1rem;
+}
+
+.heroTitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 300;
+  color: #F8F5F0;
+  margin: 0 0 0.5rem;
+  line-height: 1.1;
+}
+
+.heroLocation {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9375rem;
+  color: rgba(248, 245, 240, 0.7);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
 @media print {
   .nav,
   .mobileNav,
   .printBtn {
     display: none !important;
+  }
+
+  .reportHero {
+    height: 100vh;
+    page-break-after: always;
   }
 }
