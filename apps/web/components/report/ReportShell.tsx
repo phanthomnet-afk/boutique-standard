@@ -99,7 +99,7 @@ export default function ReportShell({ data, token: _token }: Props) {
   }, [activeSection, scrollTo])
 
   return (
-    <div className={`${styles.shell} report-shell`}>
+    <div className={`${styles.shell} report-shell`} data-report-loaded="true">
       {/* Desktop dot navigation */}
       <nav className={`${styles.nav} report-nav`} aria-label="Report sections">
         {NAV_ITEMS.map((item) => (

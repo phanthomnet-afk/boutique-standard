@@ -1,57 +1,68 @@
 export const dynamic = "force-dynamic"
-export const revalidate = 0
+export const maxDuration = 60
 
-import { NextRequest, NextResponse } from "next/server"
-import { cookies } from "next/headers"
-import { execSync } from "child_process"
-import * as path from "path"
-import * as fs from "fs"
-import prisma from "@/lib/admin/prismaClient"
+import { NextRequest } from "next/server"
+import { prisma } from "@/lib/admin/prismaClient"
 
-function auth() {
-  const session = cookies().get("tbs_admin_session")
-  return session?.value === "authenticated"
-}
-
-export async function POST(_req: NextRequest, { params }: { params: { id: string } }) {
-  if (!auth()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
-
-  const report = await prisma.report.findUnique({ where: { id: params.id } })
-  if (!report) return NextResponse.json({ error: "Not found" }, { status: 404 })
-
-  const repoRoot = path.resolve(process.cwd(), "../..")
-  const dataPath = path.join(repoRoot, report.dataPath)
-
-  if (!fs.existsSync(dataPath)) {
-    return NextResponse.json({ error: `Data file not found: ${report.dataPath}` }, { status: 422 })
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const cookie = request.headers.get("cookie") || ""
+  if (!cookie.includes("tbs_admin_session")) {
+    return Response.json(
+      { error: "Unauthorized" }, { status: 401 }
+    )
   }
 
-  await prisma.report.update({ where: { id: params.id }, data: { status: "generating" } })
-
   try {
-    execSync(
-      `npx tsx packages/pdf-engine/renderer.ts --report=${report.slug}`,
-      { cwd: repoRoot, timeout: 120_000 }
-    )
+    // Load report and find its token
+    const report = await prisma.report.findUnique({
+      where: { id: params.id }
+    })
+    if (!report) {
+      return Response.json(
+        { error: "Report not found" }, { status: 404 }
+      )
+    }
 
-    const outputDir = path.join(repoRoot, "outputs", "pdf")
-    const files     = fs.existsSync(outputDir) ? fs.readdirSync(outputDir) : []
-    const match     = files.find((f) => f.startsWith(report.slug))
-    const pdfPath   = match ? `outputs/pdf/${match}` : null
-
-    const updated = await prisma.report.update({
-      where: { id: params.id },
-      data: {
-        status:         "ready",
-        pdfPath,
-        pdfGeneratedAt: new Date(),
-      },
+    // Find the client report token
+    const clientReport = await prisma.clientReport.findFirst({
+      where: { slug: report.slug }
     })
 
-    return NextResponse.json({ ok: true, pdfPath, report: updated })
-  } catch (err: unknown) {
-    await prisma.report.update({ where: { id: params.id }, data: { status: "draft" } })
-    const message = err instanceof Error ? err.message : String(err)
-    return NextResponse.json({ error: "PDF generation failed", detail: message }, { status: 500 })
+    if (!clientReport) {
+      return Response.json({
+        error: "No client access created yet. Create client access first.",
+        action: "create_access_first"
+      }, { status: 400 })
+    }
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+      || "https://boutiquestandard.com"
+    const reportUrl = `${baseUrl}/client/${clientReport.token}/report`
+
+    // Generate PDF
+    const { generateReportPdf } = await import("@/lib/report/generatePdf")
+    const pdfBuffer = await generateReportPdf(reportUrl, clientReport.token)
+
+    // Return PDF as download
+    return new Response(new Uint8Array(pdfBuffer), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": `attachment; filename="${report.slug}-report.pdf"`,
+        "Content-Length": pdfBuffer.length.toString(),
+      }
+    })
+
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error("PDF generation error:", message)
+    return Response.json({
+      success: false,
+      error: message,
+      hint: "Check Vercel function logs for details"
+    }, { status: 500 })
   }
 }

@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "app/api/admin/reports/[id]/generate-pdf/route.ts": {
+      "maxDuration": 60,
+      "memory": 1024
+    }
+  }
+}

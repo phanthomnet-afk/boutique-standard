@@ -48,9 +48,10 @@ function makeClientUrl(token: string): string {
 }
 
 export function ReportsClient({ initialReports }: Props) {
-  const [reports, setReports]         = useState<Report[]>(initialReports)
-  const [loading, setLoading]         = useState<string | null>(null)
-  const [seedResults, setSeedResults] = useState<SeedReportResult[]>([])
+  const [reports, setReports]             = useState<Report[]>(initialReports)
+  const [loading, setLoading]             = useState<string | null>(null)
+  const [generatingPdf, setGeneratingPdf] = useState<string | null>(null)
+  const [seedResults, setSeedResults]     = useState<SeedReportResult[]>([])
   const [accessResults, setAccessResults] = useState<Record<string, AccessResult>>({})
   const [copied, setCopied]           = useState<string | null>(null)
   const [error, setError]             = useState<string | null>(null)
@@ -92,21 +93,44 @@ export function ReportsClient({ initialReports }: Props) {
     setLoading(null)
   }
 
-  async function handleGeneratePDF(id: string) {
-    setLoading(`pdf-${id}`)
+  async function handleGeneratePDF(reportId: string) {
+    setGeneratingPdf(reportId)
     setError(null)
     setMessage(null)
-    const res  = await fetch(`/api/admin/reports/${id}/create-client-access`, { method: "POST" })
-    const data = await res.json()
-    if (data.clientUrl) {
-      window.open(data.clientUrl, "_blank")
-      setMessage(
-        `Report opened in new tab. Use Cmd+P (Mac) or Ctrl+P (Windows) to save as PDF. Password: ${data.password}`
+    try {
+      const response = await fetch(
+        `/api/admin/reports/${reportId}/generate-pdf`,
+        { method: "POST" }
       )
-    } else {
-      setError("Could not get report URL - create client access first.")
+
+      if (!response.ok) {
+        const err = await response.json()
+        if (err.action === "create_access_first") {
+          setMessage("Create client access first, then generate PDF.")
+        } else {
+          setError("PDF generation failed: " + (err.error || "Unknown error"))
+        }
+        return
+      }
+
+      // Download the PDF
+      const blob = await response.blob()
+      const url  = URL.createObjectURL(blob)
+      const a    = document.createElement("a")
+      a.href     = url
+      a.download = `${reportId}-report.pdf`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+
+      setMessage("PDF downloaded successfully.")
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err)
+      setError("Error: " + msg)
+    } finally {
+      setGeneratingPdf(null)
     }
-    setLoading(null)
   }
 
   async function createClientAccess(id: string) {
@@ -253,9 +277,9 @@ export function ReportsClient({ initialReports }: Props) {
                       <button
                         className={styles.actionBtn}
                         onClick={() => handleGeneratePDF(r.id)}
-                        disabled={loading === `pdf-${r.id}`}
+                        disabled={generatingPdf === r.id}
                       >
-                        {loading === `pdf-${r.id}` ? "Opening..." : "Open & Print PDF"}
+                        {generatingPdf === r.id ? "Generating..." : "Download PDF"}
                       </button>
                     </td>
                     <td>
@@ -311,8 +335,7 @@ export function ReportsClient({ initialReports }: Props) {
       )}
 
       <p className={styles.pdfNote}>
-        PDF export: open the web report and use Cmd+P (Mac) or Ctrl+P (Windows) to save as PDF.
-        Full Puppeteer PDF generation coming in a future update.
+        PDF generation uses Chromium headless. Allow 15-30 seconds. Client access must exist before generating.
       </p>
     </div>
   )

@@ -16,31 +16,62 @@ html:has(.report-shell) {
 
 /* Print styles */
 @media print {
-  .report-nav,
-  .report-nav-mobile,
-  .report-print-btn {
+  /* Hide all navigation and UI chrome */
+  [class*="nav"],
+  [class*="Nav"],
+  [class*="print"],
+  [class*="Print"],
+  [class*="password"],
+  button {
     display: none !important;
   }
 
+  /* Each section starts on a new page */
+  [class*="section"],
+  [class*="Section"] {
+    page-break-before: always;
+    page-break-inside: avoid;
+  }
+
+  /* First section - no page break before */
+  [class*="reportHero"],
+  [class*="s01"] {
+    page-break-before: avoid;
+  }
+
+  /* Backgrounds must print */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
-  section {
-    page-break-inside: avoid;
-    break-inside: avoid;
+  /* No overflow clipping */
+  body, html {
+    overflow: visible !important;
+    height: auto !important;
   }
 
-  img {
-    max-width: 100%;
-    page-break-inside: avoid;
-  }
-
-  /* Ensure dark-background sections render correctly in print */
-  section[class*="S07"],
-  section[class*="S09"] {
+  /* Dark sections */
+  [class*="dark"],
+  [class*="Dark"] {
     background: #1C1C1C !important;
     color: #F8F5F0 !important;
+  }
+
+  /* Remove fixed positioning */
+  [style*="position: fixed"],
+  [style*="position:fixed"] {
+    position: static !important;
+  }
+
+  /* Images */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* No white frames or placeholders */
+  [data-image-slot] {
+    display: none !important;
   }
 }
