@@ -626,16 +626,16 @@
   },
 
   "assets": [
-    { "id": "asset-cover",     "section": "cover",          "description": "Hotel Lumiere exterior, Mallorca", "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/cover-exterior--cover--16x9.png",       "alt": "Hotel Lumiere exterior, Mallorca" },
-    { "id": "asset-cover-2",   "section": "cover",          "description": "Hotel Lumiere courtyard",         "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/cover-courtyard--cover--16x9.png",      "alt": "Hotel Lumiere courtyard" },
-    { "id": "asset-arrival-1", "section": "arrival",        "description": "Arrival approach, Hotel Lumiere", "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/arrival-driveway--arrival--16x9.png",   "alt": "Arrival approach, Hotel Lumiere" },
-    { "id": "asset-arrival-2", "section": "arrival",        "description": "Reception, Hotel Lumiere",        "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/reception-empty--arrival--4x3.png",    "alt": "Reception, Hotel Lumiere" },
-    { "id": "asset-room-1",    "section": "room",           "description": "Garden suite, Hotel Lumiere",     "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/guest-room--room--16x9.png",           "alt": "Garden suite, Hotel Lumiere" },
-    { "id": "asset-room-2",    "section": "room",           "description": "Room detail, Hotel Lumiere",      "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/minibar-detail--room--4x3.png",        "alt": "Room detail, Hotel Lumiere" },
-    { "id": "asset-room-3",    "section": "room",           "description": "Hotel Lumiere",                   "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/checkout-desk--departure--4x3.png",    "alt": "Hotel Lumiere" },
-    { "id": "asset-dining-1",  "section": "dining",         "description": "Breakfast terrace, Hotel Lumiere","aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/breakfast-terrace--dining--16x9.png",  "alt": "Breakfast terrace, Hotel Lumiere" },
-    { "id": "asset-dining-2",  "section": "dining",         "description": "Breakfast, Hotel Lumiere",        "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/breakfast-food--dining--4x3.png",      "alt": "Breakfast, Hotel Lumiere" },
-    { "id": "asset-pool-1",    "section": "facilities",     "description": "Pool at golden hour, Hotel Lumiere","aspectRatio": "16:9","src": "/images/reports/hotel-lumiere/pool-golden-hour--facilities--16x9.png","alt": "Pool at golden hour, Hotel Lumiere" },
+    { "id": "asset-cover",     "section": "cover",          "description": "Hotel Lumiere exterior, Mallorca", "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/lumiere-exterior--cover--16x9.png",         "alt": "Hotel Lumiere, Mallorca" },
+    { "id": "asset-cover-2",   "section": "cover",          "description": "Hotel Lumiere courtyard",         "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/lumiere-courtyard--cover--16x9.png",        "alt": "Hotel Lumiere courtyard" },
+    { "id": "asset-arrival-1", "section": "arrival",        "description": "Arrival approach, Hotel Lumiere", "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/lumiere-arrival--arrival--16x9.png",         "alt": "Arrival, Hotel Lumiere" },
+    { "id": "asset-arrival-2", "section": "arrival",        "description": "Reception, Hotel Lumiere",        "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/lumiere-reception--arrival--4x3.png",       "alt": "Reception, Hotel Lumiere" },
+    { "id": "asset-room-1",    "section": "room",           "description": "Garden suite, Hotel Lumiere",     "aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/lumiere-room--room--16x9.png",             "alt": "Garden suite, Hotel Lumiere" },
+    { "id": "asset-room-2",    "section": "room",           "description": "Room terrace, Hotel Lumiere",     "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/lumiere-terrace-detail--room--4x3.png",    "alt": "Room terrace, Hotel Lumiere" },
+    { "id": "asset-room-3",    "section": "room",           "description": "Hotel Lumiere",                   "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/lumiere-corridor--departure--4x3.png",     "alt": "Hotel Lumiere" },
+    { "id": "asset-dining-1",  "section": "dining",         "description": "Breakfast terrace, Hotel Lumiere","aspectRatio": "16:9", "src": "/images/reports/hotel-lumiere/lumiere-breakfast-terrace--dining--16x9.png","alt": "Breakfast terrace, Hotel Lumiere" },
+    { "id": "asset-dining-2",  "section": "dining",         "description": "Breakfast, Hotel Lumiere",        "aspectRatio": "4:3",  "src": "/images/reports/hotel-lumiere/lumiere-breakfast-detail--dining--4x3.png","alt": "Breakfast, Hotel Lumiere" },
+    { "id": "asset-pool-1",    "section": "facilities",     "description": "Pool at golden hour, Hotel Lumiere","aspectRatio": "16:9","src": "/images/reports/hotel-lumiere/lumiere-pool--facilities--16x9.png",       "alt": "Pool at golden hour, Hotel Lumiere" },
     { "id": "asset-service-1", "section": "serviceCulture", "description": "Hotel Lumiere",                   "aspectRatio": "4:3",  "src": null,                                                                   "alt": "Hotel Lumiere" }
   ]
 }
